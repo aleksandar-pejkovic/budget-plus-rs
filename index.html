@@ -17,17 +17,17 @@
 <body>
   <!-- Navigacija -->
   <header class="topbar">
-    <div class="container nav-wrap">
-      <div class="brand">Budžet+</div>
-      <nav>
-        <a href="#pocetna">Početna</a>
-        <a href="#mogucnosti">Mogućnosti</a>
-        <a href="#kako-radi">Kako radi</a>
-        <a href="#faq">Česta pitanja</a>
-        <a href="#kontakt">Kontakt</a>
-      </nav>
-      <a class="cta-link" href="#kontakt">Kontaktiraj nas</a>
-    </div>
+      <div class="container nav-wrap">
+        <div class="brand">Budžet+</div>
+        <nav>
+          <a href="#pocetna">Početna</a>
+          <a href="#mogucnosti">Mogućnosti</a>
+          <a href="#tok-rada">Tok rada</a>
+          <a href="#faq">Česta pitanja</a>
+          <a href="#kontakt">Kontakt</a>
+        </nav>
+        <a class="cta-link" href="#kontakt">Kontaktiraj nas</a>
+      </div>
   </header>
 
   <main id="pocetna">
@@ -45,7 +45,7 @@
           <div class="trust">
             <div class="pill"><span class="icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"></path></svg></span>On-premise bez clouda</div>
             <div class="pill"><span class="icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg></span>Brze dnevne obrade</div>
-            <div class="pill"><span class="icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg></span>Manje manualnih gresaka</div>
+            <div class="pill"><span class="icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg></span>Manje manualnih grešaka</div>
           </div>
         </div>
         <div class="hero-card">
@@ -94,14 +94,47 @@
       </div>
     </section>
 
+    <!-- Presek rada (draft) -->
+    <section class="section" id="tok-rada">
+      <div class="container">
+        <div class="section-head">
+          <h2>Tok rada u praksi</h2>
+          <p>Skica procesa koju ćemo dodatno brusiti — zadržava isti ritam kao i sekcija „Kako funkcioniše“.</p>
+        </div>
+        <div class="steps">
+          <div class="step">
+            <div class="step-number">1</div>
+            <div>
+              <h3>Postavljanje sistema</h3>
+              <p>Podešavanje šifarnika, korisnika i parametara po ORIS pravilima pre prvog knjiženja.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">2</div>
+            <div>
+              <h3>Uvoz i obrada</h3>
+              <p>Učitavanje e-faktura, SPIRI izvoda i obračuna, uz kontrole koje prate validnost podataka.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">3</div>
+            <div>
+              <h3>Pregled i zaključavanje</h3>
+              <p>Pregled kontrole, zaključavanje naloga i priprema izlaznih fajlova za plaćanja i izveštaje.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Mogucnosti -->
     <section class="section alt" id="mogucnosti">
       <div class="container">
         <div class="section-head">
           <h2>Ključne mogućnosti</h2>
-          <p>Fokus na automatizaciju, usklađenost i sigurnost.</p>
+          <p>Pregled glavnih funkcionalnosti koje ubrzavaju svakodnevni rad.</p>
         </div>
-        <div class="card-grid three">
+        <div class="card-grid">
           <article class="card compact">
             <h3>Automatsko knjiženje fajlova</h3>
             <p>XML e-fakture, SPIRI izvodi (JSON) i ISKRA obračuni se knjiže bez ručnog unosa.</p>
@@ -115,129 +148,28 @@
             <p>Preuzmite JSON fajl za PFI i popunite izveštaj bez ručnog kucanja.</p>
           </article>
           <article class="card compact">
-            <h3>Usaglašeno sa ORIS-om</h3>
-            <p>Parametri i šifarnici po ORIS pravilima; validacije se mogu privremeno isključiti, knjiženje ostaje usklađeno.</p>
-          </article>
-          <article class="card compact">
-            <h3>Kontrole i validacije</h3>
-            <p>Automatske provere pre zatvaranja dana, sa zaključavanjem naloga.</p>
+            <h3>ORIS usklađenost i kontrole</h3>
+            <p>Parametri i šifarnici po ORIS pravilima uz automatske provere pre zatvaranja dana.</p>
           </article>
           <article class="card compact">
             <h3>Izveštaji i pregledi</h3>
-            <p>Spremni formati za internu i eksternu kontrolu.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Kako funkcionise -->
-    <section class="section" id="kako-radi">
-      <div class="container">
-        <div class="section-head">
-          <h2>Kako funkcioniše</h2>
-          <p>Praktičan tok kroz ključne korake rada u Budžet+.</p>
-        </div>
-        <div class="steps">
-          <div class="step">
-            <div class="step-number">1</div>
-            <div>
-              <h3>Plan i početno stanje</h3>
-              <p>Unesite finansijski plan (do 6 cifara) i preuzmite Obrazac 5 (PFI JSON) za brze prijave.</p>
-            </div>
-          </div>
-          <div class="step">
-            <div class="step-number">2</div>
-            <div>
-              <h3>Dnevno knjiženje</h3>
-              <p>Kreirajte naloge, učitajte SPIRI izvode ili e-fakture; kontrole sprečavaju greške.</p>
-            </div>
-          </div>
-          <div class="step">
-            <div class="step-number">3</div>
-            <div>
-              <h3>Izveštaji i zatvaranje</h3>
-              <p>Bilansi, izvršenje budžeta, konto analitika i zatvaranje/otvaranje godine.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Kratak obilazak -->
-    <section class="section alt" id="obilazak">
-      <div class="container">
-        <div class="section-head">
-          <h2>Kratak obilazak aplikacije</h2>
-          <p>Najtraženije stranice i prečice u Budžet+ okruženju.</p>
-        </div>
-        <div class="card-grid three">
-          <article class="card compact">
-            <h3>Kontrolna tabla</h3>
-            <p>Brz pregled ključnih pokazatelja budžeta na početnoj stranici (Alt+Shift+K).</p>
+            <p>Bilansi, izvršenje budžeta, konto analitika i Obrazac 5 (PFI JSON za Trezor).</p>
           </article>
           <article class="card compact">
-            <h3>Nalozi za knjiženje</h3>
-            <p>Pretraga po godini, kreiranje i pregled naloga sa validacijama (Alt+Shift+N).</p>
+            <h3>Osnovna sredstva</h3>
+            <p>Evidencija i lokacije, automatski obračun amortizacije i tačni pregledi vrednosti.</p>
           </article>
           <article class="card compact">
-            <h3>SPIRI i plaćanja</h3>
-            <p>Uvoz SPIRI izvoda i rad sa ZP1 generatorom na jednoj stranici.</p>
+            <h3>Automatsko otvaranje godine</h3>
+            <p>Bezgrešno zatvaranje i otvaranje nove poslovne godine sa prenosom salda i obračunom finansijskog rezultata.</p>
           </article>
           <article class="card compact">
-            <h3>Izveštaji</h3>
-            <p>Bilans stanja/uspeha, izvršenje budžeta, konto analitika i Obrazac 5 (PFI JSON za Trezor).</p>
+            <h3>Sigurnost i pouzdanost</h3>
+            <p>Nedeljni bekap baze, kontrola pristupa po ulozi i zaključavanje naloga radi integriteta podataka.</p>
           </article>
           <article class="card compact">
-            <h3>Finansijski plan i mesta troška</h3>
-            <p>Unos plana do 6 cifara i razdvajanje troškova po mestima radi tačnih pregleda.</p>
-          </article>
-          <article class="card compact">
-            <h3>Osnovna sredstva i godine</h3>
-            <p>Dodavanje i amortizacija, zatvaranje i otvaranje godine bez grešaka.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Budzet plus funkcionalnosti -->
-    <section class="section" id="funkcionalnosti">
-      <div class="container">
-        <div class="section-head">
-          <h2>Budžet+ – funkcionalnosti</h2>
-          <p>Detaljni moduli za knjigovodstvo, automatizaciju i izveštavanje.</p>
-        </div>
-        <div class="card-grid three">
-          <article class="card">
-            <h3>📒 Knjigovodstvo</h3>
-            <p>Kontni plan sa kontrolom pristupa, partneri sa automatskim prepoznavanjem PIB-a/računa, nalozi po godinama, ručna knjiženja i napredna pretraga, šifarnici izvora finansiranja i programa.</p>
-          </article>
-          <article class="card">
-            <h3>⚙️ Automatska knjiženja</h3>
-            <p>E-fakture (XML) sa automatskim knjiženjem i kreiranjem partnera, SPIRI izvodi (JSON) sa validacijom i klasifikacijom, Excel šabloni (standardni, plate, bolovanja) i uvoz iz ISKRA-e i drugih sistema bez ručnog unosa.</p>
-          </article>
-          <article class="card">
-            <h3>📊 Finansijsko planiranje</h3>
-            <p>Finansijski planovi po izvoru, programu i aktivnosti, plus analitičke table: stanje računa, izvršenje plana, rashodi po izvorima i prihodi spremni za izveštavanje.</p>
-          </article>
-          <article class="card">
-            <h3>📑 Izveštaji i eksporti</h3>
-            <p>Jednim klikom: bilansi, zaključni list, konto kartice/analitika, finansijski plan, popis osnovnih sredstava, realizacija budžeta, Obrazac 5 (JSON za ISPFI), svi izveštaji dostupni u PDF-u.</p>
-          </article>
-          <article class="card">
-            <h3>🏛️ Plaćanja i integracije</h3>
-            <p>SPIRI kumulativno plaćanje (više e-faktura u jedan XML), ZP1 generator (CSV), eksporti za ORIS i izbor rada sa uključenim/isključenim ORIS validacijama.</p>
-          </article>
-          <article class="card">
-            <h3>🏢 Osnovna sredstva</h3>
-            <p>Evidencija i lokacije, automatski obračun amortizacije, godišnje zatvaranje i prenos salda uz automatsko mapiranje mesta troška po izvoru.</p>
-          </article>
-          <article class="card">
-            <h3>🔒 Sigurnost i pouzdanost</h3>
-            <p>Nedeljni bekap baze, kontrola pristupa po ulozi, zaključavanje naloga za integritet podataka.</p>
-          </article>
-          <article class="card">
-            <h3>🏫 Učenički servis</h3>
-            <p>Evidencija učenika, odeljenja i uplata po aktivnostima; statistike po periodima (modul u razvoju).</p>
+            <h3>Uplate učenika</h3>
+            <p>Evidencija uplata po učeniku i aktivnosti, sa brzim pregledima po periodima (modul u razvoju).</p>
           </article>
         </div>
       </div>
@@ -367,15 +299,15 @@
           <div class="info-card">
             <div class="info-icon">Email</div>
             <div>
-              <p>kontakt@budgetplus.rs</p>
-              <a href="mailto:kontakt@budgetplus.rs">Posaljite poruku</a>
+              <p>aleksandarpejkovic@hotmail.com</p>
+              <a href="mailto:aleksandarpejkovic@hotmail.com">Posaljite poruku</a>
             </div>
           </div>
           <div class="info-card">
             <div class="info-icon">Telefon</div>
             <div>
-              <p>+381 60 123 4567</p>
-              <a href="tel:+381601234567">Pozovite direktno</a>
+              <p>+381 65 917 0989</p>
+              <a href="tel:+381659170989">Pozovite direktno</a>
             </div>
           </div>
           <div class="info-note">Brza pomoć za uvođenje: telefon, Viber/WhatsApp, email, AnyDesk ili Teams, po potrebi i van radnog vremena.</div>
