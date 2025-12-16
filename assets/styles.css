@@ -335,6 +335,11 @@ nav a:hover {
   width: 100%;
   border-radius: 10px;
   display: block;
+  cursor: zoom-in;
+}
+
+.screenshot a {
+  display: block;
 }
 
 .card.media {
