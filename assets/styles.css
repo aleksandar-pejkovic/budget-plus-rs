@@ -21,7 +21,7 @@ html {
 
 body {
   margin: 0;
-  font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  font-family: "Inter", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
   color: var(--text);
   background: radial-gradient(140% 90% at 10% 10%, #e2f6ff 0%, #f6fbfd 30%, #f6fbfd 100%);
   line-height: 1.6;
@@ -528,10 +528,9 @@ nav a:hover {
   top: 0;
   left: 0;
   right: 0;
-  height: 3px;
+  height: 4px;
   border-radius: var(--radius) var(--radius) 0 0;
-  background: linear-gradient(90deg, var(--accent), #38bdf8);
-  opacity: 0.75;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
 }
 
 .feature-card h3 {
@@ -758,10 +757,10 @@ nav a:hover {
   display: grid;
   grid-template-columns: auto 1fr;
   gap: 10px;
-  padding: 16px 18px;
-  background: #fff;
+  padding: 18px 20px;
+  background: linear-gradient(135deg, #f5f9ff, #eef4ff);
   border-radius: var(--radius);
-  border: 1px solid var(--line);
+  border: 1px solid rgba(37, 99, 235, 0.12);
   align-items: center;
   box-shadow: 0 10px 26px rgba(17, 24, 39, 0.06);
   transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
@@ -775,15 +774,40 @@ nav a:hover {
 }
 
 .info-icon {
-  width: 72px;
-  height: 72px;
-  border-radius: 12px;
+  width: 88px;
+  height: 88px;
+  border-radius: 16px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   background: var(--accent-soft);
   color: var(--accent);
-  font-weight: 700;
+  font-weight: 800;
+  border: 1px solid rgba(37, 99, 235, 0.18);
+}
+.info-icon svg {
+  width: 26px;
+  height: 26px;
+}
+.info-icon.email {
+  background: linear-gradient(135deg, #e0f6ff, #f5fbff);
+}
+.info-icon.phone {
+  background: linear-gradient(135deg, #ecfdf3, #f8fffb);
+  color: #0f9d58;
+  border-color: rgba(16, 185, 129, 0.2);
+}
+.info-icon.viber {
+  background: linear-gradient(135deg, #7c4dff, #8f67ff);
+  color: #fff;
+  border-color: rgba(124, 77, 255, 0.4);
+  box-shadow: 0 12px 26px rgba(124, 77, 255, 0.25);
+}
+.info-icon.whatsapp {
+  background: linear-gradient(135deg, #25d366, #29e070);
+  color: #fff;
+  border-color: rgba(37, 211, 102, 0.35);
+  box-shadow: 0 12px 26px rgba(37, 211, 102, 0.25);
 }
 
 .info-card:hover {

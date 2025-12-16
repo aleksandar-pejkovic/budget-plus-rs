@@ -2,7 +2,8 @@
 (function () {
   const form = document.getElementById('contact-form');
   const feedback = form ? form.querySelector('.form-feedback') : null;
-  const inputs = form ? Array.from(form.querySelectorAll('input, textarea')) : [];
+  const requiredInputs = form ? Array.from(form.querySelectorAll('[required]')) : [];
+  const allInputs = form ? Array.from(form.querySelectorAll('input, textarea')) : [];
 
   // Smooth scroll with slight offset for sticky nav
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
@@ -21,15 +22,38 @@
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
-    const missing = inputs.some((input) => !input.value.trim());
+    const missing = requiredInputs.some((input) => !input.value.trim());
     if (missing) {
       feedback.textContent = 'Molimo popunite sva polja.';
       feedback.style.color = '#dc2626';
       return;
     }
 
-    feedback.textContent = 'Hvala, javljamo se uskoro.';
-    feedback.style.color = '#2563eb';
-    form.reset();
+    const formData = allInputs.reduce((acc, input) => {
+      acc[input.name] = input.value.trim();
+      return acc;
+    }, {});
+
+    const lines = [
+      `Ime i prezime: ${formData.name || ''}`,
+      `Ustanova: ${formData.org || ''}`,
+      `Email: ${formData.email || ''}`,
+      formData.phone ? `Telefon: ${formData.phone}` : null,
+      '',
+      formData.message || '',
+    ].filter(Boolean);
+
+    const mailto = `mailto:aleksandarpejkovic@hotmail.com?subject=${encodeURIComponent('Budžet+ upit - ' + (formData.name || ''))}&body=${encodeURIComponent(lines.join('\n'))}`;
+
+    try {
+      window.location.href = mailto;
+      feedback.textContent = 'Otvorili smo email sa popunjenim detaljima — pošaljite ga da stigne do nas.';
+      feedback.style.color = '#2563eb';
+    } catch (err) {
+      feedback.textContent = 'Nismo mogli da otvorimo email klijent. Pošaljite nas ručno na aleksandarpejkovic@hotmail.com.';
+      feedback.style.color = '#dc2626';
+    }
+
+    setTimeout(() => form.reset(), 300);
   });
 })();
