@@ -426,6 +426,23 @@ nav a:hover {
   box-shadow: 0 0 0 6px rgba(37, 99, 235, 0.08);
   flex-shrink: 0;
 }
+.feature-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent-soft);
+  border: 1px solid rgba(37, 99, 235, 0.18);
+  color: var(--accent);
+  box-shadow: 0 8px 18px rgba(37, 99, 235, 0.18);
+  flex-shrink: 0;
+}
+.feature-icon svg {
+  width: 16px;
+  height: 16px;
+}
 
 .feature-card:hover {
   transform: translateY(-4px);
@@ -546,19 +563,31 @@ nav a:hover {
 
 .contact-grid {
   display: grid;
-  grid-template-columns: minmax(360px, 1.4fr) minmax(360px, 1fr);
-  gap: 20px;
+  grid-template-columns: minmax(380px, 1.25fr) minmax(320px, 1fr);
+  gap: 28px;
   align-items: start;
 }
 
 .contact-form {
   display: grid;
-  gap: 12px;
-  padding: 20px;
+  gap: 14px;
+  padding: 26px;
+  position: relative;
   background: #fff;
   border-radius: var(--radius);
   border: 1px solid var(--line);
-  box-shadow: 0 12px 30px rgba(17, 24, 39, 0.05);
+  box-shadow: 0 14px 34px rgba(17, 24, 39, 0.08);
+}
+
+.contact-form::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  border-radius: var(--radius) var(--radius) 0 0;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
 }
 
 .contact-form label {
@@ -569,12 +598,12 @@ nav a:hover {
 
 .contact-form input,
 .contact-form textarea {
-  padding: 12px;
+  padding: 13px;
   border-radius: 10px;
   border: 1px solid var(--line);
   font-size: 15px;
   font-family: inherit;
-  background: var(--bg);
+  background: #f9fcff;
   width: 100%;
   display: block;
 }
@@ -594,18 +623,20 @@ nav a:hover {
 
 .contact-info {
   display: grid;
-  gap: 12px;
+  gap: 16px;
 }
 
 .info-card {
   display: grid;
   grid-template-columns: auto 1fr;
   gap: 10px;
-  padding: 14px;
+  padding: 16px 18px;
   background: #fff;
   border-radius: var(--radius);
   border: 1px solid var(--line);
   align-items: center;
+  box-shadow: 0 10px 26px rgba(17, 24, 39, 0.06);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
 }
 
 .info-card p,
@@ -627,9 +658,16 @@ nav a:hover {
   font-weight: 700;
 }
 
+.info-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px rgba(17, 24, 39, 0.1);
+  border-color: rgba(15, 23, 42, 0.08);
+}
+
 .info-note {
   color: var(--muted);
   font-size: 14px;
+  line-height: 1.5;
 }
 
 .compact-text {
