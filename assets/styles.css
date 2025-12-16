@@ -331,6 +331,28 @@ nav a:hover {
   font-weight: 700;
 }
 
+.screenshot img {
+  width: 100%;
+  border-radius: 10px;
+  display: block;
+}
+
+.card.media {
+  display: grid;
+  gap: 10px;
+}
+
+.card.media video {
+  width: 100%;
+  border-radius: 10px;
+  background: #000;
+}
+
+.media-label {
+  font-weight: 700;
+  color: var(--text);
+}
+
 .faq-list {
   display: grid;
   gap: 12px;
@@ -354,7 +376,7 @@ nav a:hover {
 
 .contact-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: minmax(360px, 1.4fr) minmax(360px, 1fr);
   gap: 20px;
   align-items: start;
 }
@@ -383,6 +405,8 @@ nav a:hover {
   font-size: 15px;
   font-family: inherit;
   background: var(--bg);
+  width: 100%;
+  display: block;
 }
 
 .contact-form input:focus,
@@ -414,9 +438,16 @@ nav a:hover {
   align-items: center;
 }
 
+.info-card p,
+.info-card a {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .info-icon {
-  width: 46px;
-  height: 46px;
+  width: 72px;
+  height: 72px;
   border-radius: 12px;
   display: inline-flex;
   align-items: center;
@@ -478,6 +509,10 @@ nav a:hover {
   .cta-link {
     margin-left: auto;
   }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 600px) {
@@ -495,5 +530,9 @@ nav a:hover {
 
   .topbar {
     position: sticky;
+  }
+
+  .contact-form {
+    grid-template-columns: none;
   }
 }
