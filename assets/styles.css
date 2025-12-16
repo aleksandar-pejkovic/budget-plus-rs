@@ -227,6 +227,18 @@ nav a:hover {
   margin: 0 0 24px;
 }
 
+.lede-list {
+  margin: -12px 0 24px;
+  padding-left: 18px;
+  color: var(--text);
+  display: grid;
+  gap: 8px;
+}
+
+.lede-list li {
+  list-style: disc;
+}
+
 .eyebrow {
   text-transform: uppercase;
   letter-spacing: 1px;
