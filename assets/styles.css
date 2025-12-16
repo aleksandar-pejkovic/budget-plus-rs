@@ -374,6 +374,7 @@ nav a:hover {
   background: #fff;
   border: 1px solid var(--line);
   box-shadow: 0 10px 30px rgba(17, 24, 39, 0.05);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
 }
 
 .feature-grid {
@@ -390,7 +391,7 @@ nav a:hover {
   border: 1px solid var(--line);
   box-shadow: 0 12px 30px rgba(17, 24, 39, 0.06);
   padding: 32px 36px;
-  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease, background 0.18s ease, translate 0.18s ease;
 }
 
 .feature-card::before {
@@ -430,6 +431,13 @@ nav a:hover {
   transform: translateY(-4px);
   box-shadow: 0 18px 44px rgba(17, 24, 39, 0.12);
   border-color: rgba(37, 99, 235, 0.4);
+  translate: 0 -2px;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 36px rgba(17, 24, 39, 0.1);
+  border-color: rgba(15, 23, 42, 0.08);
 }
 
 .card-icon {
