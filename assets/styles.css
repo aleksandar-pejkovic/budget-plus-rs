@@ -691,8 +691,8 @@ nav a:hover {
 .contact-grid {
   display: grid;
   grid-template-columns: minmax(380px, 1.25fr) minmax(320px, 1fr);
-  gap: 28px;
-  align-items: start;
+  gap: 32px;
+  align-items: center;
 }
 
 .contact-form {
