@@ -1,12 +1,13 @@
 :root {
-  --bg: #f7f9fb;
+  --bg: #f6fbfd;
   --surface: #ffffff;
-  --text: #111827;
+  --text: #0f172a;
   --muted: #5b6475;
-  --accent: #2563eb;
-  --accent-soft: #e5edff;
-  --line: #e5e7eb;
-  --shadow: 0 16px 40px rgba(17, 24, 39, 0.08);
+  --accent: #0ea5e9;
+  --accent-2: #10b981;
+  --accent-soft: #e0f6ff;
+  --line: #e3ebf3;
+  --shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
   --radius: 14px;
 }
 
@@ -22,8 +23,19 @@ body {
   margin: 0;
   font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
   color: var(--text);
-  background: var(--bg);
+  background: radial-gradient(140% 90% at 10% 10%, #e2f6ff 0%, #f6fbfd 30%, #f6fbfd 100%);
   line-height: 1.6;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
 }
 
 a {
@@ -116,22 +128,32 @@ img {
 }
 
 .nav-wrap {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 1fr;
   align-items: center;
-  justify-content: space-between;
   padding: 14px 0;
   gap: 16px;
 }
 
 .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   font-weight: 700;
   letter-spacing: 0.5px;
+}
+
+.brand img {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
 }
 
 nav {
   display: flex;
   gap: 16px;
   align-items: center;
+  justify-self: center;
 }
 
 nav a {
@@ -157,6 +179,8 @@ nav a:hover {
 
 .hero {
   padding-top: 110px;
+  position: relative;
+  overflow: hidden;
 }
 
 .hero-grid {
@@ -164,11 +188,38 @@ nav a:hover {
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 28px;
   align-items: center;
+  position: relative;
+  z-index: 1;
 }
 
-.hero-copy h1 {
-  font-size: 42px;
-  margin: 8px 0 12px;
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(60% 60% at 80% 0%, rgba(16, 185, 129, 0.1), transparent 60%), radial-gradient(70% 70% at 0% 20%, rgba(14, 165, 233, 0.12), transparent 65%);
+  pointer-events: none;
+}
+
+.hero-heading {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 12px;
+}
+
+.hero-heading h1 {
+  font-size: 44px;
+  margin: 0;
+  line-height: 1.05;
+}
+
+.hero-logo {
+  width: 58px;
+  height: 58px;
+  display: block;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
 }
 
 .hero-copy .lede {
@@ -200,7 +251,7 @@ nav a:hover {
 }
 
 .btn.primary {
-  background: var(--accent);
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
   color: #fff;
   box-shadow: 0 12px 30px rgba(37, 99, 235, 0.35);
 }
@@ -247,11 +298,12 @@ nav a:hover {
 
 .hero-card {
   position: relative;
-  padding: 22px;
-  background: #fff;
+  padding: 26px;
+  background: linear-gradient(160deg, #ffffff 0%, #f3f7ff 100%);
   border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  border: 1px solid var(--line);
+  box-shadow: 0 20px 50px rgba(17, 24, 39, 0.14);
+  border: 1px solid rgba(37, 99, 235, 0.16);
+  overflow: hidden;
 }
 
 .hero-card h3 {
@@ -596,7 +648,7 @@ nav a:hover {
 }
 
 @media (max-width: 900px) {
-  .hero-copy h1 {
+  .hero-heading h1 {
     font-size: 34px;
   }
 
