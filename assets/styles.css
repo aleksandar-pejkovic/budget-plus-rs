@@ -756,13 +756,13 @@ nav a:hover {
 .info-card {
   display: grid;
   grid-template-columns: auto 1fr;
-  gap: 10px;
-  padding: 18px 20px;
-  background: linear-gradient(135deg, #f5f9ff, #eef4ff);
-  border-radius: var(--radius);
+  gap: 8px;
+  padding: 6px 10px;
+  background: #f7fbff;
+  border-radius: 12px;
   border: 1px solid rgba(37, 99, 235, 0.12);
   align-items: center;
-  box-shadow: 0 10px 26px rgba(17, 24, 39, 0.06);
+  box-shadow: 0 8px 20px rgba(17, 24, 39, 0.05);
   transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
 }
 
@@ -774,8 +774,8 @@ nav a:hover {
 }
 
 .info-icon {
-  width: 88px;
-  height: 88px;
+  width: 44px;
+  height: 44px;
   border-radius: 16px;
   display: inline-flex;
   align-items: center;
@@ -790,24 +790,24 @@ nav a:hover {
   height: 26px;
 }
 .info-icon.email {
-  background: linear-gradient(135deg, #e0f6ff, #f5fbff);
+  background: #eef5ff;
 }
 .info-icon.phone {
-  background: linear-gradient(135deg, #ecfdf3, #f8fffb);
+  background: #e7fff3;
   color: #0f9d58;
   border-color: rgba(16, 185, 129, 0.2);
 }
 .info-icon.viber {
-  background: linear-gradient(135deg, #7c4dff, #8f67ff);
-  color: #fff;
-  border-color: rgba(124, 77, 255, 0.4);
-  box-shadow: 0 12px 26px rgba(124, 77, 255, 0.25);
+  background: #f0eaff;
+  color: #7360f2;
+  border-color: rgba(115, 96, 242, 0.35);
+  box-shadow: 0 10px 22px rgba(115, 96, 242, 0.12);
 }
 .info-icon.whatsapp {
-  background: linear-gradient(135deg, #25d366, #29e070);
-  color: #fff;
+  background: #e8fff3;
+  color: #25d366;
   border-color: rgba(37, 211, 102, 0.35);
-  box-shadow: 0 12px 26px rgba(37, 211, 102, 0.25);
+  box-shadow: 0 10px 22px rgba(37, 211, 102, 0.12);
 }
 
 .info-card:hover {
