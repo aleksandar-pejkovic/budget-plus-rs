@@ -809,6 +809,12 @@ nav a:hover {
   border-color: rgba(37, 211, 102, 0.35);
   box-shadow: 0 10px 22px rgba(37, 211, 102, 0.12);
 }
+.info-icon.teams {
+  background: #eef0ff;
+  color: #5b58f2;
+  border-color: rgba(91, 88, 242, 0.35);
+  box-shadow: 0 10px 22px rgba(91, 88, 242, 0.12);
+}
 
 .info-card:hover {
   transform: translateY(-2px);
