@@ -81,6 +81,14 @@ img {
   color: var(--muted);
 }
 
+.section-foot {
+  max-width: 720px;
+  margin: 24px auto 0;
+  text-align: center;
+  color: var(--muted);
+  font-weight: 600;
+}
+
 .feature-section {
   position: relative;
   overflow: hidden;
