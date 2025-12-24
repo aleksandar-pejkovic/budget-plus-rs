@@ -43,14 +43,14 @@
       formData.message || '',
     ].filter(Boolean);
 
-    const mailto = `mailto:aleksandarpejkovic@hotmail.com?subject=${encodeURIComponent('Budžet+ upit - ' + (formData.name || ''))}&body=${encodeURIComponent(lines.join('\n'))}`;
+    const mailto = `mailto:aleksandar.pejkovic@budzetplus.rs?subject=${encodeURIComponent('Budžet+ upit - ' + (formData.name || ''))}&body=${encodeURIComponent(lines.join('\n'))}`;
 
     try {
       window.location.href = mailto;
       feedback.textContent = 'Otvorili smo email sa popunjenim detaljima — pošaljite ga da stigne do nas.';
       feedback.style.color = '#2563eb';
     } catch (err) {
-      feedback.textContent = 'Nismo mogli da otvorimo email klijent. Pošaljite nas ručno na aleksandarpejkovic@hotmail.com.';
+      feedback.textContent = 'Nismo mogli da otvorimo email klijent. Pošaljite nas ručno na aleksandar.pejkovic@budzetplus.rs.';
       feedback.style.color = '#dc2626';
     }
 
