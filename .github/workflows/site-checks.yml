@@ -1,0 +1,24 @@
+name: Site checks
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  seo-and-links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify generated landing pages are current
+        run: |
+          python scripts/generate_seo_pages.py
+          git diff --exit-code
+      - name: Check metadata, JSON-LD, links, and sitemap
+        run: python scripts/check_site.py

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Budžet+ za škole</title>
+  <desc id="desc">Program za računovodstvo škola: e-fakture, SPIRI i Obrazac 5.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#12306b"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#38bdf8"/>
+      <stop offset="1" stop-color="#34d399"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#background)"/>
+  <circle cx="1080" cy="90" r="260" fill="#38bdf8" opacity=".08"/>
+  <circle cx="1020" cy="590" r="310" fill="#34d399" opacity=".07"/>
+  <rect x="72" y="72" width="86" height="86" rx="20" fill="url(#accent)"/>
+  <path d="M98 117h34m-17-17v34" stroke="#fff" stroke-width="12" stroke-linecap="round"/>
+  <text x="184" y="133" fill="#fff" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="46" font-weight="800">Budžet+ za škole</text>
+  <text x="72" y="278" fill="#fff" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="66" font-weight="800">Knjiženje za nekoliko</text>
+  <text x="72" y="356" fill="url(#accent)" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="66" font-weight="800">sekundi, ne sati.</text>
+  <g font-family="Inter,Segoe UI,Arial,sans-serif" font-size="30" font-weight="700">
+    <rect x="72" y="438" width="250" height="72" rx="36" fill="#fff" opacity=".1"/>
+    <text x="112" y="484" fill="#e0f2fe">e-fakture</text>
+    <rect x="344" y="438" width="250" height="72" rx="36" fill="#fff" opacity=".1"/>
+    <text x="398" y="484" fill="#e0f2fe">SPIRI</text>
+    <rect x="616" y="438" width="300" height="72" rx="36" fill="#fff" opacity=".1"/>
+    <text x="662" y="484" fill="#e0f2fe">Obrazac 5</text>
+  </g>
+  <text x="72" y="576" fill="#bfdbfe" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="28">budzetplus.rs</text>
+</svg>
