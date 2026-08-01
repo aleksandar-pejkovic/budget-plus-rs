@@ -6,8 +6,9 @@
 - Opisni naziv sajta: **Budžet+ za škole**.
 - Izdavač: **Alpeon Softver**.
 - Primarna kategorija: **program za računovodstvo škola**.
-- Prirodne alternativne formulacije: „program za automatizovano knjiženje u školama” i „Budzet Plus za škole”.
-- Ne ponavljati ključne reči radi gustine; svaka stranica treba da odgovori na jedan konkretan problem korisnika.
+- Prirodne alternativne formulacije: „program za automatizovano knjiženje u školama”, „Budzet Plus za škole” i „BudgetPlus za škole”.
+- Javni tekst usmeravati na škole i računovođe u školama. Širu primenu proizvoda ne stavljati u glavni messaging.
+- Ne ponavljati ključne reči radi gustine; svaka stranica treba da odgovori na jedan konkretan problem računovođe.
 
 ## Primarne teme
 
@@ -17,6 +18,12 @@
 4. Knjiženje e-faktura za škole.
 5. ISKRA obračuni i knjiženje.
 6. Evidencija uplata učenika.
+7. Računovodstvo škole pod kontrolom.
+8. Budžetsko knjigovodstvo škola.
+9. SPIRI izvodi za škole.
+10. ORIS JSON izvoz za škole.
+11. Osnovna sredstva i amortizacija u školama.
+12. Izvršenje budžeta i izveštaji za računovodstvenu kontrolu škole.
 
 ## Obavezni elementi svake javne stranice
 
@@ -30,9 +37,9 @@
 - Jasan poziv za prezentaciju.
 - Koristan i jedinstven sadržaj, a ne varijacija istog prodajnog teksta.
 
-## Tvrdnje i iskustva korisnika
+## Tvrdnje i iskustva računovođa
 
-Broj škola, uštede vremena i izjave korisnika moraju imati internu potvrdu. Ne dodavati `Review` ili `AggregateRating` structured data bez stvarnih, javno odobrenih recenzija. Ime, škola, fotografija ili logo objavljuju se samo uz saglasnost korisnika.
+Broj škola, uštede vremena i izjave računovođa moraju imati internu potvrdu. Ne dodavati `Review` ili `AggregateRating` structured data bez stvarnih, javno odobrenih recenzija. Ime, škola, fotografija ili logo objavljuju se samo uz saglasnost računovođe.
 
 ## Predloženi sadržaj
 
@@ -44,6 +51,10 @@ Objavljivati praktične vodiče tek kada postoji stručna provera i originalan p
 - Kako knjižiti ISKRA obračune bez ručnog unosa.
 - Kontrolna lista za zatvaranje poslovne godine.
 - Evidencija uplata učenika po aktivnosti.
+- Kako računovođa može da prati izvršenje budžeta iz postojećih knjiženja.
+- Kako povezati SPIRI izvode sa knjiženjem i izveštajima.
+- Kako pripremiti ORIS JSON izvoz iz kontrolisanih podataka.
+- Kako voditi osnovna sredstva i popisne liste u školi.
 
 Svaki vodič treba da navede autora, stručnog recenzenta, datum objave i datum stvarnog ažuriranja.
 
@@ -54,7 +65,7 @@ Svaki vodič treba da navede autora, stručnog recenzenta, datum objave i datum 
 3. Povezati Search Console sa postojećim Google Analytics nalogom.
 4. Proveriti indeksaciju i Core Web Vitals nakon objave.
 5. Pribaviti pisane saglasnosti za imenovane testimonials i studije slučaja.
-6. Zatražiti relevantne, uredničke linkove od škola korisnika, partnera i stručnih organizacija; ne kupovati pakete linkova.
+6. Zatražiti relevantne, uredničke linkove od škola, partnera i stručnih organizacija; ne kupovati pakete linkova.
 
 ## Mesečni KPI
 

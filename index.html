@@ -12,20 +12,21 @@
   </script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Automatizovano knjiženje za škole | Budžet+ za škole</title>
-  <meta name="description" content="Budžet+ je program za računovodstvo škola koji automatizuje knjiženje e-faktura, SPIRI kumulativno plaćanje, ISKRA obračune i Obrazac 5 za ISPFI.">
+  <title>Program za računovodstvo škola | Budžet+</title>
+  <meta name="description" content="Budžet+ pomaže računovođama u školama da povežu knjiženje, eFakture, SPIRI, ORIS, izveštaje i osnovna sredstva.">
   <link rel="canonical" href="https://budzetplus.rs/">
-  <meta property="og:title" content="Automatizovano knjiženje za škole | Budžet+ za škole">
-  <meta property="og:description" content="Automatsko knjiženje e-faktura, SPIRI kumulativno plaćanje, ISKRA obračuni i Obrazac 5 za ISPFI.">
+  <meta property="og:title" content="Program za računovodstvo škola | Budžet+">
+  <meta property="og:description" content="Knjiženje, eFakture, SPIRI, ORIS, izveštaji i osnovna sredstva za školsko računovodstvo.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://budzetplus.rs/">
   <meta property="og:image" content="https://budzetplus.rs/assets/img/budzet-plus-social.svg">
+  <meta property="og:image:alt" content="Budžet+ za škole">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:locale" content="sr_RS">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Automatizovano knjiženje za škole | Budžet+ za škole">
-  <meta name="twitter:description" content="Automatsko knjiženje e-faktura, SPIRI kumulativno plaćanje i Obrazac 5 za ISPFI.">
+  <meta name="twitter:title" content="Program za računovodstvo škola | Budžet+">
+  <meta name="twitter:description" content="Planiranje, knjiženje, eFakture, SPIRI i izveštaji za školsko računovodstvo.">
   <meta name="twitter:image" content="https://budzetplus.rs/assets/img/budzet-plus-social.svg">
   <script type="application/ld+json">
     {
@@ -36,7 +37,7 @@
           "@id": "https://budzetplus.rs/#website",
           "url": "https://budzetplus.rs/",
           "name": "Budžet+ za škole",
-          "alternateName": ["Budžet+", "Budzet Plus za škole"],
+          "alternateName": ["Budžet+", "BudgetPlus", "Budzet Plus", "Budzet Plus za škole"],
           "inLanguage": "sr",
           "publisher": {"@id": "https://budzetplus.rs/#organization"}
         },
@@ -63,18 +64,28 @@
           "@type": "SoftwareApplication",
           "@id": "https://budzetplus.rs/#software",
           "name": "Budžet+",
-          "alternateName": "Budžet+ za škole",
+          "alternateName": ["Budžet+ za škole", "BudgetPlus", "Budzet Plus"],
           "applicationCategory": "BusinessApplication",
           "operatingSystem": "Windows",
-          "description": "Program za računovodstvo škola: automatsko knjiženje e-faktura, SPIRI kumulativno plaćanje, ISKRA obračuni, Obrazac 5 i kontrolisani izveštaji.",
+          "description": "Program za računovođe u školama: budžetsko knjigovodstvo, knjiženje, eFakture, SPIRI, ORIS, izveštaji, osnovna sredstva i pomoćne evidencije.",
           "url": "https://budzetplus.rs/",
           "publisher": {"@id": "https://budzetplus.rs/#organization"},
+          "audience": {
+            "@type": "Audience",
+            "audienceType": "Osnovne i srednje škole u Srbiji"
+          },
           "featureList": [
-            "Automatsko knjiženje e-faktura",
-            "SPIRI izvodi sa validacijom i kumulativnim plaćanjem",
-            "ISKRA obračuni bez ručnog unosa",
+            "Budžetsko knjigovodstvo za škole",
+            "Planiranje i izvršenje budžeta",
+            "SEF/eFakture i XML fakture",
+            "SPIRI izvodi i poređenja",
+            "SPIRI XML za kumulativno plaćanje",
+            "ORIS JSON izvoz i kontrole",
+            "ISKRA obračuni i RFZO šabloni",
             "Obrazac 5 fajl za ISPFI",
-            "ORIS kontrole (opciono)"
+            "PDF izveštaji i izvoz",
+            "Evidencija osnovnih sredstava",
+            "Pomoćna evidencija uplata učenika po aktivnosti"
           ]
         }
       ]
@@ -130,8 +141,78 @@
           "name": "Bezbednost podataka?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Podaci ostaju kod vas. Nedeljni bekap i kontrole pristupa."
+            "text": "Podaci ostaju kod vas. Nedeljni bekap i kontrolisan rad sa evidencijama."
           }
+        }
+      ]
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "VideoObject",
+          "name": "Budžet+ prezentacija za škole",
+          "description": "Pregled glavnih funkcija programa Budžet+ za školsko finansijsko poslovanje.",
+          "thumbnailUrl": "https://budzetplus.rs/assets/img/kon-tabla.jpg",
+          "contentUrl": "https://budzetplus.rs/assets/media/budget-plus-prezentacija.mp4",
+          "uploadDate": "2026-08-02",
+          "inLanguage": "sr"
+        },
+        {
+          "@type": "VideoObject",
+          "name": "Kreiranje naloga za knjiženje",
+          "description": "Demo kreiranja naloga za knjiženje u programu Budžet+.",
+          "thumbnailUrl": "https://budzetplus.rs/assets/img/nalog-za-knjizenje.jpg",
+          "contentUrl": "https://budzetplus.rs/assets/media/kreiranje-naloga-za-knjizenje.mp4",
+          "uploadDate": "2026-08-02",
+          "inLanguage": "sr"
+        },
+        {
+          "@type": "VideoObject",
+          "name": "Knjiženje e-faktura za škole",
+          "description": "Demo obrade i knjiženja e-faktura bez ručnog prepisivanja.",
+          "thumbnailUrl": "https://budzetplus.rs/assets/img/rucni-unos-promene.png",
+          "contentUrl": "https://budzetplus.rs/assets/media/knjizenje-faktura.mp4",
+          "uploadDate": "2026-08-02",
+          "inLanguage": "sr"
+        },
+        {
+          "@type": "VideoObject",
+          "name": "Knjiženje SPIRI izvoda",
+          "description": "Demo uvoza i knjiženja izvoda u školskom računovodstvu.",
+          "thumbnailUrl": "https://budzetplus.rs/assets/img/kon-tabla.jpg",
+          "contentUrl": "https://budzetplus.rs/assets/media/knjizenje-izvoda.mp4",
+          "uploadDate": "2026-08-02",
+          "inLanguage": "sr"
+        },
+        {
+          "@type": "VideoObject",
+          "name": "Generisanje SPIRI fajla",
+          "description": "Demo pripreme SPIRI fajla za kumulativno plaćanje više faktura.",
+          "thumbnailUrl": "https://budzetplus.rs/assets/img/kon-tabla.jpg",
+          "contentUrl": "https://budzetplus.rs/assets/media/generisanje-spiri-fajla.mp4",
+          "uploadDate": "2026-08-02",
+          "inLanguage": "sr"
+        },
+        {
+          "@type": "VideoObject",
+          "name": "Generisanje Obrasca 5 za ISPFI",
+          "description": "Demo pripreme Obrasca 5 iz podataka u programu Budžet+.",
+          "thumbnailUrl": "https://budzetplus.rs/assets/img/prozor-zatvaranja-godine.png",
+          "contentUrl": "https://budzetplus.rs/assets/media/generisanje-obrazac-5-fajla.mp4",
+          "uploadDate": "2026-08-02",
+          "inLanguage": "sr"
+        },
+        {
+          "@type": "VideoObject",
+          "name": "Izvršenje budžeta u programu Budžet+",
+          "description": "Demo pregleda izvršenja budžeta, grafikona i analitika za školu.",
+          "thumbnailUrl": "https://budzetplus.rs/assets/img/grafikoni.png",
+          "contentUrl": "https://budzetplus.rs/assets/media/izvrsenje-budzeta.mp4",
+          "uploadDate": "2026-08-02",
+          "inLanguage": "sr"
         }
       ]
     }
@@ -153,7 +234,7 @@
       </div>
       <nav>
         <a href="#pocetna">Početna</a>
-        <a href="#za-koga">Korisnici</a>
+        <a href="#za-koga">Računovođe</a>
         <a href="#iskustva">Iskustva</a>
         <a href="#tok-rada">Proces</a>
         <a href="#mogucnosti">Dobiti</a>
@@ -170,48 +251,48 @@
     <section class="section hero">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <p class="eyebrow">Precizno knjiženje bez ručnog unosa. Više vremena, manje grešaka.</p>
+          <p class="eyebrow">Računovodstvo škole bez nepotrebnog kucanja.</p>
           <div class="hero-heading">
             <img class="hero-logo" src="assets/img/budget_plus_logo.ico" alt="">
             <div>
               <p class="hero-product-name">Budžet+ za škole</p>
-              <h1>Program za računovodstvo škola koji knjiži za nekoliko sekundi</h1>
+              <h1>Program za računovodstvo škola</h1>
             </div>
           </div>
-          <p class="lede">Manje rutine. Više kontrole:</p>
+          <p class="lede">Brže knjiženje. Manje grešaka. Mirniji rokovi.</p>
           <ul class="lede-list">
-            <li>E-fakture bez prepisivanja</li>
-            <li>SPIRI izvodi validirani i upareni</li>
-            <li>ISKRA obračuni spremni za knjiženje u sekundama</li>
+            <li>eFakture, SPIRI izvodi i obračuni spremni za knjiženje</li>
+            <li>SPIRI, ORIS i Obrazac 5 bez ponovnog unosa</li>
+            <li>Izveštaji, izvršenje budžeta i osnovna sredstva pod kontrolom</li>
           </ul>
           <div class="cta-group">
             <a class="btn primary" href="#kontakt">Zakaži prezentaciju</a>
             <a class="btn ghost" href="#kontakt">Kontaktirajte nas</a>
           </div>
           <div class="trust">
-            <div class="pill"><span class="icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"></path></svg></span>Radi lokalno, podaci ostaju kod vas</div>
+            <div class="pill"><span class="icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"></path></svg></span>Knjiženje iz dokumenata</div>
             <div class="pill"><span class="icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg></span>Kontrole smanjuju greške</div>
-            <div class="pill"><span class="icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg></span>ORIS režim po potrebi</div>
-            <div class="pill"><span class="icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 7 8-5 8 5v10l-8 5-8-5z"></path><path d="M12 22V7"></path><path d="m3 7 9 6 9-6"></path></svg></span>Proveren u školama širom Srbije</div>
+            <div class="pill"><span class="icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg></span>ORIS izvoz po potrebi</div>
+            <div class="pill"><span class="icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 7 8-5 8 5v10l-8 5-8-5z"></path><path d="M12 22V7"></path><path d="m3 7 9 6 9-6"></path></svg></span>PDF izveštaji i izvoz</div>
           </div>
         </div>
         <div class="hero-card">
-          <h3>Zašto štedi vreme</h3>
+          <h3>Zašto znači u praksi</h3>
           <ul>
-            <li><span>Knjiženje bez kliktanja</span><small>Automatsko uparivanje i knjiženje</small></li>
-            <li><span>SPIRI u jednom kliku</span><small>Više faktura odjednom</small></li>
-            <li><span>Obrazac 5 odmah</span><small>Spreman za ISPFI bez kucanja</small></li>
-            <li><span>Usklađeno sa pravilima</span><small>ORIS kontrole po potrebi</small></li>
-            <li><span>Pregledi bez čekanja</span><small>Spremni za kontrolu</small></li>
+            <li><span>Obrada eFaktura</span><small>Preuzimanje, provera, partneri, knjiženje</small></li>
+            <li><span>Priprema SPIRI fajla</span><small>Kumulativno plaćanje iz proverenih podataka</small></li>
+            <li><span>Obrazac 5 brže</span><small>Fajl spreman za ISPFI</small></li>
+            <li><span>Kontrola izvršenja</span><small>Poređenje sa SPIRI i budžetski pregledi</small></li>
+            <li><span>Izveštaji odmah</span><small>Kartice, knjige, bilansi, KUR</small></li>
           </ul>
         </div>
       </div>
     </section>
 
-    <aside class="social-proof" aria-label="Poverenje korisnika">
+    <aside class="social-proof" aria-label="Poverenje računovođa">
       <div class="container social-proof-inner">
-        <strong><span>50+</span> škola već koristi Budžet+</strong>
-        <p>Preporučuju ga iskusne računovođe iz osnovnih i srednjih škola.</p>
+        <strong>Više od 50 škola koristi Budžet+</strong>
+        <p>Za školsko računovodstvo: od dokumenta do naloga, izveštaja i obaveznog izvoza.</p>
       </div>
     </aside>
 
@@ -219,34 +300,33 @@
     <section class="section" id="za-koga">
       <div class="container">
         <div class="section-head">
-          <h2>Preciznost bez zastoja.</h2>
-          <p>Budžet+ uklanja ručne unose i smanjuje rizik od grešaka.</p>
-          <p>Za škole gde su rokovi i usklađenost obavezni.</p>
+          <h2>Manje rutine u svakodnevnom knjiženju</h2>
+          <p>Budžet+ skraćuje ponavljajuće poslove, a kontrolu ostavlja računovođi.</p>
         </div>
         <div class="card-grid four">
           <article class="card">
             <div class="card-icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10l8-4 8 4-8 4-8-4z"></path><path d="M4 14l8 4 8-4"></path><path d="M4 6l8-4 8 4"></path></svg></div>
-            <h3>Automatski unos bez prepisivanja</h3>
-            <p>E-fakture, ISKRA i SPIRI se prepoznaju i knjiže. Vi samo proverite.</p>
+            <h3>Budžetsko knjigovodstvo</h3>
+            <p>Konta, izvori, projekti, programske aktivnosti, eFakture, SPIRI i ORIS.</p>
           </article>
           <article class="card">
             <div class="card-icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div>
-            <h3>Kontrole koje hvataju greške</h3>
-            <p>ORIS validacije označavaju neusaglašenosti pre knjiženja. Režim je opcioni.</p>
+            <h3>Plan i realizacija budžeta</h3>
+            <p>Plan, realizacija, odstupanja i projekcije iz postojećih knjiženja.</p>
           </article>
           <article class="card">
             <div class="card-icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h18"></path><path d="M7 3v4"></path><path d="M17 3v4"></path><rect x="3" y="7" width="18" height="12" rx="2" ry="2"></rect><path d="M7 11h10"></path><path d="M7 15h6"></path></svg></div>
-            <h3>Izveštaji spremni odmah</h3>
-            <p>Obrazac 5, bilansi i izvršenje budžeta jednim klikom.</p>
+            <h3>Pomoćne školske evidencije</h3>
+            <p>Učenici, odeljenja, aktivnosti, statusi uplata i pregledi za kontrolu.</p>
           </article>
           <article class="card">
             <div class="card-icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16"></path><path d="M4 10h16"></path><path d="M4 15h16"></path><path d="M4 20h16"></path><path d="M7 5v15"></path><path d="M12 5v15"></path><path d="M17 5v15"></path></svg></div>
-            <h3>Jedan unos, više pregleda</h3>
-            <p>Klasifikacija po izvoru, mestu troška, partneru i programu bez dodatnog rada.</p>
+            <h3>Kontrole pre predaje</h3>
+            <p>Provere pre knjiženja, predaje i izvoza.</p>
           </article>
         </div>
         <div class="section-foot">
-          <p>Vi znate pravila. <span class="brand-accent">Budžet+</span> ih sprovodi.</p>
+          <p>Računovođa odlučuje. <span class="brand-accent">Budžet+</span> ubrzava rutinu.</p>
         </div>
       </div>
     </section>
@@ -254,30 +334,24 @@
     <section class="section alt testimonial-section" id="iskustva">
       <div class="container">
         <div class="section-head">
-          <h2>Zašto trošiti dva sata na posao od dve sekunde?</h2>
-          <p>Tri svakodnevna posla. Tri razloga da rutinu prepustite programu.</p>
+          <h2>Tri posla koja najviše troše vreme</h2>
+          <p>Manje ponovnog unosa znači manje stresa pred rok.</p>
         </div>
         <div class="card-grid three testimonial-grid">
           <article class="card compact testimonial-card">
-            <div class="testimonial-result"><strong>2 sata</strong><span aria-hidden="true">→</span><strong>2 sekunde</strong></div>
-            <blockquote>
-              <p>“Dva sata knjiženja nisu računovodstvena vrlina ako isti posao može precizno da se završi za dve sekunde. Budžet+ učita podatke, proknjiži ih i ostavi nama samo ono važno — proveru.”</p>
-            </blockquote>
-            <p class="testimonial-author">OŠ Sveti Sava, Bačina</p>
+            <div class="testimonial-result"><strong>Dokument</strong><span aria-hidden="true">→</span><strong>Nalog</strong></div>
+            <h3>Knjiženje bez ponovnog kucanja</h3>
+            <p>eFakture, izvodi i obračuni postaju nalog. Računovođa proverava, ne prepisuje.</p>
           </article>
           <article class="card compact testimonial-card">
             <div class="testimonial-result"><strong>Više e-faktura</strong><span aria-hidden="true">→</span><strong>1 SPIRI fajl</strong></div>
-            <blockquote>
-              <p>“Najbolji deo kumulativnog plaćanja je posao koji više ne radimo. Budžet+ povuče podatke sa e-faktura, kreira fajl za kumulativno plaćanje, a mi ga učitamo u SPIRI. Više faktura, jedan fajl, bez prepisivanja.”</p>
-            </blockquote>
-            <p class="testimonial-author">OŠ Mirko Tomić, Obrež</p>
+            <h3>SPIRI fajl iz e-faktura</h3>
+            <p>Računovođa izabere obaveze. Budžet+ pripremi fajl za proveru.</p>
           </article>
           <article class="card compact testimonial-card">
-            <div class="testimonial-result"><strong>Obrazac 5</strong><span aria-hidden="true">→</span><strong>ISPFI</strong></div>
-            <blockquote>
-              <p>“Obrazac 5 je nekada bio događaj u kalendaru. Sada je nekoliko sekundi u programu: Budžet+ ga pripremi brzo i tačno, kao fajl spreman za učitavanje u ISPFI. Rok je ostao isti, samo je stres nestao.”</p>
-            </blockquote>
-            <p class="testimonial-author">Srednja škola Varvarin</p>
+            <div class="testimonial-result"><strong>Podaci</strong><span aria-hidden="true">→</span><strong>Izveštaj</strong></div>
+            <h3>Izveštaji iz jedne evidencije</h3>
+            <p>Kartice, knjige, bilansi, KUR i izvršenje budžeta koriste iste podatke.</p>
           </article>
         </div>
       </div>
@@ -287,50 +361,50 @@
     <section class="section" id="tok-rada">
       <div class="container">
         <div class="section-head">
-          <h2>Uvođenje bez zastoja</h2>
-          <p>Jasan proces, brza podrška.</p>
+          <h2>Kako izgleda rad</h2>
+          <p>Dokument uđe, nalog se proveri, izveštaj je spreman.</p>
         </div>
         <div class="steps">
           <div class="step">
             <div class="step-number">1</div>
             <div>
-              <h3>Instalacija za par minuta</h3>
-              <p>Instalaciju i nalog radimo zajedno preko AnyDesk-a.</p>
+              <h3>Plan i početni podaci</h3>
+              <p>Podešavaju se konta, šifarnici, izvori i početna stanja.</p>
             </div>
           </div>
           <div class="step">
             <div class="step-number">2</div>
             <div>
-              <h3>Siguran prelazak</h3>
-              <p>Uvoz početnog stanja kroz Excel šablone. Partneri se kreiraju iz e-faktura.</p>
+              <h3>Dokumenti ulaze u sistem</h3>
+              <p>eFakture, SPIRI izvodi, plate, RFZO i šabloni ulaze u obradu.</p>
             </div>
           </div>
           <div class="step">
             <div class="step-number">3</div>
             <div>
-              <h3>Knjiženje prevlačenjem fajla</h3>
-              <p>Fajlovi se knjiže i validiraju u sekundama.</p>
+              <h3>Računovođa proverava</h3>
+              <p>Budžet+ priprema nalog. Računovođa proverava i potvrđuje.</p>
             </div>
           </div>
           <div class="step">
             <div class="step-number">4</div>
             <div>
-              <h3>SPIRI kumulativno plaćanje</h3>
-              <p>Jedan uvoz, jedan fajl, stavke usklađene.</p>
+              <h3>SPIRI, ORIS i ISPFI</h3>
+              <p>Iz proverenih podataka nastaju SPIRI XML, ORIS JSON i Obrazac 5.</p>
             </div>
           </div>
           <div class="step">
             <div class="step-number">5</div>
             <div>
-              <h3>Obrazac 5 bez kucanja</h3>
-              <p>Izvoz, ISPFI, gotovo.</p>
+              <h3>Izveštaji za školu</h3>
+              <p>Kartice, knjige, bilansi, KUR i izvršenje budžeta spremni su za kontrolu.</p>
             </div>
           </div>
           <div class="step">
             <div class="step-number">6</div>
             <div>
-              <h3>Nova godina automatski</h3>
-              <p>Zatvaranje, prenos salda i rezultat za par sekundi.</p>
+              <h3>Pregled za kontrolu</h3>
+              <p>Prihodi, rashodi, plan i odstupanja vide se kroz preglede i grafikone.</p>
             </div>
           </div>
         </div>
@@ -341,50 +415,50 @@
     <section class="section alt feature-section" id="mogucnosti">
       <div class="container">
         <div class="section-head feature-head">
-          <h2>Precizno, brzo, pod kontrolom</h2>
-          <p>Automatizacija uklanja rutinu i čuva tačnost.</p>
+          <h2>Funkcije koje računovođi štede vreme</h2>
+          <p>Bez nepotrebnog prepisivanja. Bez gubljenja kontrole.</p>
           <div class="feature-tags">
-            <span>Bez ručnog unosa</span>
-            <span>Tačni podaci</span>
-            <span>Ušteda vremena</span>
+            <span>Bez ručnog prepisivanja</span>
+            <span>Manje ručnog unosa</span>
+            <span>Više kontrole</span>
           </div>
         </div>
         <div class="feature-grid">
           <article class="card compact feature-card">
-            <h3><span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c-2.5 2.5-4 6.2-4 10 0 2.5 1 5.5 4 9 3-3.5 4-6.5 4-9 0-3.8-1.5-7.5-4-10Z"></path><circle cx="12" cy="10" r="1.6"></circle><path d="m8 14.5-2 2.5c-.5.6-.4 1.5.2 2.1l1.3 1.3 1.7-1"></path><path d="m16 14.5 2 2.5c.5.6.4 1.5-.2 2.1l-1.3 1.3-1.7-1"></path><path d="M10.5 22h3"></path></svg></span>e-Fakture bez ručnog prepisivanja</h3>
-            <p>Uvoz, pregled, prihvatanje i knjiženje e-faktura direktno u nalog, uz kontrole koje sprečavaju greške.</p>
+            <h3><span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c-2.5 2.5-4 6.2-4 10 0 2.5 1 5.5 4 9 3-3.5 4-6.5 4-9 0-3.8-1.5-7.5-4-10Z"></path><circle cx="12" cy="10" r="1.6"></circle><path d="m8 14.5-2 2.5c-.5.6-.4 1.5.2 2.1l1.3 1.3 1.7-1"></path><path d="m16 14.5 2 2.5c.5.6.4 1.5-.2 2.1l-1.3 1.3-1.7-1"></path><path d="M10.5 22h3"></path></svg></span>SEF/eFakture i XML fakture</h3>
+            <p>Uvoz, pregled, prihvatanje i knjiženje faktura direktno u nalog, uz manje prepisivanja partnera, iznosa i stavki.</p>
           </article>
           <article class="card compact feature-card">
             <h3><span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 2.2 5 5.3.4-4 3.6 1.2 5.2L12 14.8 7.3 16.2 8.5 11 4.5 7.4 9.8 7z"></path><path d="M2 10h8"></path><path d="M1.5 12H9"></path><path d="M2 14h7"></path></svg></span>SPIRI kumulativno plaćanje</h3>
-            <p>Jedan klik za fajl koji plaća više e-faktura.</p>
+            <p>SPIRI XML fajl za više e-faktura, uz završnu proveru računovođe pre učitavanja.</p>
           </article>
           <article class="card compact feature-card">
-            <h3><span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"></path><path d="M14 2v6h6"></path><path d="M9 11h2"></path><path d="M9 15h6"></path><path d="M9 19h6"></path></svg></span>Obrazac 5</h3>
-            <p>Bez kucanja — fajl spreman za ISPFI.</p>
+            <h3><span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"></path><path d="M14 2v6h6"></path><path d="M9 11h2"></path><path d="M9 15h6"></path><path d="M9 19h6"></path></svg></span>SPIRI izvodi i poređenja</h3>
+            <p>Uvoz i obrada izvoda povezani sa knjiženjem, realizacijom budžeta i internom kontrolom.</p>
           </article>
           <article class="card compact feature-card">
-            <h3><span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V6l-8-4-8 4v6c0 6 8 10 8 10Z"></path><path d="m9 12 2 2 4-4"></path></svg></span>ORIS usklađenost i kontrole</h3>
-            <p>Šifarnici i validacije po ORIS pravilima.</p>
+            <h3><span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V6l-8-4-8 4v6c0 6 8 10 8 10Z"></path><path d="m9 12 2 2 4-4"></path></svg></span>ORIS JSON izvoz</h3>
+            <p>Kontrole i izvoz iz podataka koji su već u sistemu, bez naknadnog sklapanja posebne evidencije pred rok.</p>
           </article>
           <article class="card compact feature-card">
-            <h3><span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19v-4"></path><path d="M9 19v-8"></path><path d="M14 19v-5"></path><path d="M19 19v-10"></path><path d="M2 19h20"></path></svg></span>Izveštaji i pregledi</h3>
-            <p>Bilansi, izvršenje budžeta i analitike spremni odmah.</p>
+            <h3><span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19v-4"></path><path d="M9 19v-8"></path><path d="M14 19v-5"></path><path d="M19 19v-10"></path><path d="M2 19h20"></path></svg></span>Izveštaji i izvršenje budžeta</h3>
+            <p>Bilans stanja, bilans uspeha, glavna knjiga, dnevnik, bruto bilans, finansijski plan i analitike spremni za kontrolu.</p>
           </article>
           <article class="card compact feature-card">
             <h3><span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73L13 3.27a2 2 0 0 0-2 0L4 6.27A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 3.73a2 2 0 0 0 2 0l7-3.73A2 2 0 0 0 21 16Z"></path><path d="m3.3 7 8.7 4.7L20.7 7"></path><path d="M12 22V12"></path></svg></span>Osnovna sredstva</h3>
-            <p>Evidencija i amortizacija bez ručnog rada.</p>
+            <p>Evidencija sredstava, uvoz postojećih podataka, obračun amortizacije i popisne liste.</p>
           </article>
           <article class="card compact feature-card">
-            <h3><span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15-6.7"></path><path d="m21 3-3 3"></path><path d="M21 3v6"></path><path d="M21 12a9 9 0 0 1-15 6.7"></path><path d="m3 21 3-3"></path><path d="M3 21v-6"></path></svg></span>Automatsko otvaranje godine</h3>
-            <p>Zatvorite godinu, nova se otvara automatski.</p>
+            <h3><span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15-6.7"></path><path d="m21 3-3 3"></path><path d="M21 3v6"></path><path d="M21 12a9 9 0 0 1-15 6.7"></path><path d="m3 21 3-3"></path><path d="M3 21v-6"></path></svg></span>Planiranje i nova godina</h3>
+            <p>Finansijski planovi, početna stanja, zatvaranje godine i prenos salda bez posebnog ručnog sastavljanja.</p>
           </article>
           <article class="card compact feature-card">
-            <h3><span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V7l-8-4-8 4v5c0 6 8 10 8 10Z"></path><path d="M9 12h6"></path><path d="M9 16h6"></path><path d="M9 8h.01"></path><path d="M15 8h.01"></path></svg></span>Sigurnost i pouzdanost</h3>
-            <p>Nedeljni bekap i kontrole pristupa.</p>
+            <h3><span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V7l-8-4-8 4v5c0 6 8 10 8 10Z"></path><path d="M9 12h6"></path><path d="M9 16h6"></path><path d="M9 8h.01"></path><path d="M15 8h.01"></path></svg></span>Kontrole i sigurnost podataka</h3>
+            <p>Kontrolisan rad sa podacima, provere pre predaje i jasna računovodstvena evidencija.</p>
           </article>
           <article class="card compact feature-card">
             <h3><span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2" ry="2"></rect><path d="M3 10h18"></path><path d="M7 15h2"></path><path d="M11 15h2"></path></svg></span>Uplate učenika</h3>
-            <p>Brz unos i pregledi po učeniku i aktivnosti.</p>
+            <p>Učenici, odeljenja, aktivnosti, statusi uplata, import uplata i PDF pregledi kao pomoćna evidencija za računovodstvo.</p>
           </article>
         </div>
       </div>
@@ -393,8 +467,8 @@
     <section class="section alt" id="resenja">
       <div class="container">
         <div class="section-head">
-          <h2>Detaljno o poslovima koje Budžet+ ubrzava</h2>
-          <p>Izaberite proces koji želite da pojednostavite.</p>
+          <h2>Detaljno o školskim procesima koje Budžet+ povezuje</h2>
+          <p>Izaberite problem koji želite da rešite pre sledećeg roka.</p>
         </div>
         <div class="card-grid three seo-link-grid">
           <a class="card seo-link-card" href="program-za-racunovodstvo-skola/">
@@ -402,10 +476,35 @@
             <p>Sve funkcije, kontrole i izveštaji na jednom mestu.</p>
             <span>Saznajte više →</span>
           </a>
+          <a class="card seo-link-card" href="finansijski-sistem-za-skole/">
+            <h3>Računovodstvo škole pod kontrolom</h3>
+            <p>Knjiženje, eFakture, SPIRI i izveštaji.</p>
+            <span>Saznajte više →</span>
+          </a>
+          <a class="card seo-link-card" href="budzetsko-knjigovodstvo-skola/">
+            <h3>Budžetsko knjigovodstvo škola</h3>
+            <p>Kontni plan, izvori finansiranja, projekti, programske aktivnosti i knjige.</p>
+            <span>Saznajte više →</span>
+          </a>
           <a class="card seo-link-card" href="spiri-kumulativno-placanje/">
             <h3>SPIRI kumulativno plaćanje</h3>
             <p>Od podataka sa e-faktura do jednog fajla spremnog za SPIRI.</p>
             <span>Pogledajte postupak →</span>
+          </a>
+          <a class="card seo-link-card" href="sef-efakture-skole/">
+            <h3>SEF i eFakture za škole</h3>
+            <p>Digitalni dokumenti pretvoreni u knjiženje, preglede i plaćanje.</p>
+            <span>Saznajte više →</span>
+          </a>
+          <a class="card seo-link-card" href="spiri-izvodi-skole/">
+            <h3>SPIRI izvodi za škole</h3>
+            <p>Uvoz, obrada i poređenja izvoda povezana sa budžetskom evidencijom.</p>
+            <span>Saznajte više →</span>
+          </a>
+          <a class="card seo-link-card" href="oris-izvoz-za-skole/">
+            <h3>ORIS izvoz za škole</h3>
+            <p>Kontrole i JSON izvoz bez naknadnog sklapanja posebne evidencije.</p>
+            <span>Saznajte više →</span>
           </a>
           <a class="card seo-link-card" href="obrazac-5-ispfi/">
             <h3>Obrazac 5 za ISPFI</h3>
@@ -425,6 +524,16 @@
           <a class="card seo-link-card" href="uplate-ucenika/">
             <h3>Uplate učenika</h3>
             <p>Evidencija uplata po učeniku i aktivnosti.</p>
+            <span>Saznajte više →</span>
+          </a>
+          <a class="card seo-link-card" href="osnovna-sredstva-skola/">
+            <h3>Osnovna sredstva škole</h3>
+            <p>Evidencija, uvoz postojećih podataka, amortizacija i popisne liste.</p>
+            <span>Saznajte više →</span>
+          </a>
+          <a class="card seo-link-card" href="izvrsenje-budzeta-skola/">
+            <h3>Izvršenje budžeta škole</h3>
+            <p>Dashboard, grafikoni, realizacija plana, odstupanja i izveštaji.</p>
             <span>Saznajte više →</span>
           </a>
         </div>
@@ -712,7 +821,7 @@
           </article>
           <article class="faq-item">
             <h3>Bezbednost podataka?</h3>
-            <p>Podaci ostaju kod vas. Nedeljni bekap i kontrole pristupa.</p>
+            <p>Podaci ostaju kod vas. Nedeljni bekap i kontrolisan rad sa evidencijama.</p>
           </article>
         </div>
       </div>

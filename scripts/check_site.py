@@ -22,6 +22,7 @@ class PageParser(HTMLParser):
         self.h1_count = 0
         self.description: str | None = None
         self.canonical: str | None = None
+        self.meta_properties: dict[str, str] = {}
         self.links: list[str] = []
         self.json_ld: list[str] = []
         self._json_parts: list[str] | None = None
@@ -34,6 +35,8 @@ class PageParser(HTMLParser):
             self.h1_count += 1
         elif tag == "meta" and attrs.get("name") == "description":
             self.description = attrs.get("content")
+        elif tag == "meta" and attrs.get("property"):
+            self.meta_properties[attrs["property"] or ""] = attrs.get("content") or ""
         elif tag == "link" and attrs.get("rel") == "canonical":
             self.canonical = attrs.get("href")
         elif tag == "a" and attrs.get("href"):
@@ -101,6 +104,9 @@ def main() -> int:
             titles[parser.title] = page
         if not parser.description:
             errors.append(f"{rel}: missing meta description")
+        for prop in ("og:title", "og:description", "og:image"):
+            if not parser.meta_properties.get(prop):
+                errors.append(f"{rel}: missing {prop}")
         if parser.h1_count != 1:
             errors.append(f"{rel}: expected exactly one h1, found {parser.h1_count}")
         expected = expected_url(page)
@@ -112,12 +118,17 @@ def main() -> int:
                 json.loads(block)
             except json.JSONDecodeError as exc:
                 errors.append(f"{rel}: invalid JSON-LD: {exc}")
+        internal_links = 0
         for href in parser.links:
             target = internal_target(page, href)
             if target is not None and ROOT not in target.parents and target != ROOT:
                 errors.append(f"{rel}: internal link escapes site root: {href}")
             elif target is not None and not target.exists():
                 errors.append(f"{rel}: broken internal link {href} -> {target.relative_to(ROOT)}")
+            elif target is not None and target != page:
+                internal_links += 1
+        if page != ROOT / "index.html" and internal_links < 2:
+            errors.append(f"{rel}: expected at least 2 internal links, found {internal_links}")
 
     tree = ET.parse(ROOT / "sitemap.xml")
     namespace = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}

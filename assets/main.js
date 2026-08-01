@@ -36,7 +36,7 @@
 
     const lines = [
       `Ime i prezime: ${formData.name || ''}`,
-      `Ustanova: ${formData.org || ''}`,
+      `Škola: ${formData.org || ''}`,
       formData.phone ? `Telefon: ${formData.phone}` : null,
       '',
       formData.message || '',
