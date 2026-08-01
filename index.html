@@ -12,58 +12,71 @@
   </script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Budžet+ | Automatizovano knjiženje za škole</title>
-  <meta name="description" content="Budžet+ automatizuje knjiženje u školama: precizan uvoz e-faktura, SPIRI i ISKRA obračuna, Obrazac 5 i kontrolisani izveštaji, bez ručnog unosa.">
+  <title>Automatizovano knjiženje za škole | Budžet+ za škole</title>
+  <meta name="description" content="Budžet+ je program za računovodstvo škola koji automatizuje knjiženje e-faktura, SPIRI kumulativno plaćanje, ISKRA obračune i Obrazac 5 za ISPFI.">
   <link rel="canonical" href="https://budzetplus.rs/">
-  <meta property="og:title" content="Budžet+ | Automatizovano knjiženje za škole">
-  <meta property="og:description" content="Precizno i brzo knjiženje: e-fakture, SPIRI, ISKRA obračuni, Obrazac 5 i izveštaji bez ručnog unosa.">
+  <meta property="og:title" content="Automatizovano knjiženje za škole | Budžet+ za škole">
+  <meta property="og:description" content="Automatsko knjiženje e-faktura, SPIRI kumulativno plaćanje, ISKRA obračuni i Obrazac 5 za ISPFI.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://budzetplus.rs/">
-  <meta property="og:image" content="https://budzetplus.rs/assets/img/grafikoni.png">
+  <meta property="og:image" content="https://budzetplus.rs/assets/img/budzet-plus-social.svg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:locale" content="sr_RS">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Budžet+ | Automatizovano knjiženje i e-fakture za škole">
-  <meta name="twitter:description" content="Precizno i brzo knjiženje: e-fakture, SPIRI, ISKRA obračuni, Obrazac 5 i izveštaji bez ručnog unosa.">
-  <meta name="twitter:image" content="https://budzetplus.rs/assets/img/grafikoni.png">
+  <meta name="twitter:title" content="Automatizovano knjiženje za škole | Budžet+ za škole">
+  <meta name="twitter:description" content="Automatsko knjiženje e-faktura, SPIRI kumulativno plaćanje i Obrazac 5 za ISPFI.">
+  <meta name="twitter:image" content="https://budzetplus.rs/assets/img/budzet-plus-social.svg">
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Budžet+",
-      "legalName": "ALEKSANDAR PEJKOVIĆ PR IZDAVANJE SOFTVERA ALPEON SOFTVER OBREŽ",
-      "url": "https://budzetplus.rs/",
-      "logo": "https://budzetplus.rs/assets/img/budget_plus_logo.ico",
-      "email": "aleksandar.pejkovic@budzetplus.rs",
-      "telephone": "0659170989",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Prvomajska 14",
-        "postalCode": "37266",
-        "addressLocality": "Obrež",
-        "addressRegion": "Varvarin",
-        "addressCountry": "RS"
-      }
-    }
-  </script>
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "Budžet+",
-      "applicationCategory": "BusinessApplication",
-      "operatingSystem": "Windows",
-      "description": "Automatizovano knjiženje za škole: precizan uvoz e-faktura, SPIRI izvoda i ISKRA obračuna, Obrazac 5, kontrole i izveštaji bez ručnog unosa.",
-      "url": "https://budzetplus.rs/",
-      "publisher": {
-        "@type": "Organization",
-        "name": "ALEKSANDAR PEJKOVIĆ PR ALPEON SOFTVER"
-      },
-      "featureList": [
-        "Automatsko knjiženje e-faktura",
-        "SPIRI izvodi sa validacijom i kumulativnim plaćanjem",
-        "ISKRA obračuni bez ručnog unosa",
-        "Obrazac 5 izvoz za ISPFI",
-        "ORIS kontrole (opciono)"
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://budzetplus.rs/#website",
+          "url": "https://budzetplus.rs/",
+          "name": "Budžet+ za škole",
+          "alternateName": ["Budžet+", "Budzet Plus za škole"],
+          "inLanguage": "sr",
+          "publisher": {"@id": "https://budzetplus.rs/#organization"}
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://budzetplus.rs/#organization",
+          "name": "Alpeon Softver",
+          "legalName": "ALEKSANDAR PEJKOVIĆ PR IZDAVANJE SOFTVERA ALPEON SOFTVER OBREŽ",
+          "url": "https://budzetplus.rs/",
+          "logo": "https://budzetplus.rs/icon.png",
+          "email": "aleksandar.pejkovic@budzetplus.rs",
+          "telephone": "+381659170989",
+          "brand": {"@type": "Brand", "name": "Budžet+ za škole"},
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Prvomajska 14",
+            "postalCode": "37266",
+            "addressLocality": "Obrež",
+            "addressRegion": "Varvarin",
+            "addressCountry": "RS"
+          }
+        },
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://budzetplus.rs/#software",
+          "name": "Budžet+",
+          "alternateName": "Budžet+ za škole",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Windows",
+          "description": "Program za računovodstvo škola: automatsko knjiženje e-faktura, SPIRI kumulativno plaćanje, ISKRA obračuni, Obrazac 5 i kontrolisani izveštaji.",
+          "url": "https://budzetplus.rs/",
+          "publisher": {"@id": "https://budzetplus.rs/#organization"},
+          "featureList": [
+            "Automatsko knjiženje e-faktura",
+            "SPIRI izvodi sa validacijom i kumulativnim plaćanjem",
+            "ISKRA obračuni bez ručnog unosa",
+            "Obrazac 5 izvoz za ISPFI",
+            "ORIS kontrole (opciono)"
+          ]
+        }
       ]
     }
   </script>
@@ -141,9 +154,11 @@
       <nav>
         <a href="#pocetna">Vrh stranice</a>
         <a href="#za-koga">Za koga</a>
+        <a href="#iskustva">Iskustva korisnika</a>
         <a href="#tok-rada">Kako radimo</a>
         <a href="#mogucnosti">Šta dobijate</a>
         <a href="#moduli">Moduli</a>
+        <a href="#resenja">Rešenja</a>
         <a href="#mediji">Mediji</a>
         <a href="#faq">Dileme</a>
         <a href="#kontakt">Zatraži prezentaciju</a>
@@ -159,9 +174,12 @@
           <p class="eyebrow">Precizno knjiženje bez ručnog unosa. Više vremena, manje grešaka.</p>
           <div class="hero-heading">
             <img class="hero-logo" src="assets/img/budget_plus_logo.ico" alt="">
-            <h1>Budžet+</h1>
+            <div>
+              <p class="hero-product-name">Budžet+ za škole</p>
+              <h1>Program za računovodstvo škola koji knjiži za nekoliko sekundi</h1>
+            </div>
           </div>
-          <p class="lede">Automatizovano knjiženje za škole:</p>
+          <p class="lede">Manje rutine. Više kontrole:</p>
           <ul class="lede-list">
             <li>E-fakture bez prepisivanja</li>
             <li>SPIRI izvodi validirani i upareni</li>
@@ -190,6 +208,13 @@
         </div>
       </div>
     </section>
+
+    <aside class="social-proof" aria-label="Poverenje korisnika">
+      <div class="container social-proof-inner">
+        <strong><span>50+</span> škola već koristi Budžet+</strong>
+        <p>Preporučuju ga iskusne računovođe iz osnovnih i srednjih škola.</p>
+      </div>
+    </aside>
 
     <!-- Za koga je -->
     <section class="section" id="za-koga">
@@ -223,6 +248,38 @@
         </div>
         <div class="section-foot">
           <p>Vi znate pravila. <span class="brand-accent">Budžet+</span> ih sprovodi.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt testimonial-section" id="iskustva">
+      <div class="container">
+        <div class="section-head">
+          <h2>Zašto trošiti dva sata na posao od dve sekunde?</h2>
+          <p>Tri svakodnevna posla. Tri razloga da rutinu prepustite programu.</p>
+        </div>
+        <div class="card-grid three testimonial-grid">
+          <article class="card compact testimonial-card">
+            <div class="testimonial-result"><strong>2 sata</strong><span aria-hidden="true">→</span><strong>2 sekunde</strong></div>
+            <blockquote>
+              <p>“Dva sata knjiženja nisu računovodstvena vrlina ako isti posao može precizno da se završi za dve sekunde. Budžet+ učita podatke, proknjiži ih i ostavi nama samo ono važno — proveru.”</p>
+            </blockquote>
+            <p class="testimonial-author">Računovodstvo, OŠ iz Beograda</p>
+          </article>
+          <article class="card compact testimonial-card">
+            <div class="testimonial-result"><strong>Više e-faktura</strong><span aria-hidden="true">→</span><strong>1 SPIRI fajl</strong></div>
+            <blockquote>
+              <p>“Najbolji deo kumulativnog plaćanja je posao koji više ne radimo. Budžet+ povuče podatke sa e-faktura, kreira fajl za kumulativno plaćanje, a mi ga učitamo u SPIRI. Više faktura, jedan fajl, bez prepisivanja.”</p>
+            </blockquote>
+            <p class="testimonial-author">Šef računovodstva, srednja škola iz Novog Sada</p>
+          </article>
+          <article class="card compact testimonial-card">
+            <div class="testimonial-result"><strong>Obrazac 5</strong><span aria-hidden="true">→</span><strong>ISPFI</strong></div>
+            <blockquote>
+              <p>“Obrazac 5 je nekada bio događaj u kalendaru. Sada je nekoliko sekundi u programu: Budžet+ ga pripremi brzo i tačno, spremnog za izvoz u ISPFI. Rok je ostao isti, samo je stres nestao.”</p>
+            </blockquote>
+            <p class="testimonial-author">Finansijska služba, škola iz Niša</p>
+          </article>
         </div>
       </div>
     </section>
@@ -349,6 +406,47 @@
             <h3>Uplate učenika – blagajnik</h3>
             <p>Evidencija uplata i pregledi za blagajnu, bez pune aplikacije.</p>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="resenja">
+      <div class="container">
+        <div class="section-head">
+          <h2>Detaljno o poslovima koje Budžet+ ubrzava</h2>
+          <p>Izaberite proces koji želite da pojednostavite.</p>
+        </div>
+        <div class="card-grid three seo-link-grid">
+          <a class="card seo-link-card" href="program-za-racunovodstvo-skola/">
+            <h3>Program za računovodstvo škola</h3>
+            <p>Sve funkcije, kontrole i izveštaji na jednom mestu.</p>
+            <span>Saznajte više →</span>
+          </a>
+          <a class="card seo-link-card" href="spiri-kumulativno-placanje/">
+            <h3>SPIRI kumulativno plaćanje</h3>
+            <p>Od podataka sa e-faktura do jednog fajla spremnog za SPIRI.</p>
+            <span>Pogledajte postupak →</span>
+          </a>
+          <a class="card seo-link-card" href="obrazac-5-ispfi/">
+            <h3>Obrazac 5 za ISPFI</h3>
+            <p>Brza i kontrolisana priprema bez ručnog prepisivanja.</p>
+            <span>Pogledajte postupak →</span>
+          </a>
+          <a class="card seo-link-card" href="knjizenje-e-faktura-za-skole/">
+            <h3>Knjiženje e-faktura</h3>
+            <p>Automatsko učitavanje podataka i precizno formiranje naloga.</p>
+            <span>Saznajte više →</span>
+          </a>
+          <a class="card seo-link-card" href="iskra-obracuni-knjizenje/">
+            <h3>ISKRA obračuni</h3>
+            <p>Plate, bolovanja i prevoz spremni za knjiženje u sekundama.</p>
+            <span>Saznajte više →</span>
+          </a>
+          <a class="card seo-link-card" href="uplate-ucenika/">
+            <h3>Uplate učenika</h3>
+            <p>Samostalni modul za evidenciju po učeniku i aktivnosti.</p>
+            <span>Saznajte više →</span>
+          </a>
         </div>
       </div>
     </section>
