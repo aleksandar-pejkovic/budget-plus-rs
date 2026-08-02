@@ -21,7 +21,7 @@
 7. Računovodstvo škole pod kontrolom.
 8. Budžetsko knjigovodstvo škola.
 9. SPIRI izvodi za škole.
-10. ORIS JSON izvoz za škole.
+10. ORIS fajl za škole.
 11. Osnovna sredstva i amortizacija u školama.
 12. Izvršenje budžeta i izveštaji za računovodstvenu kontrolu škole.
 
@@ -53,7 +53,7 @@ Objavljivati praktične vodiče tek kada postoji stručna provera i originalan p
 - Evidencija uplata učenika po aktivnosti.
 - Kako računovođa može da prati izvršenje budžeta iz postojećih knjiženja.
 - Kako povezati SPIRI izvode sa knjiženjem i izveštajima.
-- Kako pripremiti ORIS JSON izvoz iz kontrolisanih podataka.
+- Kako pripremiti fajl za učitavanje na ORIS portal iz kontrolisanih podataka.
 - Kako voditi osnovna sredstva i popisne liste u školi.
 
 Svaki vodič treba da navede autora, stručnog recenzenta, datum objave i datum stvarnog ažuriranja.
