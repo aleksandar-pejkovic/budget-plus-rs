@@ -21,9 +21,9 @@ PAGES = [
         "summary_title": "Računovodstveni tok škole",
         "summary": ["Budžetsko knjigovodstvo i kontni plan", "SEF/eFakture, XML fakture i SPIRI izvodi", "SPIRI XML za kumulativno plaćanje, ORIS fajl i Obrazac 5", "Osnovna sredstva, izveštaji i pomoćne evidencije"],
         "sections": [
-            ("Napravljen za školsko računovodstvo", "Konta, izvori, programske aktivnosti, eFakture, SPIRI i ORIS nalaze se u istom toku rada."),
+            ("Napravljen za školsko računovodstvo", "Konta, izvori, programske aktivnosti, eFakture, SPIRI i ORIS povezani su u isti računovodstveni proces."),
             ("Računovođa drži kontrolu", "Budžet+ priprema podatke i naloge. Računovođa proverava i potvrđuje."),
-            ("Od dokumenta do naloga", "eFakture, SPIRI izvodi, obračuni i planovi ulaze u obradu bez ponovnog kucanja."),
+            ("Od dokumenta do naloga", "eFakture, SPIRI izvodi, obračuni i planovi obrađuju se bez ponovnog kucanja."),
             ("Izveštaji iz istih podataka", "Kartice, knjige, bilansi, KUR, izvršenje budžeta i popisne liste nastaju iz uređene evidencije."),
         ],
         "process_title": "Kako škola počinje",
@@ -37,7 +37,7 @@ PAGES = [
     {
         "slug": "finansijski-sistem-za-skole",
         "title": "Računovodstveni sistem za škole | Budžet+",
-        "description": "Računovodstvo škole: knjiženje, eFakture, SPIRI, izveštaji i kontrole u jednom toku rada.",
+        "description": "Računovodstvo škole: knjiženje, eFakture, SPIRI, izveštaji i kontrole u jednom povezanom procesu.",
         "kicker": "Bez ručnog prepisivanja",
         "h1": "Računovodstvo škole",
         "intro": "Budžet+ pomaže računovođi da dokumente, rokove, knjiženja, kontrole i izveštaje drži u jednom toku.",
@@ -49,9 +49,9 @@ PAGES = [
             ("Automatizacija sa kontrolom", "Budžet+ priprema nalog. Računovođa vidi, proverava i potvrđuje."),
         ],
         "process_title": "Tipičan školski tok",
-        "process": ["Dokument ili izvod ulazi u sistem.", "Budžet+ prepoznaje podatke i predlaže obradu.", "Računovođa proverava klasifikaciju i kontrole.", "Iz istih podataka nastaju knjige, pregledi i izveštaji."],
+        "process": ["Dokument ili izvod se učita.", "Budžet+ prepoznaje podatke i predlaže obradu.", "Računovođa proverava klasifikaciju i kontrole.", "Iz istih podataka nastaju knjige, pregledi i izveštaji."],
         "faq": [
-            ("Ko koristi ovaj tok rada?", "Tok rada je usmeren na računovođu koja priprema, proverava i koristi finansijske podatke škole."),
+            ("Kome je namenjen ovaj proces?", "Proces je namenjen računovođi koja priprema, proverava i koristi finansijske podatke škole."),
             ("Da li sistem ukida stručnu proveru?", "Ne. Cilj je da ukloni mehaničko prepisivanje, a ne računovodstvenu odluku."),
         ],
         "related": [("Program za računovodstvo škola", "../program-za-racunovodstvo-skola/"), ("Izvršenje budžeta škole", "../izvrsenje-budzeta-skola/"), ("SPIRI izvodi za škole", "../spiri-izvodi-skole/")],
@@ -85,15 +85,15 @@ PAGES = [
         "kicker": "Kumulativno plaćanje više faktura",
         "h1": "SPIRI kumulativno plaćanje iz e-faktura",
         "intro": "Budžet+ povuče podatke sa e-faktura, objedini obaveze i kreira SPIRI fajl za kumulativno plaćanje. Računovođa pregleda rezultat.",
-        "summary_title": "Tačan tok rada",
+        "summary_title": "Jasan redosled rada",
         "summary": ["Podaci dolaze sa e-faktura", "Bira se više faktura za plaćanje", "Budžet+ kreira SPIRI fajl za kumulativno plaćanje", "Računovođa učitava fajl i zadržava kontrolu"],
         "sections": [
             ("Više obaveza, jedno kumulativno plaćanje", "Izabrane e-fakture se objedine u SPIRI fajl za kumulativno plaćanje, uz manji rizik greške u iznosu, partneru ili pozivu na broj."),
-            ("Računovođa bira i proverava", "Budžet+ koristi podatke sa e-faktura. Računovođa odlučuje šta ulazi u plaćanje."),
+            ("Računovođa bira i proverava", "Budžet+ koristi podatke sa e-faktura. Računovođa odlučuje koje obaveze se plaćaju."),
             ("Priprema, ne automatsko slanje", "Program priprema fajl za učitavanje. Završna kontrola ostaje kod računovođe."),
         ],
         "process_title": "Od e-faktura do SPIRI kumulativnog plaćanja",
-        "process": ["Budžet+ preuzme podatke sa dostupnih e-faktura.", "Računovođa označi fakture koje ulaze u kumulativno plaćanje.", "Program objedini podatke u jedan SPIRI fajl za kumulativno plaćanje.", "Računovođa pregleda rezultat i učita fajl u SPIRI."],
+        "process": ["Budžet+ preuzme podatke sa dostupnih e-faktura.", "Računovođa označi fakture za kumulativno plaćanje.", "Program objedini podatke u jedan SPIRI fajl za kumulativno plaćanje.", "Računovođa pregleda rezultat i učita fajl u SPIRI."],
         "faq": [
             ("Da li se plaćanje izvršava automatski?", "Ne. Budžet+ priprema fajl, a računovođa ga proverava i učitava u SPIRI."),
             ("Zašto je ovo važno školama?", "Zato što se isti tip posla ponavlja često, a greška u rutinskom prepisivanju može napraviti nepotreban zastoj."),
@@ -106,7 +106,7 @@ PAGES = [
         "description": "Budžet+ pomaže školama da eFakture i XML fakture pretvore u kontrolisano knjiženje, SPIRI plaćanje i knjigu ulaznih faktura.",
         "kicker": "SEF i eFakture",
         "h1": "eFakture za škole pretvorene u kontrolisano knjiženje",
-        "intro": "Podaci sa eFakture ulaze u nalog, kontrole, knjigu ulaznih faktura i SPIRI tok.",
+        "intro": "Podaci sa eFakture koriste se za nalog, kontrole, knjigu ulaznih faktura i SPIRI plaćanje.",
         "summary_title": "Bez duplog rada",
         "summary": ["Učitavanje SEF/eFaktura i XML faktura", "Prepoznavanje partnera i stavki", "Priprema naloga za knjiženje", "Veza sa SPIRI kumulativnim plaćanjem"],
         "sections": [
@@ -154,12 +154,12 @@ PAGES = [
         "summary_title": "Za kontrolu toka novca",
         "summary": ["Uvoz i obrada izvoda", "Poređenja sa evidencijom", "Knjiženje kroz kontrolisan nalog", "Pregled realizacije bez čekanja"],
         "sections": [
-            ("Izvod ulazi u evidenciju", "Podaci iz SPIRI izvoda koriste se za knjiženje, analitiku i izveštaje."),
+            ("Izvod se koristi u evidenciji", "Podaci iz SPIRI izvoda koriste se za knjiženje, analitiku i izveštaje."),
             ("Poređenje otkriva odstupanja", "SPIRI podaci se porede sa evidencijom, pa se razlike vide ranije."),
             ("Pregledi bez dodatnog obračuna", "Prihodi, rashodi i realizacija nastaju iz povezanih podataka."),
         ],
         "process_title": "Od izvoda do pregleda",
-        "process": ["Učita se SPIRI izvod.", "Budžet+ priprema obradu i poređenja.", "Računovođa proverava stavke i nalog.", "Podaci ulaze u knjiženje, analitiku i realizaciju budžeta."],
+        "process": ["Učita se SPIRI izvod.", "Budžet+ priprema obradu i poređenja.", "Računovođa proverava stavke i nalog.", "Podaci se koriste za knjiženje, analitiku i realizaciju budžeta."],
         "faq": [
             ("Da li se izvodi mogu povezati sa izveštajima?", "Da. Cilj je da se podaci iz izvoda koriste za knjiženje i preglede, ne samo za arhivu."),
             ("Da li ovo menja rad računovođe?", "Menja rutinu, ne odgovornost. Računovođa proverava i potvrđuje podatke."),
@@ -260,7 +260,7 @@ PAGES = [
         "description": "Budžet+ vodi osnovna sredstva škole, uvoz postojećih podataka, obračun amortizacije i popisne liste za preglednu evidenciju.",
         "kicker": "Osnovna sredstva",
         "h1": "Osnovna sredstva škole pod kontrolom",
-        "intro": "Budžet+ vodi osnovna sredstva, postojeće podatke, amortizaciju i popisne liste u istom toku rada.",
+        "intro": "Budžet+ povezuje osnovna sredstva, postojeće podatke, amortizaciju i popisne liste u jednom procesu.",
         "summary_title": "Za popis i kontrolu",
         "summary": ["Evidencija osnovnih sredstava", "Uvoz postojećih podataka", "Obračun amortizacije", "Popisne liste i pregledi"],
         "sections": [
@@ -291,7 +291,7 @@ PAGES = [
             ("Izveštaji za svakodnevni rad", "Bilansi, glavna knjiga, dnevnik, bruto bilans, izvršenje budžeta i kartice služe za redovnu kontrolu."),
         ],
         "process_title": "Kako nastaje pregled",
-        "process": ["Podaci ulaze kroz knjiženje i uvoze.", "Budžet+ ih povezuje sa planom i klasifikacijama.", "Dashboard prikazuje realizaciju i odstupanja.", "Izveštaji se koriste za kontrolu i predaju."],
+        "process": ["Podaci nastaju kroz knjiženje i uvoze.", "Budžet+ ih povezuje sa planom i klasifikacijama.", "Dashboard prikazuje realizaciju i odstupanja.", "Izveštaji se koriste za kontrolu i predaju."],
         "faq": [
             ("Da li je pregled namenjen računovođi?", "Da. Pregled je namenjen računovođi koja priprema, proverava i koristi podatke za kontrolu i izveštaje."),
             ("Da li postoje grafikoni?", "Da. Dashboard i grafikoni su namenjeni brzom razumevanju realizacije i odstupanja."),
