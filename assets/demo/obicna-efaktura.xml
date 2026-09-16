@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<env:DocumentEnvelope xmlns:env="urn:eFaktura:MinFinrs:envelop:schema" xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2">
+  <env:DocumentBody>
+    <Invoice>
+      <cbc:ID>EF-DEMO-01</cbc:ID><cbc:IssueDate>2026-09-18</cbc:IssueDate><cbc:DueDate>2026-09-25</cbc:DueDate><cbc:InvoiceTypeCode>380</cbc:InvoiceTypeCode><cbc:DocumentCurrencyCode>RSD</cbc:DocumentCurrencyCode>
+      <cac:AccountingSupplierParty><cac:Party><cac:PartyIdentification><cbc:ID>999999999</cbc:ID></cac:PartyIdentification><cac:PartyName><cbc:Name>DEMO DOBAVLJAČ DOO - TEST PODACI</cbc:Name></cac:PartyName><cac:PartyLegalEntity><cbc:CompanyID>99999999</cbc:CompanyID></cac:PartyLegalEntity></cac:Party></cac:AccountingSupplierParty>
+      <cac:AccountingCustomerParty><cac:Party><cac:PartyIdentification><cbc:ID>888888888</cbc:ID></cac:PartyIdentification><cac:PartyName><cbc:Name>TESTNA ŠKOLA - TEST PODACI</cbc:Name></cac:PartyName><cac:PartyLegalEntity><cbc:CompanyID>88888888</cbc:CompanyID></cac:PartyLegalEntity></cac:Party></cac:AccountingCustomerParty>
+      <cac:InvoiceLine><cbc:ID>1</cbc:ID><cbc:InvoicedQuantity unitCode="H87">10</cbc:InvoicedQuantity><cbc:LineExtensionAmount currencyID="RSD">54791.67</cbc:LineExtensionAmount><cac:Item><cbc:Name>Kancelarijski materijal</cbc:Name><cac:ClassifiedTaxCategory><cbc:ID>S</cbc:ID><cbc:Percent>20</cbc:Percent></cac:ClassifiedTaxCategory></cac:Item><cac:Price><cbc:PriceAmount currencyID="RSD">5479.167</cbc:PriceAmount></cac:Price></cac:InvoiceLine>
+      <cac:TaxTotal><cbc:TaxAmount currencyID="RSD">10958.33</cbc:TaxAmount></cac:TaxTotal><cac:LegalMonetaryTotal><cbc:LineExtensionAmount currencyID="RSD">54791.67</cbc:LineExtensionAmount><cbc:TaxInclusiveAmount currencyID="RSD">65750.00</cbc:TaxInclusiveAmount><cbc:PayableAmount currencyID="RSD">65750.00</cbc:PayableAmount></cac:LegalMonetaryTotal>
+    </Invoice>
+  </env:DocumentBody>
+</env:DocumentEnvelope>

@@ -1,0 +1,8 @@
+{
+  "name": "budget-plus-rs",
+  "private": true,
+  "scripts": {
+    "dev": "node scripts/preview.mjs",
+    "preview": "node scripts/preview.mjs"
+  }
+}
