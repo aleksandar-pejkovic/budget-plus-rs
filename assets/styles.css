@@ -1792,19 +1792,90 @@ nav a:hover {
 
 .btn.primary,
 .cta-link {
-  background: var(--accent);
+  background: #12306b;
   box-shadow: 0 10px 24px rgba(14, 165, 233, 0.22);
 }
 
 .btn.primary:hover,
 .cta-link:hover {
-  background: #0284c7;
+  background: #0b2454;
   color: #fff;
 }
 
 .btn.ghost {
   border-color: #ccdce8;
   box-shadow: none;
+}
+
+.hero .cta-group {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+}
+
+.hero .cta-group .btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.hero-action-note {
+  margin: 12px 0 8px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.hero-video-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  font-weight: 600;
+  color: #12306b;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.form-mode-switch {
+  margin-top: 12px;
+  padding: 8px 0;
+  border: 0;
+  background: transparent;
+  color: #12306b;
+  font: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.btn:focus-visible,
+.hero-video-link:focus-visible,
+.form-mode-switch:focus-visible {
+  outline: 3px solid #12306b;
+  outline-offset: 4px;
+}
+
+.secondary-action:visited {
+  color: #12306b;
+}
+
+.secondary-action:hover,
+.secondary-action:focus-visible {
+  color: #fff;
+}
+
+@media (max-width: 600px) {
+  .hero .cta-group { grid-template-columns: 1fr; }
+  .hero-action-note { text-align: center; }
+  .hero-video-link { display: flex; justify-content: center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .hero .btn { transition: none; }
 }
 
 .pill {

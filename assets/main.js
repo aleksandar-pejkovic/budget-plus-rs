@@ -3,7 +3,7 @@
   const form = document.getElementById('contact-form');
   const feedback = form ? form.querySelector('.form-feedback') : null;
   const jbkjsInput = form ? form.querySelector('[name="jbkjs"]') : null;
-  const requiredInputs = form ? Array.from(form.querySelectorAll('[required]')) : [];
+  let presentationMode = false;
   const allInputs = form ? Array.from(form.querySelectorAll('input, textarea')) : [];
 
   // Smooth scroll with slight offset for sticky nav
@@ -15,27 +15,38 @@
       if (!el) return;
       e.preventDefault();
       const top = el.getBoundingClientRect().top + window.scrollY - 70;
-      window.scrollTo({ top, behavior: 'smooth' });
+      window.scrollTo({ top, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
     });
   });
 
-  document.querySelectorAll('.js-presentation-interest').forEach((link) => {
-    link.addEventListener('click', () => {
+  function setFormMode(presentation) {
       if (!form) return;
+      presentationMode = presentation;
       const message = form.querySelector('[name="message"]');
       const heading = form.querySelector('.form-heading h3');
       const description = form.querySelector('.form-heading p');
       const submitButton = form.querySelector('[type="submit"]');
       if (!message) return;
-      message.value = 'Želim da se prijavim za narednu prezentaciju programa Budžet+. Molim vas da me obavestite kada bude određen termin.';
-      if (heading) heading.textContent = 'Prijava za prezentaciju';
-      if (description) description.textContent = 'Unesite svoje podatke da bismo vas obavestili kada bude određen termin.';
-      if (submitButton) submitButton.textContent = 'Pošalji prijavu';
-      window.setTimeout(() => message.focus(), 500);
+      message.required = !presentation;
+      message.placeholder = presentation ? 'Dodatna napomena (opciono)' : 'Šta vam je potrebno';
+      form.querySelector('#message-label').textContent = presentation ? 'Napomena (opciono)' : 'Poruka';
+      form.querySelector('.form-mode-switch').hidden = !presentation;
+      if (heading) heading.textContent = presentation ? 'Prijava za prezentaciju' : 'Imate pitanje?';
+      if (description) description.textContent = presentation ? 'Termin još nije određen. Unesite svoje podatke da bismo vas obavestili kada bude zakazana naredna prezentacija.' : 'Za pitanja koja nisu vezana za zakazivanje termina, pošaljite nam poruku.';
+      if (submitButton) submitButton.textContent = presentation ? 'Pripremite prijavu' : 'Pripremite poruku';
+      if (feedback) feedback.textContent = '';
+      const firstEmpty = Array.from(form.querySelectorAll('[required]')).find(input => !input.value.trim());
+      (firstEmpty || message).focus({ preventScroll: true });
+  }
+
+  document.querySelectorAll('.js-presentation-interest').forEach((link) => {
+    link.addEventListener('click', () => {
+      setFormMode(true);
     });
   });
 
   if (!form || !feedback) return;
+  form.querySelector('.form-mode-switch').addEventListener('click', () => setFormMode(false));
 
   if (jbkjsInput) {
     jbkjsInput.addEventListener('input', () => {
@@ -45,10 +56,11 @@
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
-    const missing = requiredInputs.some((input) => !input.value.trim());
+    const missing = Array.from(form.querySelectorAll('[required]')).find(input => !input.value.trim());
     if (missing) {
-      feedback.textContent = 'Molimo popunite sva polja.';
+      feedback.textContent = 'Molimo popunite obavezna polja.';
       feedback.style.color = '#dc2626';
+      missing.focus();
       return;
     }
 
@@ -71,31 +83,22 @@
       formData.city ? `Mesto: ${formData.city}` : null,
       formData.phone ? `Telefon: ${formData.phone}` : null,
       '',
+      presentationMode ? 'Želim da se prijavim za narednu prezentaciju programa Budžet+. Molim vas da me obavestite kada bude određen termin.' : null,
       formData.message || '',
     ].filter(Boolean);
 
-    const isPresentationSignup = (formData.message || '').startsWith('Želim da se prijavim za narednu prezentaciju');
-    const subject = isPresentationSignup ? 'Prijava za Budžet+ prezentaciju - ' : 'Budžet+ upit - ';
+    const subject = presentationMode ? 'Prijava za Budžet+ prezentaciju - ' : 'Budžet+ upit - ';
     const mailto = `mailto:aleksandar.pejkovic@budzetplus.rs?subject=${encodeURIComponent(subject + (formData.name || ''))}&body=${encodeURIComponent(lines.join('\n'))}`;
 
     try {
       window.location.href = mailto;
-      feedback.textContent = 'Otvorili smo email sa popunjenim detaljima — pošaljite ga da stigne do nas.';
+      feedback.textContent = 'Pošaljite pripremljeni email iz svoje email aplikacije. Ako se aplikacija nije otvorila, pišite na aleksandar.pejkovic@budzetplus.rs. Vaši podaci su sačuvani u formi.';
       feedback.style.color = '#2563eb';
     } catch (err) {
       feedback.textContent = 'Nismo mogli da otvorimo email klijent. Pošaljite nas ručno na aleksandar.pejkovic@budzetplus.rs.';
       feedback.style.color = '#dc2626';
     }
 
-    setTimeout(() => {
-      form.reset();
-      const heading = form.querySelector('.form-heading h3');
-      const description = form.querySelector('.form-heading p');
-      const submitButton = form.querySelector('[type="submit"]');
-      if (heading) heading.textContent = 'Imate pitanje?';
-      if (description) description.textContent = 'Za pitanja koja nisu vezana za zakazivanje termina, pošaljite nam poruku.';
-      if (submitButton) submitButton.textContent = 'Pošalji zahtev';
-    }, 300);
   });
 
   // Lazy-load videos on click to avoid mreža zahtev dok korisnik ne zatraži

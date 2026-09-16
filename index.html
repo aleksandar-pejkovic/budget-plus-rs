@@ -267,8 +267,10 @@
           </ul>
           <div class="cta-group">
             <a class="btn primary" href="https://calendar.app.google/avk76s3wR3UF75UR6" target="_blank" rel="noopener">Zakažite instalaciju</a>
-            <a class="btn ghost" href="#video">Pogledajte kako radi</a>
+            <a class="btn secondary-action js-presentation-interest" href="#contact-form">Prijavite se za prezentaciju</a>
           </div>
+          <p class="hero-action-note">O terminu naredne prezentacije obavestićemo vas nakon prijave.</p>
+          <a class="hero-video-link" href="#video"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m8 5 11 7-11 7z"></path></svg>Pogledajte video prikaz</a>
           <div class="trust">
             <div class="pill"><span class="icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"></path></svg></span>Automatsko knjiženje</div>
             <div class="pill"><span class="icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg></span>Kontrole smanjuju greške</div>
@@ -732,6 +734,7 @@
             <div class="form-heading">
               <h3>Imate pitanje?</h3>
               <p>Za pitanja koja nisu vezana za zakazivanje termina, pošaljite nam poruku.</p>
+              <button class="form-mode-switch" type="button" hidden>Želim da postavim pitanje</button>
             </div>
             <label>
               <span>Ime i prezime</span>
@@ -754,10 +757,11 @@
               <input type="tel" name="phone" placeholder="06x xxx xxxx">
             </label>
             <label>
-              <span>Poruka</span>
+              <span id="message-label">Poruka</span>
               <textarea name="message" rows="4" required placeholder="Šta vam je potrebno"></textarea>
             </label>
-            <button type="submit" class="btn primary full">Pošalji zahtev</button>
+            <p class="field-hint">Otvara se vaša email aplikacija sa pripremljenim tekstom. Pošaljite email iz nje da bi stigao do nas.</p>
+            <button type="submit" class="btn primary full">Pripremite poruku</button>
             <p class="form-feedback" role="status" aria-live="polite"></p>
           </form>
           <div class="contact-info">
