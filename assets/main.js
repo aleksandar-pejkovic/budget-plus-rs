@@ -4,6 +4,10 @@
   const feedback = form ? form.querySelector('.form-feedback') : null;
   const jbkjsInput = form ? form.querySelector('[name="jbkjs"]') : null;
   let presentationMode = false;
+  const messageDrafts = {
+    question: '',
+    presentation: 'Želim da se prijavim za narednu prezentaciju programa Budžet+. Molim vas da me obavestite kada bude određen termin.',
+  };
   const allInputs = form ? Array.from(form.querySelectorAll('input, textarea')) : [];
 
   // Smooth scroll with slight offset for sticky nav
@@ -21,15 +25,17 @@
 
   function setFormMode(presentation) {
       if (!form) return;
-      presentationMode = presentation;
       const message = form.querySelector('[name="message"]');
       const heading = form.querySelector('.form-heading h3');
       const description = form.querySelector('.form-heading p');
       const submitButton = form.querySelector('[type="submit"]');
       if (!message) return;
+      if (presentationMode !== presentation) {
+        messageDrafts[presentationMode ? 'presentation' : 'question'] = message.value;
+        message.value = messageDrafts[presentation ? 'presentation' : 'question'];
+      }
+      presentationMode = presentation;
       message.required = !presentation;
-      message.placeholder = presentation ? 'Dodatna napomena (opciono)' : 'Šta vam je potrebno';
-      form.querySelector('#message-label').textContent = presentation ? 'Napomena (opciono)' : 'Poruka';
       form.querySelector('.form-mode-switch').hidden = !presentation;
       if (heading) heading.textContent = presentation ? 'Prijava za prezentaciju' : 'Imate pitanje?';
       if (description) description.textContent = presentation ? 'Termin još nije određen. Unesite svoje podatke da bismo vas obavestili kada bude zakazana naredna prezentacija.' : 'Za pitanja koja nisu vezana za zakazivanje termina, pošaljite nam poruku.';
@@ -83,7 +89,6 @@
       formData.city ? `Mesto: ${formData.city}` : null,
       formData.phone ? `Telefon: ${formData.phone}` : null,
       '',
-      presentationMode ? 'Želim da se prijavim za narednu prezentaciju programa Budžet+. Molim vas da me obavestite kada bude određen termin.' : null,
       formData.message || '',
     ].filter(Boolean);
 
