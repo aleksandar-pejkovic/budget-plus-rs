@@ -242,7 +242,7 @@
         <a href="#resenja">Rešenja</a>
         <a href="#video">Demo</a>
         <a href="#faq">Dileme</a>
-        <a href="#kontakt">Prezentacija</a>
+        <a href="#kontakt">Kontakt</a>
       </nav>
     </div>
   </header>
@@ -266,7 +266,7 @@
             <li>SPIRI plaćanja, ORIS, Obrazac 5 i izveštaji iz iste evidencije</li>
           </ul>
           <div class="cta-group">
-            <a class="btn primary" href="#kontakt">Zakaži prezentaciju</a>
+            <a class="btn primary" href="https://calendar.app.google/avk76s3wR3UF75UR6" target="_blank" rel="noopener">Zakažite instalaciju</a>
             <a class="btn ghost" href="#video">Pogledajte kako radi</a>
           </div>
           <div class="trust">
@@ -710,11 +710,29 @@
     <section class="section alt" id="kontakt">
       <div class="container">
         <div class="section-head contact-heading">
-          <h2>Zatražite prezentaciju</h2>
-          <p>Odgovor u roku jednog radnog dana. Instalacija oko 2 minuta. Prezentacija po dogovoru.</p>
+          <h2>Kako možemo da pomognemo?</h2>
+          <p>Zakažite instalaciju, prijavite se za narednu prezentaciju ili nam pošaljite pitanje.</p>
+        </div>
+        <div class="service-actions">
+          <article class="service-action service-action-primary">
+            <p class="eyebrow">Instalacija programa</p>
+            <h3>Izaberite termin koji vam odgovara</h3>
+            <p>Slobodni termini se ažuriraju automatski, a potvrda stiže iz Google kalendara.</p>
+            <a class="btn primary" href="https://calendar.app.google/avk76s3wR3UF75UR6" target="_blank" rel="noopener">Zakažite instalaciju</a>
+          </article>
+          <article class="service-action">
+            <p class="eyebrow">Prezentacija programa</p>
+            <h3>Želite da vidite kako Budžet+ radi?</h3>
+            <p>Prijavite interesovanje i obavestićemo vas kada odredimo termin naredne prezentacije.</p>
+            <a class="btn secondary-action js-presentation-interest" href="#contact-form">Prijavite se za prezentaciju</a>
+          </article>
         </div>
         <div class="contact-grid">
           <form id="contact-form" class="contact-form" novalidate>
+            <div class="form-heading">
+              <h3>Imate pitanje?</h3>
+              <p>Za pitanja koja nisu vezana za zakazivanje termina, pošaljite nam poruku.</p>
+            </div>
             <label>
               <span>Ime i prezime</span>
               <input type="text" name="name" required placeholder="Vaše ime">
@@ -722,6 +740,10 @@
             <label>
               <span>Škola</span>
               <input type="text" name="org" required placeholder="Naziv škole">
+            </label>
+            <label>
+              <span>JBKJS</span>
+              <input type="text" name="jbkjs" inputmode="numeric" pattern="[0-9]{5}" minlength="5" maxlength="5" required aria-describedby="jbkjs-hint" placeholder="Na primer: 12345">
             </label>
             <label>
               <span>Mesto</span>
@@ -784,7 +806,19 @@
                 <a href="https://teams.microsoft.com" target="_blank" rel="noopener">Teams</a>
               </div>
             </div>
-            <div class="info-note">Podrška tokom uvođenja: telefon, Viber/WhatsApp, email, AnyDesk ili Teams.</div>
+            <div class="info-card">
+              <div class="info-icon meet" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="6" width="13" height="12" rx="2"></rect>
+                  <path d="m16 10 5-3v10l-5-3z"></path>
+                </svg>
+              </div>
+              <div>
+                <p>aleksandar.pejkovic@budzetplus.rs</p>
+                <a href="https://meet.google.com/" target="_blank" rel="noopener">Google Meet</a>
+              </div>
+            </div>
+            <div class="info-note">Podrška tokom uvođenja: telefon, Viber/WhatsApp, email, AnyDesk, Teams ili Google Meet.</div>
           </div>
         </div>
       </div>

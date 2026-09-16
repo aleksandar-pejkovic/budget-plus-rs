@@ -2,6 +2,7 @@
 (function () {
   const form = document.getElementById('contact-form');
   const feedback = form ? form.querySelector('.form-feedback') : null;
+  const jbkjsInput = form ? form.querySelector('[name="jbkjs"]') : null;
   const requiredInputs = form ? Array.from(form.querySelectorAll('[required]')) : [];
   const allInputs = form ? Array.from(form.querySelectorAll('input, textarea')) : [];
 
@@ -18,7 +19,29 @@
     });
   });
 
+  document.querySelectorAll('.js-presentation-interest').forEach((link) => {
+    link.addEventListener('click', () => {
+      if (!form) return;
+      const message = form.querySelector('[name="message"]');
+      const heading = form.querySelector('.form-heading h3');
+      const description = form.querySelector('.form-heading p');
+      const submitButton = form.querySelector('[type="submit"]');
+      if (!message) return;
+      message.value = 'Želim da se prijavim za narednu prezentaciju programa Budžet+. Molim vas da me obavestite kada bude određen termin.';
+      if (heading) heading.textContent = 'Prijava za prezentaciju';
+      if (description) description.textContent = 'Unesite svoje podatke da bismo vas obavestili kada bude određen termin.';
+      if (submitButton) submitButton.textContent = 'Pošalji prijavu';
+      window.setTimeout(() => message.focus(), 500);
+    });
+  });
+
   if (!form || !feedback) return;
+
+  if (jbkjsInput) {
+    jbkjsInput.addEventListener('input', () => {
+      jbkjsInput.value = jbkjsInput.value.replace(/\D/g, '').slice(0, 5);
+    });
+  }
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -26,6 +49,13 @@
     if (missing) {
       feedback.textContent = 'Molimo popunite sva polja.';
       feedback.style.color = '#dc2626';
+      return;
+    }
+
+    if (!jbkjsInput || !/^\d{5}$/.test(jbkjsInput.value.trim())) {
+      feedback.textContent = 'JBKJS mora imati tačno 5 cifara.';
+      feedback.style.color = '#dc2626';
+      if (jbkjsInput) jbkjsInput.focus();
       return;
     }
 
@@ -37,12 +67,16 @@
     const lines = [
       `Ime i prezime: ${formData.name || ''}`,
       `Škola: ${formData.org || ''}`,
+      formData.jbkjs ? `JBKJS: ${formData.jbkjs}` : null,
+      formData.city ? `Mesto: ${formData.city}` : null,
       formData.phone ? `Telefon: ${formData.phone}` : null,
       '',
       formData.message || '',
     ].filter(Boolean);
 
-    const mailto = `mailto:aleksandar.pejkovic@budzetplus.rs?subject=${encodeURIComponent('Budžet+ upit - ' + (formData.name || ''))}&body=${encodeURIComponent(lines.join('\n'))}`;
+    const isPresentationSignup = (formData.message || '').startsWith('Želim da se prijavim za narednu prezentaciju');
+    const subject = isPresentationSignup ? 'Prijava za Budžet+ prezentaciju - ' : 'Budžet+ upit - ';
+    const mailto = `mailto:aleksandar.pejkovic@budzetplus.rs?subject=${encodeURIComponent(subject + (formData.name || ''))}&body=${encodeURIComponent(lines.join('\n'))}`;
 
     try {
       window.location.href = mailto;
@@ -53,7 +87,15 @@
       feedback.style.color = '#dc2626';
     }
 
-    setTimeout(() => form.reset(), 300);
+    setTimeout(() => {
+      form.reset();
+      const heading = form.querySelector('.form-heading h3');
+      const description = form.querySelector('.form-heading p');
+      const submitButton = form.querySelector('[type="submit"]');
+      if (heading) heading.textContent = 'Imate pitanje?';
+      if (description) description.textContent = 'Za pitanja koja nisu vezana za zakazivanje termina, pošaljite nam poruku.';
+      if (submitButton) submitButton.textContent = 'Pošalji zahtev';
+    }, 300);
   });
 
   // Lazy-load videos on click to avoid mreža zahtev dok korisnik ne zatraži

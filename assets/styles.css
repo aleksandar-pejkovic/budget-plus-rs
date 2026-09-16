@@ -1254,11 +1254,87 @@ nav a:hover {
   color: var(--muted);
 }
 
+.service-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  align-items: stretch;
+  margin-bottom: 32px;
+}
+
+.service-action {
+  display: grid;
+  grid-template-rows: auto minmax(58px, auto) 1fr auto;
+  align-items: start;
+  padding: 26px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+}
+
+.service-action-primary {
+  border-color: #b9dcec;
+  background: linear-gradient(145deg, #fff, #eff9fd);
+}
+
+.service-action h3 {
+  margin: 8px 0;
+  font-size: 22px;
+}
+
+.service-action p:not(.eyebrow) {
+  margin: 0 0 22px;
+  color: var(--muted);
+}
+
+.service-action .btn {
+  width: 100%;
+  margin-top: 0;
+  text-align: center;
+}
+
+.btn.primary,
+.btn.primary:link,
+.btn.primary:visited,
+.btn.primary:hover,
+.btn.primary:focus-visible {
+  color: #fff;
+}
+
+.secondary-action {
+  color: var(--accent-2);
+  border-color: #b8cedb;
+  background: #fff;
+}
+
+.secondary-action:hover,
+.secondary-action:focus-visible {
+  color: #fff;
+  border-color: var(--accent-2);
+  background: var(--accent-2);
+}
+
+.form-heading {
+  margin-bottom: 2px;
+}
+
+.form-heading h3 {
+  margin: 0 0 6px;
+  font-size: 22px;
+}
+
+.form-heading p {
+  margin: 0;
+  color: var(--muted);
+  font-weight: 400;
+}
+
 .contact-grid {
   display: grid;
-  grid-template-columns: minmax(380px, 1.25fr) minmax(320px, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 32px;
-  align-items: center;
+  align-items: start;
 }
 
 .contact-form {
@@ -1287,6 +1363,12 @@ nav a:hover {
   display: grid;
   gap: 6px;
   font-weight: 600;
+}
+
+.field-hint {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 500;
 }
 
 .contact-form input,
@@ -1380,6 +1462,12 @@ nav a:hover {
   color: #5b58f2;
   border-color: rgba(91, 88, 242, 0.35);
   box-shadow: 0 10px 22px rgba(91, 88, 242, 0.12);
+}
+
+.info-icon.meet {
+  background: #eaf8f4;
+  color: #0f9d58;
+  border-color: rgba(15, 157, 88, 0.3);
 }
 
 .info-card:hover {
@@ -1519,6 +1607,10 @@ nav a:hover {
   .contact-grid {
     grid-template-columns: 1fr;
   }
+
+  .service-actions {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 600px) {
@@ -1539,6 +1631,11 @@ nav a:hover {
 
   .cta-group {
     flex-direction: column;
+  }
+
+  .service-action .btn {
+    width: 100%;
+    text-align: center;
   }
 
   .topbar {
