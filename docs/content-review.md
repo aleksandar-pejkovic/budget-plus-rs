@@ -1,5 +1,42 @@
 # Dorada sadržaja — 19. septembar 2026.
 
+## Zamena starih prikaza programa — 20. septembar 2026.
+
+Ova dopuna zamenjuje odluku iz prethodnog koraka da se stare samostalne slike zadrže. Dodata su četiri nova snimka lokalnog FE-a 1.11.1. Tri ranije dodate slike iz uputstava 1.11.0 ostaju. Nisu menjani opisi procesa niti dodavani novi mediji na ostale stranice.
+
+| Stranica | Nova datoteka u `assets/img` | Dimenzije | Snimljeni prikaz |
+| --- | --- | --- | --- |
+| Početna | `demo-kontrolna-tabla.png` | 1280 × 617 | Odeljak „Svi moduli“ kontrolne table |
+| Povezano računovodstvo | `demo-nalog.png` | 1760 × 557 | Nalog 0042 sa dve demonstracione stavke, ukupno 12.000,00 na obe strane |
+| Izvršenje budžeta | `demo-grafikoni.png` | 1280 × 1033 | Četiri grafikona, plan 6.000.000, troškovi 4.200.000 i prihodi 4.800.000 |
+| Zatvaranje godine | `demo-zatvaranje-godine.png` | 768 × 803 | Opciona priprema amortizacije i koraci 1–2, bez izvršavanja radnji |
+
+**Poreklo:** postojeći lokalni FE build `budget-plus-client/.output`, napravljen 19.09.2026. u 20:37:23 UTC (`.output/nitro.json`), sa verzijom 1.11.1. Prikazi su provereni prema čistom radnom stablu na commitu `3cf41e8b7e564f2a56b849ebacc9fcc1fe205079`; poslednja izmena relevantnih stranica i komponenti je `888d73dd4116e13b91abd5984e578b8529d4879c` od 14.09.2026. Posle neuspelog pokretanja razvojnog servera iz privremene kopije, korišćen je taj postojeći build bez ponovnog buildovanja ili izmene FE izvora.
+
+Snimanje je izvršeno Chromium/Playwright pregledačem na lokalnoj adresi, sa lokalnim simuliranim GET API odgovorima, izmišljenim korisnikom i dobavljačem i poslovnom godinom 2026. Sat pregledača postavljen je na 31.12.2026. Pregledaču su dozvoljeni samo lokalni FE i simulator; ostali zahtevi su blokirani. Nije kontaktiran produkcioni backend, korišćen stvarni korisnički token niti izvršeno knjiženje. Sačekani su hidratacija i završetak animacija grafikona. Snimljeni su relevantni paneli, bez naknadne izmene njihovih podataka, boja ili proporcija.
+
+`docs/pdf-guides/assets/year-end.png` nije korišćen: FE `AUDIT.md` izričito ga označava kao zastarelog zbog stare numeracije i potvrđuje da nije deo aktuelnog PDF-a 19. Novi snimak prikazuje „Priprema — amortizacija / Opciono“, zatim „1. Zatvaranje rashoda i prihoda“ i „2. Otvaranje naredne godine“. Statusi „Nije kreiran“ i onemogućen prenos predstavljaju stanje pre završnih knjiženja.
+
+Generatori koriste nove datoteke i stvarne dimenzije. Uvodni prikaz više ne koristi fiksni odnos stranica ni isecanje slike. Svih sedam samostalnih slika ima napomenu o demonstracionim podacima i verziji. Video-snimci, njihove putanje i naslovne slike ostaju isti, uz izričitu napomenu da prikazuju stariju verziju. Stare datoteke su sačuvane zbog tih referenci i postojećih direktnih linkova.
+
+**Provera:** svih 10 UI i 8 kontakt testova prolazi; linkovi i metapodaci su ispravni na svih 13 stranica. Generisanje početne i detaljnih stranica je bajt-po-bajt ponovljivo. Svih sedam slika dodatno je provereno na 390 i 1440 px: učitavanje, proporcije, ograničenje prirodnom širinom, napomena, otvaranje dijaloga tastaturom, Escape i povratak fokusa. Vizuelno su pregledane četiri zamene i njihovi dijalozi na obe širine, kao i početni ekran na 360 i 1440 px. Proverena je promena videa i očuvanje njegovog starog postera. Sitni detalji širokih prikaza na telefonu ostaju ograničeni širinom ekrana. Lokalni FE server je ugašen nakon snimanja. Nema commita, push-a ili objave.
+
+## Slike iz FE uputstava — 20. septembar 2026.
+
+U odeljak „Pogledajte program“ dodate su tri postojeće slike iz `budget-plus-client/docs/pdf-guides/assets`, iz uputstava za verziju 1.11.0. Sadrže demonstracione podatke i nisu predstavljene kao snimci najnovije verzije. Izvorne FE datoteke nisu menjane; PNG kopije su bajt-po-bajt identične, bez isecanja, izmene podataka ili boja.
+
+| Izvor | Kopija u `assets/img` | Izvorne dimenzije |
+| --- | --- | --- |
+| `invoices.png` | `uputstvo-e-fakture.png` | 2040 × 1502 |
+| `assets.png` | `uputstvo-osnovna-sredstva.png` | 1728 × 618 |
+| `form5.png` | `uputstvo-obrazac-5.png` | 672 × 599 |
+
+Kratki opisi su „Pregled e-faktura i knjiženje iz programa“, „Pregled evidencije osnovnih sredstava“ i „Priprema Obrasca 5 za ISPFI“. Svaki ima napomenu „Demonstracioni podaci. Izgled zavisi od verzije.“ E-faktura prikazuje status „Nije knjiženo“ i dostupno dugme za knjiženje, ne dokaz izvršenog knjiženja. Evidencija sredstava prikazuje vrednosti i lokaciju; Obrazac 5 izbor perioda, podatke izveštaja i dugme za preuzimanje.
+
+Slike su definisane kroz `scripts/solution_content.py`, sa stvarnim dimenzijama i postojećim dijalogom za uvećanje. CSS zadržava prirodnu širinu slike uz ograničenje širinom sadržaja; Obrazac 5 se na računaru prikazuje najviše na 672 px. Ostali mediji, početna strana, opisi procesa i javni API-ji ostaju nepromenjeni.
+
+Provera: prošlo je svih 10 postojećih UI testova (prikaz na pet širina, WCAG A/AA, navigacija, dijalog i forma), svih 8 kontakt testova, provera linkova i metapodataka za 13 stranica i bajt-po-bajt ponovljivost generisanja. Za sve tri nove slike dodatno su provereni učitavanje, proporcije, prirodna širina, otvaranje dijaloga tastaturom, Escape i povratak fokusa na 390 i 1440 px. Vizuelno su pregledani prikazi slika i dijalozi na obe širine. Široke tabele na telefonu služe kao pregled; sitni tekst je ograničen širinom ekrana i u postojećem dijalogu. Nisu pokretani FE ni backend, niti su izvršeni commit, push ili objava.
+
 ## Fokus na korist i automatizaciju — 20. septembar 2026.
 
 Ova dorada zamenjuje prethodni prikaz kroz tri koraka na detaljnim stranicama. Svih 12 rešenja sada sadrži kratak odeljak „Kako radi“, uz uvod, koristi, poziv za prezentaciju i povezana rešenja. Uklonjeni su ilustrativni primeri i tabele, priprema, kontrolne liste, numerisani koraci i bočna navigacija. Nepotrebna polja i prikaz tih odeljaka uklonjeni su iz generatora.
