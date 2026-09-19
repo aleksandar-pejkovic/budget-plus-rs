@@ -1,0 +1,24 @@
+{
+  "name": "budzet-plus-site",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --experimental-strip-types --test tests/contact.test.mjs",
+    "test:ui": "playwright test",
+    "typecheck": "tsc --noEmit",
+    "worker:types": "wrangler types --config worker/wrangler.jsonc",
+    "worker:check": "wrangler deploy --dry-run --config worker/wrangler.jsonc",
+    "preview": "node scripts/preview.mjs"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "@cloudflare/workers-types": "^5.20260919.1",
+    "@playwright/test": "^1.63.0",
+    "@types/nodemailer": "^8.0.2",
+    "typescript": "^7.0.2",
+    "wrangler": "^4.135.0"
+  },
+  "dependencies": {
+    "nodemailer": "^10.0.10"
+  }
+}

@@ -89,7 +89,8 @@ def internal_target(page: Path, href: str) -> Path | None:
 def main() -> int:
     errors: list[str] = []
     titles: dict[str, Path] = {}
-    pages = sorted(p for p in ROOT.rglob("*.html") if p not in SKIP_FILES)
+    pages = sorted(p for p in [ROOT / "index.html", *ROOT.glob("*/index.html")]
+                   if p not in SKIP_FILES and p.parent.name not in {"node_modules", "dist", ".cache", "test-results", "playwright-report"})
     canonical_urls: set[str] = set()
 
     for page in pages:

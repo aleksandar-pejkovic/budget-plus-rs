@@ -4,3 +4,11 @@
 node_modules
 dist
 .cache
+__pycache__/
+*.pyc
+.wrangler/
+.dev.vars*
+.env*
+playwright-report/
+test-results/
+worker-configuration.d.ts

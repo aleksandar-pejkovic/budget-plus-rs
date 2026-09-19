@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "target": "ES2022", "module": "ESNext", "moduleResolution": "Bundler",
+    "lib": ["ES2022"], "allowJs": true, "checkJs": false, "strict": true,
+    "noEmit": true, "skipLibCheck": true, "types": []
+  },
+  "include": ["worker/src/**/*.ts", "worker/env.d.ts", "worker-configuration.d.ts", "assets/contact-validation.js"]
+}

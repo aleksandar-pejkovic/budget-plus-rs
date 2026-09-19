@@ -1,0 +1,25 @@
+{
+  "$schema": "../node_modules/wrangler/config-schema.json",
+  "name": "budzetplus-contact",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-09-19",
+  "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": true,
+  "vars": {
+    "ALLOWED_ORIGINS": "https://budzetplus.rs,https://www.budzetplus.rs",
+    "TURNSTILE_HOSTNAMES": "budzetplus.rs,www.budzetplus.rs",
+    "CONTACT_FROM": "prijava@budzetplus.rs",
+    "CONTACT_TO": "prijava@budzetplus.rs",
+    "SMTP_USER": "aleksandar.pejkovic@budzetplus.rs"
+  },
+  "ratelimits": [{
+    "name": "CONTACT_LIMITER",
+    "namespace_id": "2026091901",
+    "simple": { "limit": 5, "period": 60 }
+  }],
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1,
+    "logs": { "enabled": true, "invocation_logs": false }
+  }
+}

@@ -1,167 +1,73 @@
-// Smooth scroll offset correction and contact form feedback
-(function () {
-  const form = document.getElementById('contact-form');
-  const feedback = form ? form.querySelector('.form-feedback') : null;
-  const jbkjsInput = form ? form.querySelector('[name="jbkjs"]') : null;
-  let presentationMode = false;
-  const messageDrafts = {
-    question: '',
-    presentation: 'Želim da se prijavim za narednu prezentaciju programa Budžet+. Molim vas da me obavestite kada bude određen termin.',
-  };
-  const allInputs = form ? Array.from(form.querySelectorAll('input, textarea')) : [];
-
-  // Smooth scroll with slight offset for sticky nav
-  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener('click', (e) => {
-      const targetId = anchor.getAttribute('href');
-      if (!targetId || targetId === '#') return;
-      const el = document.querySelector(targetId);
-      if (!el) return;
-      e.preventDefault();
-      const top = el.getBoundingClientRect().top + window.scrollY - 70;
-      window.scrollTo({ top, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
+﻿(() => {
+  const menu = document.querySelector('.menu-toggle');
+  const nav = document.querySelector('.site-nav');
+  if (menu && nav) {
+    menu.hidden = false;
+    nav.classList.add('menu-ready');
+    const closeMenu = () => { nav.classList.remove('is-open'); menu.setAttribute('aria-expanded', 'false'); };
+    menu.addEventListener('click', () => {
+      const open = menu.getAttribute('aria-expanded') !== 'true';
+      nav.classList.toggle('is-open', open);
+      menu.setAttribute('aria-expanded', String(open));
     });
-  });
-
-  function setFormMode(presentation) {
-      if (!form) return;
-      const message = form.querySelector('[name="message"]');
-      const heading = form.querySelector('.form-heading h3');
-      const description = form.querySelector('.form-heading p');
-      const submitButton = form.querySelector('[type="submit"]');
-      if (!message) return;
-      if (presentationMode !== presentation) {
-        messageDrafts[presentationMode ? 'presentation' : 'question'] = message.value;
-        message.value = messageDrafts[presentation ? 'presentation' : 'question'];
-      }
-      presentationMode = presentation;
-      message.required = !presentation;
-      form.querySelector('.form-mode-switch').hidden = !presentation;
-      if (heading) heading.textContent = presentation ? 'Prijava za prezentaciju' : 'Imate pitanje?';
-      if (description) description.textContent = presentation ? 'Termin još nije određen. Unesite svoje podatke da bismo vas obavestili kada bude zakazana naredna prezentacija.' : 'Za pitanja koja nisu vezana za zakazivanje termina, pošaljite nam poruku.';
-      if (submitButton) submitButton.textContent = presentation ? 'Pripremite prijavu' : 'Pripremite poruku';
-      if (feedback) feedback.textContent = '';
-      const firstEmpty = Array.from(form.querySelectorAll('[required]')).find(input => !input.value.trim());
-      (firstEmpty || message).focus({ preventScroll: true });
+    nav.addEventListener('click', event => { if (event.target.closest('a')) closeMenu(); });
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && nav.classList.contains('is-open')) { closeMenu(); menu.focus(); }
+    });
+    window.matchMedia('(min-width: 961px)').addEventListener('change', closeMenu);
   }
 
-  document.querySelectorAll('.js-presentation-interest').forEach((link) => {
-    link.addEventListener('click', () => {
-      setFormMode(true);
+  // Keep native anchors/history; reveal folded destinations before navigation.
+  document.querySelectorAll('a[href="#privatnost"]').forEach(link => link.addEventListener('click', () => {
+    const disclosure = document.querySelector('#privatnost details');
+    if (disclosure) disclosure.open = true;
+  }));
+
+  const dialog = document.querySelector('.image-dialog');
+  if (dialog && typeof dialog.showModal === 'function') {
+    let opener;
+    document.querySelectorAll('.zoom-image').forEach(link => link.addEventListener('click', event => {
+      event.preventDefault();
+      opener = link;
+      const image = link.querySelector('img');
+      dialog.querySelector('img').src = link.href;
+      dialog.querySelector('img').alt = image?.alt || 'Prikaz programa';
+      dialog.querySelector('figcaption').textContent = image?.alt || 'Prikaz programa';
+      document.body.classList.add('dialog-open');
+      dialog.showModal();
+      dialog.querySelector('.dialog-close').focus();
+    }));
+    dialog.querySelector('.dialog-close').addEventListener('click', () => dialog.close());
+    dialog.addEventListener('click', event => {
+      if (event.target !== dialog) return;
+      const box = dialog.getBoundingClientRect();
+      if (event.clientX < box.left || event.clientX > box.right || event.clientY < box.top || event.clientY > box.bottom) dialog.close();
     });
-  });
-
-  if (!form || !feedback) return;
-  form.querySelector('.form-mode-switch').addEventListener('click', () => setFormMode(false));
-
-  if (jbkjsInput) {
-    jbkjsInput.addEventListener('input', () => {
-      jbkjsInput.value = jbkjsInput.value.replace(/\D/g, '').slice(0, 5);
+    dialog.addEventListener('close', () => {
+      document.body.classList.remove('dialog-open');
+      dialog.querySelector('img').removeAttribute('src');
+      opener?.focus({ preventScroll: true });
     });
   }
 
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const missing = Array.from(form.querySelectorAll('[required]')).find(input => !input.value.trim());
-    if (missing) {
-      feedback.textContent = 'Molimo popunite obavezna polja.';
-      feedback.style.color = '#dc2626';
-      missing.focus();
-      return;
-    }
-
-    if (!jbkjsInput || !/^\d{5}$/.test(jbkjsInput.value.trim())) {
-      feedback.textContent = 'JBKJS mora imati tačno 5 cifara.';
-      feedback.style.color = '#dc2626';
-      if (jbkjsInput) jbkjsInput.focus();
-      return;
-    }
-
-    const formData = allInputs.reduce((acc, input) => {
-      acc[input.name] = input.value.trim();
-      return acc;
-    }, {});
-
-    const lines = [
-      `Ime i prezime: ${formData.name || ''}`,
-      `Škola: ${formData.org || ''}`,
-      formData.jbkjs ? `JBKJS: ${formData.jbkjs}` : null,
-      formData.city ? `Mesto: ${formData.city}` : null,
-      formData.phone ? `Telefon: ${formData.phone}` : null,
-      '',
-      formData.message || '',
-    ].filter(Boolean);
-
-    const subject = presentationMode ? 'Prijava za Budžet+ prezentaciju - ' : 'Budžet+ upit - ';
-    const mailto = `mailto:aleksandar.pejkovic@budzetplus.rs?subject=${encodeURIComponent(subject + (formData.name || ''))}&body=${encodeURIComponent(lines.join('\n'))}`;
-
-    try {
-      window.location.href = mailto;
-      feedback.textContent = 'Pošaljite pripremljeni email iz svoje email aplikacije. Ako se aplikacija nije otvorila, pišite na aleksandar.pejkovic@budzetplus.rs. Vaši podaci su sačuvani u formi.';
-      feedback.style.color = '#2563eb';
-    } catch (err) {
-      feedback.textContent = 'Nismo mogli da otvorimo email klijent. Pošaljite nas ručno na aleksandar.pejkovic@budzetplus.rs.';
-      feedback.style.color = '#dc2626';
-    }
-
-  });
-
-  // Lazy-load videos on click to avoid mreža zahtev dok korisnik ne zatraži
-  const lazyVideos = Array.from(document.querySelectorAll('.lazy-video'));
-  lazyVideos.forEach((video) => {
-    const wrapper = video.closest('.lazy-video-wrap');
-    const trigger = wrapper ? wrapper.querySelector('.video-play') : null;
-    const src = video.dataset.src;
-    const poster = video.dataset.poster;
-    if (poster) {
-      video.setAttribute('poster', poster);
-    }
-    const loadAndPlay = () => {
-      if (!src) return;
-      if (!video.dataset.loaded) {
-        video.src = src;
-        video.dataset.loaded = 'true';
-        video.setAttribute('controls', 'controls');
-      }
-      wrapper && wrapper.classList.add('is-playing');
-      video.play().catch(() => {
-        /* ignore autoplay block */
+  const video = document.getElementById('demo-video');
+  const choices = document.querySelectorAll('.video-choice');
+  choices.forEach(button => {
+    button.setAttribute('aria-pressed', String(button.classList.contains('is-active')));
+    button.addEventListener('click', () => {
+      if (!video) return;
+      video.pause();
+      video.src = button.dataset.video;
+      video.poster = button.dataset.poster;
+      video.setAttribute('aria-label', button.dataset.title);
+      document.getElementById('demo-title').textContent = button.dataset.title;
+      choices.forEach(choice => {
+        choice.classList.toggle('is-active', choice === button);
+        choice.setAttribute('aria-pressed', String(choice === button));
       });
-    };
-    trigger && trigger.addEventListener('click', loadAndPlay);
-    video.addEventListener('click', loadAndPlay);
+      video.load();
+      video.focus({ preventScroll: true });
+      video.scrollIntoView({ block: 'center', behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
+    });
   });
-
-  // Lightbox za screenshotove
-  const screenshots = Array.from(document.querySelectorAll('.card.screenshot img'));
-  if (screenshots.length) {
-    const overlay = document.createElement('div');
-    overlay.className = 'lightbox hidden';
-    overlay.innerHTML = '<div class="lightbox-backdrop"></div><img class="lightbox-img" alt="">';
-    document.body.appendChild(overlay);
-    const lightboxImg = overlay.querySelector('.lightbox-img');
-
-    const close = () => {
-      overlay.classList.add('hidden');
-      if (lightboxImg) lightboxImg.src = '';
-    };
-
-    overlay.addEventListener('click', close);
-    document.addEventListener('keyup', (e) => {
-      if (e.key === 'Escape') close();
-    });
-
-    screenshots.forEach((img) => {
-      const parentLink = img.closest('a');
-      const targetSrc = parentLink ? parentLink.getAttribute('href') || img.src : img.src;
-      img.style.cursor = 'zoom-in';
-      (parentLink || img).addEventListener('click', (e) => {
-        e.preventDefault();
-        if (!lightboxImg || !targetSrc) return;
-        lightboxImg.src = targetSrc;
-        lightboxImg.alt = img.alt || '';
-        overlay.classList.remove('hidden');
-      });
-    });
-  }
 })();

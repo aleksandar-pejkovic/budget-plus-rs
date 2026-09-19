@@ -19,6 +19,22 @@ jobs:
       - name: Verify generated landing pages are current
         run: |
           python scripts/generate_seo_pages.py
+          python scripts/home_page.py
           git diff --exit-code
       - name: Check metadata, JSON-LD, links, and sitemap
         run: python scripts/check_site.py
+  interaction-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+      - run: npm ci
+      - run: npm run worker:types
+      - run: npm run typecheck
+      - run: npm test
+      - run: npm run worker:check
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:ui
