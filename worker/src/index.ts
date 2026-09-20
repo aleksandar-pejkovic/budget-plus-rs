@@ -1,22 +1,97 @@
 import { validateContact } from '../../assets/contact-validation.js';
 import nodemailer from 'nodemailer';
+import { connect, type TLSSocket } from 'node:tls';
 
 type ContactMail = { from: { name: string; address: string }; to: string; replyTo: string; subject: string; text: string; html: string };
 
-export async function sendContactMail(env: Env, mail: ContactMail, createTransport = nodemailer.createTransport): Promise<void> {
-  const transport = createTransport({
-    host: 'smtp.gmail.com', port: 465, secure: true,
-    auth: { user: env.SMTP_USER, pass: env.SMTP_PASSWORD },
-    connectionTimeout: 8000, greetingTimeout: 8000, socketTimeout: 10000,
-    disableFileAccess: true, disableUrlAccess: true,
-    logger: false, debug: false,
-  });
+const SMTP_CODES = new Set(['EAUTH', 'ECONNECTION', 'ESOCKET', 'ETIMEDOUT', 'EDNS', 'ETLS', 'EPROTOCOL', 'EENVELOPE', 'EMESSAGE', 'ESTREAM', 'ECONNRESET', 'ECONNREFUSED', 'ENOTFOUND', 'EAI_AGAIN']);
+type MailPhase = 'setup' | 'send' | 'acceptance' | 'close';
+
+function smtpDiagnostic(error: unknown, phase: MailPhase) {
+  const details = error !== null && typeof error === 'object' ? error as Record<string, unknown> : {};
+  const code = typeof details.code === 'string' && SMTP_CODES.has(details.code) ? details.code : 'UNKNOWN';
+  const smtpStatus = typeof details.responseCode === 'number' && Number.isInteger(details.responseCode) && details.responseCode >= 200 && details.responseCode <= 599 ? details.responseCode : null;
+  // Never log command text: AUTH commands may contain credentials.
+  const command = details.command;
+  let stage: string = phase;
+  if (phase === 'send') {
+    if (code === 'EAUTH' || (typeof command === 'string' && /^AUTH(?: |$)/.test(command))) stage = 'authentication';
+    else if (code === 'ETLS' || command === 'STARTTLS') stage = 'tls';
+    else if (command === 'EHLO' || command === 'HELO') stage = 'greeting';
+    else if (command === 'MAIL FROM') stage = 'sender';
+    else if (command === 'RCPT TO') stage = 'recipient';
+    else if (command === 'DATA') stage = 'message';
+    else if (command === 'CONN' || ['ECONNECTION', 'ESOCKET', 'ETIMEDOUT', 'EDNS', 'ECONNRESET', 'ECONNREFUSED', 'ENOTFOUND', 'EAI_AGAIN'].includes(code)) stage = 'connection';
+  }
+  return { code, smtpStatus, stage };
+}
+
+class ContactMailError extends Error {
+  readonly diagnostic: ReturnType<typeof smtpDiagnostic>;
+  constructor(error: unknown, phase: MailPhase) {
+    super('Contact email failed');
+    this.diagnostic = smtpDiagnostic(error, phase);
+  }
+}
+
+type SocketCallback = (error: Error | null, options?: { connection: TLSSocket; secured: true }) => void;
+
+export function openSmtpSocket(callback: SocketCallback, connectSocket = connect): void {
+  // Preserve the hostname at the Workers socket boundary. Nodemailer's default
+  // DNS resolution passes an IP to TLS, which fails on the production edge.
+  let socket: TLSSocket;
   try {
+    socket = connectSocket({ host: 'smtp.gmail.com', port: 465, servername: 'smtp.gmail.com', rejectUnauthorized: true });
+  } catch {
+    callback(Object.assign(new Error('SMTP TLS connection failed'), { code: 'ETLS' }));
+    return;
+  }
+  let settled = false;
+  const fail = (code: 'ETLS' | 'ETIMEDOUT') => {
+    if (settled) return;
+    settled = true;
+    clearTimeout(timer);
+    socket.destroy();
+    callback(Object.assign(new Error('SMTP TLS connection failed'), { code }));
+  };
+  const timer = setTimeout(() => fail('ETIMEDOUT'), 8000);
+  // Keep the listener to absorb late teardown errors; callback is invoked once.
+  socket.on('error', () => fail('ETLS'));
+  socket.once('close', () => fail('ETLS'));
+  socket.once('secureConnect', () => {
+    if (settled) return;
+    settled = true;
+    clearTimeout(timer);
+    callback(null, { connection: socket, secured: true });
+  });
+}
+
+export async function sendContactMail(env: Env, mail: ContactMail, createTransport = nodemailer.createTransport): Promise<void> {
+  let phase: MailPhase = 'setup';
+  let transport: ReturnType<typeof createTransport> | undefined;
+  let failure: ContactMailError | undefined;
+  try {
+    transport = createTransport({
+      host: 'smtp.gmail.com', port: 465, secure: true,
+      auth: { user: env.SMTP_USER, pass: env.SMTP_PASSWORD },
+      connectionTimeout: 8000, greetingTimeout: 8000, socketTimeout: 10000,
+      disableFileAccess: true, disableUrlAccess: true,
+      logger: false, debug: false,
+      getSocket: (_options, callback) => openSmtpSocket(callback),
+    });
+    phase = 'send';
     const result = await transport.sendMail(mail);
+    phase = 'acceptance';
     if (!result.accepted.includes(mail.to)) {
-      throw new Error('SMTP recipient not accepted');
+      throw Object.assign(new Error('SMTP recipient not accepted'), { code: 'EENVELOPE' });
     }
-  } finally { transport.close(); }
+  } catch (error) {
+    failure = new ContactMailError(error, phase);
+  } finally {
+    try { transport?.close(); }
+    catch (error) { failure ??= new ContactMailError(error, 'close'); }
+  }
+  if (failure) throw failure;
 }
 
 const MAX_BODY_BYTES = 16 * 1024;
@@ -97,12 +172,13 @@ export async function handleContact(request: Request, env: Env, verifyFetch: typ
   try {
     // Await acceptance by the email service. Never report delivery to an inbox.
     await sendMail(env, {
-      from: { address: env.CONTACT_FROM, name: 'Budžet+ sajt' }, to: env.CONTACT_TO,
+      from: { address: env.CONTACT_FROM, name: 'Budžet+ Prijava' }, to: env.CONTACT_TO,
       replyTo: data.email, subject: title, text,
       html: `<div style="font-family:Arial,sans-serif;white-space:pre-wrap">${escapeHtml(text)}</div>`,
     });
-  } catch {
-    console.error(JSON.stringify({ event: 'contact_email_failed' }));
+  } catch (error) {
+    const diagnostic = error instanceof ContactMailError ? error.diagnostic : smtpDiagnostic(error, 'send');
+    console.error(JSON.stringify({ event: 'contact_email_failed', ...diagnostic }));
     return reply(503, { ok: false, code: 'delivery_unavailable' });
   }
   console.log(JSON.stringify({ event: 'contact_accepted', kind: data.kind }));

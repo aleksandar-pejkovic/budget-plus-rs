@@ -44,6 +44,48 @@ Ne dodavati `localhost` u produkcijsku serversku listu hostname-ova. UI testovi 
 
 ## Prihvatanje i održavanje
 
+### SMTP dijagnostika (20. septembar 2026)
+
+Prva dijagnostička verzija: `436ed7e1-2e50-4b15-8eea-009b0c847a62`.
+Ponovljena prijava je zabeležila `ESOCKET`, `smtpStatus: null`, `stage: connection`.
+Cloudflare remote preview je bez kredencijala i slanja mejla ponovio isti neuspeh
+sa podrazumevanim Nodemailer transportom; direktna TLS veza na hostname prošla je
+SMTP `verify()`. Nodemailer podrazumevano razrešava hostname i prosleđuje IP TLS-u.
+
+Ispravka koristi `getSocket` i `node:tls.connect` sa hostname-om `smtp.gmail.com`,
+portom 465, eksplicitnim SNI i uključenom proverom sertifikata. Socket se predaje
+Nodemailer-u tek posle TLS handshake-a, uz `secured: true`, rok od 8 sekundi i
+zatvaranje pri neuspehu. Nema promene provajdera, DNS-a, aliasa ili secrets.
+I stvarni helper ispravke je prošao SMTP proveru u remote preview-u.
+
+Objavljena verzija sa ispravkom: `4cf71ec8-982e-4401-a81a-421b308f61fb`.
+Prošlo je 12 serverskih testova, 10 browser testova, TypeScript provera i Worker dry-run.
+Korisnik je nakon objave ponovio prijavu i potvrdio uspeh forme i prijem mejla u
+sandučetu. Time je potvrđena stvarna isporuka, pored SMTP provere transporta.
+
+`contact_email_failed` sada sadrži samo `event`, `code`, `smtpStatus` i `stage`.
+Kod mora biti na dozvoljenoj listi; ostali postaju `UNKNOWN`. SMTP status je ceo broj
+od 200 do 599 ili `null` kada nije poznat. Faza je kontrolisana oznaka, nikada sirova
+SMTP komanda. Ne beleže se exception message/stack/cause, server response, adrese,
+sadržaj forme, lozinke ili tokeni. Nodemailer `logger` i `debug` ostaju isključeni.
+Javni odgovor ostaje HTTP 503 sa kodom `delivery_unavailable`, a unos ostaje u formi.
+
+Praćenje jedne ponovljene prijave:
+
+```sh
+npx wrangler tail budzetplus-contact --config worker/wrangler.jsonc --format pretty --search contact_
+```
+
+- `authentication` / `EAUTH`: proveriti Google app password za postojeći `SMTP_USER`; ne slati lozinku u chat ili logove.
+- `connection` / `tls`: proveriti vezu i TLS transport prema postojećem Google SMTP serveru.
+- `sender`: proveriti autorizaciju pošiljaočevog aliasa; `recipient`: proveriti odbijanje primaoca.
+- `acceptance`: poziv je završen bez očekivanog primaoca u listi prihvaćenih adresa.
+- `setup`, `greeting`, `message`, `close` ili `send`: koristiti kod i status za dalju ciljanu proveru; `send` znači da preciznija faza nije dostupna.
+
+Početna putanja Worker-a `/` očekivano vraća `not_found`; prijava se šalje putem
+forme na sajtu na `/contact`. Nakon ciljane ispravke ponoviti prijavu, proveriti
+HTTP 200 i zasebno potvrditi prijem u sandučetu. Ne menjati provajdera ili DNS bez dogovora.
+
 - Testirati jednu stvarnu uspešnu prijavu i odbijanje ponovnog korišćenja istog tokena; potvrditi rezultat u sandučetu. Ne tvrditi da je poruka isporučena samo zato što ju je email servis prihvatio.
 - Proveriti pogrešan domen/akciju, istekao token, mrežnu grešku, ograničenje zahteva i neuspeh email servisa. Unos ostaje u formi pri grešci.
 - Email sadrži samo podatke upita; adresa posetioca koristi se kao Reply-To, nikada kao pošiljalac ili odredište.

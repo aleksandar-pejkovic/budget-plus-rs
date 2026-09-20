@@ -1,6 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { handleContact as contactHandler, verifyTurnstile, sendContactMail } from '../worker/src/index.ts';
+import { handleContact as contactHandler, verifyTurnstile, sendContactMail, openSmtpSocket } from '../worker/src/index.ts';
+import { EventEmitter } from 'node:events';
 const handleContact = (request, env, verify) => contactHandler(request, { SMTP_USER: 'demo@example.com', SMTP_PASSWORD: 'test-password', ...env }, verify, (_env, mail) => env.EMAIL.send(mail));
 import { validateContact } from '../assets/contact-validation.js';
 
@@ -77,6 +78,7 @@ test('SMTP requires recipient acceptance and closes the transport on all outcome
       assert.equal(options.port, 465); assert.equal(options.secure, true);
       assert.equal(options.auth.user, 'demo@example.com');
       assert.equal(options.logger, false); assert.equal(options.debug, false);
+      assert.equal(typeof options.getSocket, 'function');
       return { close: () => { closed = true; }, sendMail: async data => {
         assert.equal(data.replyTo, valid.email);
         if (outcome === 'error') throw new Error('SMTP failure');
@@ -93,4 +95,96 @@ test('email HTML is escaped and no user input enters the subject', async () => {
   await handleContact(request({ ...valid, message: '<img src=x onerror=alert(1)>' }), env, verified);
   assert.ok(!sent[0].html.includes('<img')); assert.match(sent[0].html, /&lt;img/);
   assert.equal(sent[0].subject, 'Prijava za Budžet+ prezentaciju');
+});
+
+test('SMTP diagnostics classify failures without exposing private data or changing the public response', async t => {
+  const privateText = 'private-address@example.com password token message server-response';
+  const cases = [
+    [{ code: 'EAUTH', command: `AUTH PLAIN ${privateText}`, responseCode: 535 }, 'EAUTH', 535, 'authentication'],
+    [{ code: 'ESOCKET', command: 'CONN' }, 'ESOCKET', null, 'connection'],
+    [{ code: 'ETLS', command: 'STARTTLS', responseCode: 454 }, 'ETLS', 454, 'tls'],
+    [{ code: 'EENVELOPE', command: 'MAIL FROM', responseCode: 550 }, 'EENVELOPE', 550, 'sender'],
+    [{ code: 'EENVELOPE', command: 'RCPT TO', responseCode: 553 }, 'EENVELOPE', 553, 'recipient'],
+    [{ code: 'EMESSAGE', command: 'DATA', responseCode: 554 }, 'EMESSAGE', 554, 'message'],
+    [{ code: 'ETIMEDOUT', command: 'EHLO' }, 'ETIMEDOUT', null, 'greeting'],
+    [{ code: privateText, command: privateText, responseCode: privateText }, 'UNKNOWN', null, 'send'],
+    ...[199, 600, 535.5, NaN, Infinity, '535'].map(responseCode => [{ responseCode }, 'UNKNOWN', null, 'send']),
+    [null, 'UNKNOWN', null, 'send'],
+    [privateText, 'UNKNOWN', null, 'send'],
+  ];
+  const logs = [];
+  t.mock.method(console, 'error', (...args) => logs.push(args));
+  for (const [details, code, smtpStatus, stage] of cases) {
+    logs.length = 0;
+    const error = details && typeof details === 'object'
+      ? Object.assign(new Error(privateText), { response: privateText, envelope: privateText, cause: privateText, ...details }) : details;
+    let closed = false;
+    const factory = () => ({ sendMail: async () => { throw error; }, close: () => { closed = true; } });
+    const { env } = setup();
+    const result = await contactHandler(request(), { ...env, SMTP_USER: 'test', SMTP_PASSWORD: privateText }, verified,
+      (env, mail) => sendContactMail(env, mail, factory));
+    assert.equal(result.status, 503);
+    assert.deepEqual(await result.json(), { ok: false, code: 'delivery_unavailable' });
+    assert.equal(closed, true);
+    assert.deepEqual(logs, [[JSON.stringify({ event: 'contact_email_failed', code, smtpStatus, stage })]]);
+    assert.ok(!JSON.stringify(logs).includes(privateText));
+  }
+});
+
+test('SMTP diagnostics retain setup, acceptance and cleanup phases and preserve the original failure', async () => {
+  const mail = { to: 'recipient@example.com' };
+  const failure = Object.assign(new Error('private data'), { code: 'EAUTH', responseCode: 535 });
+  const cases = [
+    [() => { throw failure; }, 'EAUTH', 535, 'setup'],
+    [() => ({ sendMail: async () => ({ accepted: [] }), close() {} }), 'EENVELOPE', null, 'acceptance'],
+    [() => ({ sendMail: async () => ({ accepted: [mail.to] }), close() { throw failure; } }), 'EAUTH', 535, 'close'],
+    [() => ({ sendMail: async () => { throw failure; }, close() { throw new Error('cleanup'); } }), 'EAUTH', 535, 'authentication'],
+  ];
+  for (const [factory, code, smtpStatus, stage] of cases) {
+    await assert.rejects(sendContactMail({}, mail, factory), error => {
+      assert.equal(error.message, 'Contact email failed');
+      assert.deepEqual(error.diagnostic, { code, smtpStatus, stage });
+      assert.equal(error.cause, undefined);
+      return true;
+    });
+  }
+});
+
+test('SMTP socket uses verified hostname TLS and hands off only after the handshake', () => {
+  const socket = new EventEmitter();
+  socket.destroy = () => assert.fail('healthy socket must stay open');
+  const calls = [];
+  openSmtpSocket((...args) => calls.push(args), options => {
+    assert.deepEqual(options, { host: 'smtp.gmail.com', port: 465, servername: 'smtp.gmail.com', rejectUnauthorized: true });
+    return socket;
+  });
+  assert.equal(calls.length, 0);
+  socket.emit('secureConnect');
+  assert.deepEqual(calls, [[null, { connection: socket, secured: true }]]);
+  socket.emit('error', new Error('late error'));
+  socket.emit('close');
+  assert.equal(calls.length, 1);
+});
+
+test('SMTP socket closes on timeout, TLS error or early close and calls back once', t => {
+  t.mock.timers.enable({ apis: ['setTimeout'] });
+  for (const outcome of ['timeout', 'error', 'close']) {
+    const socket = new EventEmitter();
+    let destroyed = false;
+    socket.destroy = () => { destroyed = true; socket.emit('close'); };
+    const calls = [];
+    openSmtpSocket((...args) => calls.push(args), () => socket);
+    if (outcome === 'timeout') t.mock.timers.tick(8000);
+    else socket.emit(outcome, new Error('private data'));
+    socket.emit('secureConnect');
+    socket.emit('error', new Error('late error'));
+    assert.equal(destroyed, true);
+    assert.equal(calls.length, 1);
+    assert.equal(calls[0][0].code, outcome === 'timeout' ? 'ETIMEDOUT' : 'ETLS');
+    assert.equal(calls[0][0].message, 'SMTP TLS connection failed');
+    assert.equal(calls[0][1], undefined);
+  }
+  let error;
+  openSmtpSocket(value => { error = value; }, () => { throw new Error('private data'); });
+  assert.equal(error.code, 'ETLS');
 });
