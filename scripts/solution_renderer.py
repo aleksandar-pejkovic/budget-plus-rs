@@ -14,6 +14,12 @@ def list_items(values):
     return "".join(f"<li>{esc(value)}</li>" for value in values)
 
 
+def render_image(item):
+    return f'''<figure class="solution-media"><a class="zoom-image" href="../assets/img/{esc(item['file'])}"><img src="../assets/img/{esc(item['file'])}"
+          alt="{esc(item['alt'])}" loading="lazy" width="{item['width']}" height="{item['height']}"></a>
+          <figcaption>{esc(item['caption'])}</figcaption></figure>'''
+
+
 def render_solution(page, base, lastmod, labels):
     slug, title, desc, kicker, h1, intro, benefits, related = page
     detail = DETAILS[slug]
@@ -31,13 +37,12 @@ def render_solution(page, base, lastmod, labels):
         workflow_link = f'<p>{esc(link["text"])}</p><a class="text-link" href="../{esc(link["slug"])}/#postupak">{esc(link["label"])} &rarr;</a>'
     advance = ""
     if item := detail.get("advance"):
-        advance = f'<aside id="avansi" class="advance-summary"><h3>{esc(item["title"])}</h3><p>{esc(item["text"])}</p><a class="text-link" href="../{esc(item["slug"])}/#avansi">{esc(item["label"])} &rarr;</a></aside>'
+        image = render_image(item['image']) if 'image' in item else ''
+        advance = f'<aside id="avansi" class="advance-summary"><h3>{esc(item["title"])}</h3><p>{esc(item["text"])}</p>{image}<a class="text-link" href="../{esc(item["slug"])}/#avansi">{esc(item["label"])} &rarr;</a></aside>'
     links = "".join(f'<a href="../{esc(s)}/">{esc(labels[s])} &rarr;</a>' for s in related)
     media = ""
     for item in detail.get("media", []):
-        media += f'''<figure class="solution-media"><a class="zoom-image" href="../assets/img/{esc(item['file'])}"><img src="../assets/img/{esc(item['file'])}"
-          alt="{esc(item['alt'])}" loading="lazy" width="{item['width']}" height="{item['height']}"></a>
-          <figcaption>{esc(item['caption'])}</figcaption></figure>'''
+        media += render_image(item)
     if video := detail.get("video"):
         media += f'''<figure class="solution-media"><video controls playsinline preload="none"
           aria-label="Pregled obračuna plate u nalogu" poster="../assets/img/{esc(video['poster'])}">

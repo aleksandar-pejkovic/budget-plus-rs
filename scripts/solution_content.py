@@ -25,6 +25,10 @@ DETAILS = {'program-za-racunovodstvo-skola': {'how': 'Izaberite dokument i pokre
                                                     'text': 'Za nabavku osnovnih sredstava možete zajedno '
                                                             'sačuvati knjiženje i evidenciju sredstava.'},
                                   'advance': {'title': 'Konačna faktura i zatvaranje avansa',
+                                              'image': {'file': 'demo-avans-zatvaranje.png',
+                                                        'alt': 'Konačna faktura od 20.000 dinara, avans i saldo od 12.000 dinara i ostatak za plaćanje od 8.000 dinara',
+                                                        'width': 1024, 'height': 952,
+                                                        'caption': 'Izbor kategorije i pregled salda pri zatvaranju avansa konačnom fakturom. Demonstracioni podaci, Budžet+ 1.11.1. Izgled zavisi od verzije.'},
                                               'text': 'Program obuhvata i zatvaranje avansa. Kategoriju '
                                                       'birate samo kada program zatraži izbor, uz dostupan '
                                                       'pregled salda avansa na datum naloga.',
@@ -34,6 +38,10 @@ DETAILS = {'program-za-racunovodstvo-skola': {'how': 'Izaberite dokument i pokre
                                'Budžet+ automatski knjiži stavke prema podacima izvoda i pravilima '
                                'knjiženja, a vi pregledate rezultat.',
                         'advance': {'title': 'Automatsko knjiženje isplata avansa',
+                                    'image': {'file': 'demo-avans-isplata.png',
+                                              'alt': 'Isplata avansa od 12.000 dinara iz SPIRI izvoda sa izabranom kategorijom Avansi za materijal',
+                                              'width': 1024, 'height': 744,
+                                              'caption': 'Izbor kategorije pri knjiženju isplate avansa iz SPIRI izvoda. Demonstracioni podaci, Budžet+ 1.11.1. Izgled zavisi od verzije.'},
                                     'text': 'Isplate avansa knjiže se iz izvoda. Kategoriju birate samo kada '
                                             'program zatraži izbor, bez unosa brojeva konta i iznosa '
                                             'raspodele.',

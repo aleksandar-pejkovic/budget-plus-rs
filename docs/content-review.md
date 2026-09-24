@@ -1,5 +1,15 @@
 # Dorada sadržaja — 19. septembar 2026.
 
+## Prikazi avansa — 25. septembar 2026.
+
+Dodati su snimci stvarnog lokalnog interfejsa Budžet+ 1.11.1: `demo-avans-isplata.png` (1024 × 744) uz SPIRI izvode i `demo-avans-zatvaranje.png` (1024 × 952) uz konačne e-fakture. Slike su uz odgovarajuće odeljke `#avansi`, sa opisom demonstracionih podataka i postojećim uvećavanjem.
+
+Izvor je postojeći `budget-plus-client/.output` build od 23.09.2026. u 17:43:30 UTC. Radno stablo klijenta bilo je čisto, HEAD `201913e`; postupak je proveren prema `components/file/AutoPostingUploader.vue` i `utils/directReports.ts`. Snimljeni paneli odgovaraju tim komponentama. Izvorni kod i build aplikacije nisu menjani.
+
+Headless Chromium je radio na lokalnoj adresi sa lokalnim simuliranim API odgovorima, izmišljenim korisnikom i partnerom „Primer dobavljača“. Primer povezuje avans od 12.000 dinara sa konačnom fakturom od 20.000 dinara i ostatkom od 8.000 dinara. Izabrana je demonstraciona kategorija „Avansi za materijal“, sa saldom 12.000 dinara i datumom naloga 25.09.2026.
+
+Dozvoljeni su samo lokalni zahtevi za podatke i simulirani preview pozivi. Potvrda knjiženja nije pozvana; nijedan produkcioni servis nije kontaktiran. PNG snimci su napravljeni direktno iz relevantnih panela u svetloj temi, pri dvostrukoj gustini piksela, bez naknadne izmene sadržaja.
+
 ## Zamena starih prikaza programa — 20. septembar 2026.
 
 Ova dopuna zamenjuje odluku iz prethodnog koraka da se stare samostalne slike zadrže. Dodata su četiri nova snimka lokalnog FE-a 1.11.1. Tri ranije dodate slike iz uputstava 1.11.0 ostaju. Nisu menjani opisi procesa niti dodavani novi mediji na ostale stranice.

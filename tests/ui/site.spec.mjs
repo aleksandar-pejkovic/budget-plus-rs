@@ -51,7 +51,7 @@ test('mobile menu, image dialog and solution links work with keyboard', async ({
   await page.locator('.zoom-image').click(); await expect(page.locator('dialog')).toBeVisible();
   await page.keyboard.press('Escape'); await expect(page.locator('dialog')).not.toBeVisible(); await expect(page.locator('.zoom-image')).toBeFocused();
   await page.goto('/spiri-izvodi-skole/');
-  const advanceLink = page.locator('#avansi a');
+  const advanceLink = page.locator('#avansi > .text-link');
   await advanceLink.focus(); await page.keyboard.press('Enter');
   await expect(page).toHaveURL(/knjizenje-e-faktura-za-skole\/#avansi$/);
   await expect(page.locator('#avansi')).toBeInViewport();
