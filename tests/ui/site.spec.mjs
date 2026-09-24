@@ -9,20 +9,16 @@ test.beforeEach(async ({ page }) => {
   await page.route(/google-analytics|googletagmanager|challenges.cloudflare.com/, route => route.abort());
 });
 
-test('systems are visible on the first screen on desktop and mobile', async ({ page }) => {
+test('introduction and contact choices are visible on the first screen', async ({ page }) => {
   for (const [width, height] of [[1366, 768], [1440, 900], [360, 800], [390, 844]]) {
     await page.setViewportSize({ width, height });
     await page.goto('/');
     await page.evaluate(() => document.fonts.ready);
-    const strip = page.locator('.integration-strip');
-    await expect(strip.locator('p')).toBeVisible();
-    await expect(strip.locator('div > span')).toHaveCount(5);
-    const box = await strip.boundingBox();
-    expect(box.y, `${width}: strip starts on screen`).toBeGreaterThanOrEqual(0);
-    expect(box.y + box.height, `${width}: all systems fit on screen`).toBeLessThanOrEqual(height);
-    if (width < 700) {
-      const product = await page.locator('.hero-product').boundingBox();
-      expect(product.y).toBeGreaterThanOrEqual(box.y + box.height);
+    await expect(page.locator('.hero-intro')).toContainText('Vi proveravate i potvrđujete');
+    for (const selector of ['.hero h1', '.hero .btn.primary', '.hero .text-link', '.hero-phone a']) {
+      const box = await page.locator(selector).boundingBox();
+      expect(box.y, `${width}: ${selector} starts on screen`).toBeGreaterThanOrEqual(0);
+      expect(box.y + box.height, `${width}: ${selector} fits on screen`).toBeLessThanOrEqual(height);
     }
     await page.screenshot({ path: `.cache/screens/first-screen-${width}.png` });
   }
