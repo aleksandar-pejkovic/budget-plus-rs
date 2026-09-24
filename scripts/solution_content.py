@@ -5,11 +5,11 @@ DETAILS = {'program-za-racunovodstvo-skola': {'how': 'Izaberite dokument i pokre
                                            'koristite kroz glavnu knjigu, kartice, preglede i izveštaje, bez '
                                            'ponovnog prepisivanja.',
                                     'media': [{'file': 'demo-nalog.png',
-                                               'alt': 'Nalog sa stavkama, ukupnim dugovnim i potražnim '
-                                                      'prometom i saldom',
-                                               'width': 1760,
-                                               'height': 557,
-                                               'caption': 'Nalog sa stavkama u Budžet+ programu. Demonstracioni podaci. Izgled zavisi od verzije.'}, {'file': 'demo-kartica-partnera.png', 'alt': 'Promet konta dobavljača za izabranog partnera sa dugovnim i potražnim prometom i saldom', 'width': 1556, 'height': 962, 'caption': 'Primer izveštaja: promet i saldo konta za izabranog partnera. Demonstracioni podaci. Izgled zavisi od verzije.'}]},
+                                               'alt': 'Nalog prijema neplaćene fakture: 131211 duguje i '
+                                                      '252111 potražuje po 12.000 dinara, saldo nula',
+                                               'width': 4032,
+                                               'height': 1116,
+                                               'caption': 'Demonstracioni podaci. Izgled zavisi od verzije.'}]},
  'knjizenje-e-faktura-za-skole': {'how': 'Preuzmite e-fakture iz SEF-a direktno u Budžet+, označite fakture '
                                          'i izaberite nalog. Program preuzima podatke, povezuje ili kreira '
                                          'partnera i automatski knjiži odabrane fakture; vi pregledate '

@@ -115,3 +115,8 @@ Pet snimaka interfejsa napravljeno je u headless Chromium-u iz izolovano izgrađ
 Tabela izvršenja i promet partnera su prikazi originalnih backend HTML šablona izveštaja (`budgetExecution.html`, `account.html`, `layout.html` i `main.css`), popunjenih demonstracionim podacima kroz Thymeleaf i snimljenih u Chromium-u. Nisu snimci PDF preglednika. Na sajtu su označeni kao primeri izveštaja. Postupak snimanja i demo podaci ostaju u lokalnim `.cache/capture-product.mjs` i `.cache/report-runtime/DemoReports.java`.
 
 Provere: metapodaci i lokalni linkovi za 13 stranica, svih 10 postojećih UI testova (pet širina, WCAG A/AA, navigacija i forma), učitavanje i uvećavanje svih sedam novih slika na 390 i 1440 px. Slike imaju opis, dimenzije i odloženo učitavanje; uži obrasci imaju ograničenu širinu prikaza. Izmene nisu objavljene.
+
+
+### Ispravka primera naloga — 25. septembar 2026.
+
+Slika `demo-nalog.png` zamenjena je novim snimkom lokalnog interfejsa sa dve demonstracione stavke prijema neplaćene ulazne fakture: 131211 duguje 12.000 i 252111 potražuje 12.000 dinara. Prethodni primer 426111/252111 uklonjen je. Konta, strane i izostavljanje partnera sa zbirne stavke provereni su u `InvoicePostingFactory.createAccruedExpenseTransaction` i kreiranju stavke dobavljača; nazivi su iz izvornog kontnog plana. Ispod slike ostaje samo napomena o demonstracionim podacima i verziji. Slika kartice dobavljača uklonjena je sa stranice jer ne prati ovaj primer. Snimak ne predstavlja izvršeno plaćanje. Originalni program i stvarni podaci nisu menjani.
