@@ -15,7 +15,8 @@ def list_items(values):
 
 
 def render_image(item):
-    return f'''<figure class="solution-media"><a class="zoom-image" href="../assets/img/{esc(item['file'])}"><img src="../assets/img/{esc(item['file'])}"
+    compact = ' solution-media-compact' if item.get('compact') else ''
+    return f'''<figure class="solution-media{compact}"><a class="zoom-image" href="../assets/img/{esc(item['file'])}"><img src="../assets/img/{esc(item['file'])}"
           alt="{esc(item['alt'])}" loading="lazy" width="{item['width']}" height="{item['height']}"></a>
           <figcaption>{esc(item['caption'])}</figcaption></figure>'''
 

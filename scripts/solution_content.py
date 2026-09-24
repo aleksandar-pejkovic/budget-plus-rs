@@ -9,7 +9,7 @@ DETAILS = {'program-za-racunovodstvo-skola': {'how': 'Izaberite dokument i pokre
                                                       'prometom i saldom',
                                                'width': 1760,
                                                'height': 557,
-                                               'caption': 'Nalog sa stavkama u Budžet+ programu. Demonstracioni podaci. Izgled zavisi od verzije.'}]},
+                                               'caption': 'Nalog sa stavkama u Budžet+ programu. Demonstracioni podaci. Izgled zavisi od verzije.'}, {'file': 'demo-kartica-partnera.png', 'alt': 'Promet konta dobavljača za izabranog partnera sa dugovnim i potražnim prometom i saldom', 'width': 1556, 'height': 962, 'caption': 'Primer izveštaja: promet i saldo konta za izabranog partnera. Demonstracioni podaci. Izgled zavisi od verzije.'}]},
  'knjizenje-e-faktura-za-skole': {'how': 'Preuzmite e-fakture iz SEF-a direktno u Budžet+, označite fakture '
                                          'i izaberite nalog. Program preuzima podatke, povezuje ili kreira '
                                          'partnera i automatski knjiži odabrane fakture; vi pregledate '
@@ -58,14 +58,17 @@ DETAILS = {'program-za-racunovodstvo-skola': {'how': 'Izaberite dokument i pokre
  'spiri-kumulativno-placanje': {'how': 'U pregledu e-faktura označite obaveze i izaberite „Pripremi za '
                                        'SPIRI“. Program preuzima podatke sa faktura i priprema jedan XML '
                                        'dokument, koji nakon pregleda učitavate u SPIRI za dalju obradu '
-                                       'plaćanja.'},
+                                       'plaćanja.',
+                             'media': [{'file': 'demo-spiri-priprema.png', 'alt': 'Tri označene e-fakture ukupne vrednosti 104.000 dinara i opcija Pripremi za SPIRI', 'width': 2880, 'height': 2200, 'caption': 'Izbor više e-faktura za pripremu SPIRI plaćanja. Demonstracioni podaci. Izgled zavisi od verzije.'}]},
  'rucni-unos-spiri-placanja': {'how': 'Otvorite sačuvani šablon i ažurirajte podatke za aktuelnu isplatu. '
                                       'Budžet+ priprema dokument koji učitavate u SPIRI za dalju obradu '
                                       'plaćanja. Podatke za novo plaćanje možete sačuvati kao šablon za '
-                                      'sledeći put.'},
+                                      'sledeći put.',
+                             'media': [{'file': 'demo-spiri-sablon.png', 'alt': 'Plaćanje održavanja opreme od 12.000 dinara popunjeno iz sačuvanog šablona', 'width': 2368, 'height': 1062, 'caption': 'Sačuvani šablon popunjava podatke redovne obaveze; pre pripreme plaćanja proverite iznos, datume i poziv na broj. Demonstracioni podaci. Izgled zavisi od verzije.'}]},
  'oris-izvoz-za-skole': {'how': 'Izaberite mesec i godinu, a Budžet+ priprema dokument sa mesečnim promenama '
                                 'iz postojećih knjiženja. Preuzeti dokument učitajte na ORIS portal i '
-                                'pregledajte rezultat.'},
+                                'pregledajte rezultat.',
+                             'media': [{'file': 'demo-oris-priprema.png', 'alt': 'Izbor septembra 2026. i dugme za preuzimanje dokumenta za ORIS', 'width': 944, 'height': 750, 'caption': 'Izbor meseca i godine za pripremu ORIS dokumenta. Demonstracioni podaci. Izgled zavisi od verzije.', 'compact': True}]},
  'obrazac-5-ispfi': {'how': 'Izaberite period i podatke izveštaja, a program priprema Obrazac 5 iz '
                             'postojećih knjiženja. Preuzmite JSON dokument i učitajte ga u ISPFI, gde '
                             'pregledate rezultat.',
@@ -82,12 +85,14 @@ DETAILS = {'program-za-racunovodstvo-skola': {'how': 'Izaberite dokument i pokre
                                                'klasifikaciji',
                                         'width': 1280,
                                         'height': 1033,
-                                        'caption': 'Plan i realizacija budžeta u Budžet+ programu. Demonstracioni podaci. Izgled zavisi od verzije.'}]},
+                                        'caption': 'Plan i realizacija budžeta u Budžet+ programu. Demonstracioni podaci. Izgled zavisi od verzije.'}, {'file': 'demo-izvrsenje-tabela.png', 'alt': 'Izveštaj izvršenja budžeta sa planom od 6 miliona dinara, realizacijom od 4,2 miliona i procentom izvršenja od 70 odsto', 'width': 1556, 'height': 850, 'caption': 'Primer izveštaja: plan, realizacija i procenat izvršenja po ekonomskoj klasifikaciji. Demonstracioni podaci. Izgled zavisi od verzije.'}]},
  'osnovna-sredstva-skola': {'how': 'Učitajte jednu XML e-fakturu, rasporedite stavke, proverite vrstu '
                                    'sredstva i unesite stopu amortizacije. Pregledajte pripremljeni nalog i '
                                    'potvrdite — knjiženje i evidencija osnovnih sredstava čuvaju se '
                                    'zajedno.',
-                            'media': [{'file': 'uputstvo-osnovna-sredstva.png',
+                            'media': [{'file': 'demo-sredstva-raspored.png', 'alt': 'Raspored stavke Računar za nastavu i izbor vrste sredstva i stope amortizacije', 'width': 1024, 'height': 1820, 'caption': 'Korak 1: raspored stavki e-fakture i provera podataka osnovnog sredstva. Demonstracioni podaci. Izgled zavisi od verzije.', 'compact': True},
+                                       {'file': 'demo-sredstva-nalog.png', 'alt': 'Pregled sredstva vrednog 72.000 dinara i pripremljenih stavki naloga pre potvrde', 'width': 1024, 'height': 1512, 'caption': 'Korak 2: pregled naloga pre zajedničkog čuvanja knjiženja i evidencije osnovnih sredstava. Demonstracioni podaci. Izgled zavisi od verzije.', 'compact': True},
+                                       {'file': 'uputstvo-osnovna-sredstva.png',
                                        'alt': 'Evidencija osnovnih sredstava sa inventarskim brojem, lokacijom, nabavnom i trenutnom vrednošću',
                                        'width': 1728,
                                        'height': 618,

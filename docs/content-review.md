@@ -105,3 +105,13 @@ Tabele su označene kao ilustracije, ne kao snimci aplikacije. Ne sadrže stvarn
 - Izolovani Chromium testovi proverili su svih 13 stranica na širinama 360, 390, 768, 1024 i 1440 px: nema horizontalnog prelivanja i svaka stranica ima jedan glavni naslov. Automatske WCAG A/AA provere su prošle. Provereni su mobilni meni, tastatura, dijalog za slike i ponašanje forme; sačuvani su snimci stranica na 390 i 1440 px. Ručno je pregledan desktop uvod početne stranice; potpuna ručna vizuelna provera svih stranica ostaje zaseban korak.
 
 Ovo je opis proizvoda, ne novi stručni vodič niti tumačenje propisa. Datum u sitemap-u i strukturiranim podacima odgovara ovoj izmeni sadržaja.
+
+## Novi prikazi — 25. septembar 2026.
+
+Dodato je sedam prikaza na šest tematskih stranica: izbor e-faktura za SPIRI, plaćanje iz sačuvanog šablona, raspored osnovnih sredstava i pregled naloga, ORIS period, tabela izvršenja budžeta i promet konta za partnera. Postojeće slike su sačuvane. Početna strana i uplate učenika nisu menjane.
+
+Pet snimaka interfejsa napravljeno je u headless Chromium-u iz izolovano izgrađene kopije lokalnog `budget-plus-client` 1.11.1 (HEAD `05fe76d`, uz tadašnje lokalne izvore). Originalni projekat nije menjan. Lokalni demonstracioni API vraćao je izmišljene ustanove, partnere i dokumente; pristup spoljnim servisima bio je blokiran. Nije pokrenuto stvarno knjiženje, plaćanje ili izvoz. Primer stavki osnovnog sredstva prati konta i strane knjiženja iz `InvoiceAssetPostingService.createAsset`; nazivi konta provereni su u izvornom kontnom planu.
+
+Tabela izvršenja i promet partnera su prikazi originalnih backend HTML šablona izveštaja (`budgetExecution.html`, `account.html`, `layout.html` i `main.css`), popunjenih demonstracionim podacima kroz Thymeleaf i snimljenih u Chromium-u. Nisu snimci PDF preglednika. Na sajtu su označeni kao primeri izveštaja. Postupak snimanja i demo podaci ostaju u lokalnim `.cache/capture-product.mjs` i `.cache/report-runtime/DemoReports.java`.
+
+Provere: metapodaci i lokalni linkovi za 13 stranica, svih 10 postojećih UI testova (pet širina, WCAG A/AA, navigacija i forma), učitavanje i uvećavanje svih sedam novih slika na 390 i 1440 px. Slike imaju opis, dimenzije i odloženo učitavanje; uži obrasci imaju ograničenu širinu prikaza. Izmene nisu objavljene.
