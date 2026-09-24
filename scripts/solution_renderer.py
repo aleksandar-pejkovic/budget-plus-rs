@@ -24,6 +24,7 @@ def render_image(item):
 def render_solution(page, base, lastmod, labels):
     slug, title, desc, kicker, h1, intro, benefits, related = page
     detail = DETAILS[slug]
+    workflow_image = render_image(detail['workflow_image']) if detail.get('workflow_image') else ''
     canonical = f"{base}/{slug}/"
     schema = {"@context": "https://schema.org", "@graph": [
         {"@type": "WebPage", "@id": canonical, "url": canonical, "name": title,
@@ -90,7 +91,7 @@ def render_solution(page, base, lastmod, labels):
     </div></section>
     <div class="container solution-layout"><div class="solution-content">
       <section aria-labelledby="postupak"><h2 id="postupak">Kako radi</h2>
-        <p>{esc(detail['how'])}</p>{advance}{workflow_link}
+        <p>{esc(detail['how'])}</p>{workflow_image}{advance}{workflow_link}
       </section>
 {media}
       <div class="landing-cta"><h2>Pogledajte Budžet+ u radu</h2>

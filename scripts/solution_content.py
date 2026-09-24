@@ -14,11 +14,11 @@ DETAILS = {'program-za-racunovodstvo-skola': {'how': 'Izaberite dokument i pokre
                                          'i izaberite nalog. Program preuzima podatke, povezuje ili kreira '
                                          'partnera i automatski knjiži odabrane fakture; vi pregledate '
                                          'rezultat.',
-                                  'media': [{'file': 'uputstvo-e-fakture.png',
+                                  'workflow_image': {'file': 'uputstvo-e-fakture.png',
                                              'alt': 'Pregled e-faktura sa odabranim nalogom, statusom Nije knjiženo i dugmetom Proknjiži',
                                              'width': 2040,
                                              'height': 1502,
-                                             'caption': 'Pregled e-faktura i knjiženje iz programa. Demonstracioni podaci. Izgled zavisi od verzije.'}],
+                                             'caption': 'Pregled e-faktura i knjiženje iz programa. Demonstracioni podaci. Izgled zavisi od verzije.'},
                                   'workflow_link': {'slug': 'osnovna-sredstva-skola',
                                                     'label': 'Od e-fakture do knjiženja i evidencije '
                                                              'osnovnih sredstava',
@@ -37,6 +37,10 @@ DETAILS = {'program-za-racunovodstvo-skola': {'how': 'Izaberite dokument i pokre
  'spiri-izvodi-skole': {'how': 'Dodajte SPIRI izvod u JSON formatu u izabrani nalog i pokrenite knjiženje. '
                                'Budžet+ automatski knjiži stavke prema podacima izvoda i pravilima '
                                'knjiženja, a vi pregledate rezultat.',
+                        'workflow_image': {'file': 'demo-spiri-izvod.png',
+                                           'alt': 'Nalog iz SPIRI izvoda: plaćanje dobavljaču za kancelarijski materijal, zatvaranje obaveze i evidentiranje rashoda',
+                                           'width': 4032, 'height': 1296,
+                                           'caption': 'Knjiženje redovnog plaćanja dobavljaču iz SPIRI izvoda. Demonstracioni podaci. Izgled zavisi od verzije.'},
                         'advance': {'title': 'Automatsko knjiženje isplata avansa',
                                     'image': {'file': 'demo-avans-isplata.png',
                                               'alt': 'Isplata avansa od 12.000 dinara iz SPIRI izvoda sa izabranom kategorijom Avansi za materijal',

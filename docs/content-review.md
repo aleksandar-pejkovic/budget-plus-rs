@@ -119,4 +119,6 @@ Provere: metapodaci i lokalni linkovi za 13 stranica, svih 10 postojećih UI tes
 
 ### Ispravka primera naloga — 25. septembar 2026.
 
+Na stranici SPIRI izvoda dodat je `demo-spiri-izvod.png`, pre odeljka o avansima. Snimak lokalnog interfejsa koristi demonstracioni nalog redovnog plaćanja kancelarijskog materijala od 12.000 dinara: 252111/121112 i 426111/131211, ukupni promet 24.000 dinara po strani. Konta i smerovi prate `StatementPostingFactory` (obrada rashoda i `addCounterTransactions`), uz demonstracioni tekući račun 121112 i izvor 07. Slika predstavlja rezultat obrade izvoda; podaci su dati lokalnim mock API-jem, bez stvarnog knjiženja ili plaćanja.
+
 Slika `demo-nalog.png` zamenjena je novim snimkom lokalnog interfejsa sa dve demonstracione stavke prijema neplaćene ulazne fakture: 131211 duguje 12.000 i 252111 potražuje 12.000 dinara. Prethodni primer 426111/252111 uklonjen je. Konta, strane i izostavljanje partnera sa zbirne stavke provereni su u `InvoicePostingFactory.createAccruedExpenseTransaction` i kreiranju stavke dobavljača; nazivi su iz izvornog kontnog plana. Ispod slike ostaje samo napomena o demonstracionim podacima i verziji. Slika kartice dobavljača uklonjena je sa stranice jer ne prati ovaj primer. Snimak ne predstavlja izvršeno plaćanje. Originalni program i stvarni podaci nisu menjani.
