@@ -76,7 +76,9 @@ def render_solution(page, base, lastmod, labels):
   <meta name="twitter:description" content="{esc(desc)}">
   <meta name="twitter:image" content="{base}/assets/img/budzet-plus-share-icon.png">
   <script type="application/ld+json">{json.dumps(schema, ensure_ascii=False, separators=(',', ':'))}</script>
-  <link rel="icon" href="../assets/img/budget_plus_logo.ico">
+  <link rel="icon" href="/assets/img/budzet-plus-favicon.ico" type="image/x-icon" sizes="16x16 32x32 48x48 256x256">
+  <link rel="apple-touch-icon" href="/assets/img/budzet-plus-icon-180.png" sizes="180x180">
+  <link rel="manifest" href="/site.webmanifest">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
