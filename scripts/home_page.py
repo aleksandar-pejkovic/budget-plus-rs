@@ -66,8 +66,8 @@ def render_body():
 <section class="hero" id="pocetna"><div class="container hero-grid">
   <div class="hero-copy"><p class="eyebrow"><span class="status-dot"></span> Za računovođe u osnovnim i srednjim školama</p>
     <h1>Budžetsko računovodstvo za škole <span>— od dokumenta do izveštaja.</span></h1>
-    <div class="hero-intro"><p>Budžet+ automatski knjiži podatke iz e-faktura, SPIRI izvoda i ISKRA obračuna. Vi pregledate rezultat — ako je knjiženje ispravno, nema dodatnog unosa ni potvrđivanja.</p><p>Iz proknjiženih podataka pripremate računovodstvene izveštaje, Obrazac 5 za ISPFI i ORIS izvoz.</p></div>
-    <p class="hero-benefit">Manje vremena za unos. Više vremena za kontrolu.</p>
+    <div class="hero-intro"><p>Budžet+ automatski knjiži podatke iz e-faktura, SPIRI izvoda i ISKRA obračuna. Vi pregledate rezultat.</p><p>Iz proknjiženih podataka pripremate računovodstvene izveštaje, Obrazac 5 za ISPFI i ORIS izvoz.</p></div>
+    <p class="hero-benefit">Manje ručnog unosa. Više vremena za kontrolu.</p>
     <div class="cta-group"><a class="btn primary" href="#kontakt">Prijavite se za prezentaciju <span aria-hidden="true">↗</span></a><a class="text-link" href="#video"><span aria-hidden="true">▷</span> Pogledajte program</a></div>
     <p class="hero-phone">Radije biste razgovarali? <a href="tel:+381659170989">065 917 0989</a></p>
   </div>
