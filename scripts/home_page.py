@@ -77,7 +77,7 @@ def render_body():
 
 <section class="section author-section" aria-labelledby="autor-naslov"><div class="container author-grid">
   <div><p class="eyebrow">Aleksandar Pejković · autor programa</p><h2 id="autor-naslov">Iz svakodnevnog rada u školskom računovodstvu.</h2></div>
-  <div class="author-copy"><p>Ja sam Aleksandar Pejković, računovođa u osnovnoj školi i autor programa Budžet+. Program je nastao iz potreba mog svakodnevnog rada, a razvijam ga u saradnji sa kolegama iz prakse.</p><p>Polazim od konkretnih poslova koje obavljamo: knjiženja faktura i izvoda, pripreme plaćanja, praćenja izvršenja finansijskog plana i sastavljanja izveštaja.</p></div>
+  <div class="author-copy"><p>Ja sam Aleksandar Pejković, računovođa u osnovnoj školi i autor programa Budžet+. Program je nastao iz potreba mog svakodnevnog rada, a razvijam ga u saradnji sa kolegama iz prakse.</p></div>
 </div></section>
 
 <section class="section capabilities-section" id="mogucnosti"><div class="container" id="resenja"><div class="section-heading"><div><p class="eyebrow">Jedan program, povezane evidencije</p><h2>Poslovi koje obavljate u Budžet+ programu</h2></div></div><div class="capabilities">{module_html}</div></div></section>
