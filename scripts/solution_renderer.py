@@ -66,7 +66,7 @@ def render_solution(page, base, lastmod, labels):
   <meta property="og:type" content="website">
   <meta property="og:url" content="{canonical}">
   <meta property="og:locale" content="sr_RS">
-  <meta property="og:image" content="{base}/assets/img/budzet-plus-share-icon.png">
+  <meta property="og:image" content="{base}/assets/img/budzet-plus-share-icon-v2.png">
   <meta property="og:image:type" content="image/png">
   <meta property="og:image:width" content="512">
   <meta property="og:image:height" content="512">
@@ -74,7 +74,7 @@ def render_solution(page, base, lastmod, labels):
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{esc(title)}">
   <meta name="twitter:description" content="{esc(desc)}">
-  <meta name="twitter:image" content="{base}/assets/img/budzet-plus-share-icon.png">
+  <meta name="twitter:image" content="{base}/assets/img/budzet-plus-share-icon-v2.png">
   <script type="application/ld+json">{json.dumps(schema, ensure_ascii=False, separators=(',', ':'))}</script>
   <link rel="icon" href="/assets/img/budzet-plus-favicon.ico" type="image/x-icon" sizes="16x16 32x32 48x48 256x256">
   <link rel="apple-touch-icon" href="/assets/img/budzet-plus-icon-180.png" sizes="180x180">
