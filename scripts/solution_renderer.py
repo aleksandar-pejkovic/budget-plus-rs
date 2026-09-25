@@ -66,15 +66,15 @@ def render_solution(page, base, lastmod, labels):
   <meta property="og:type" content="website">
   <meta property="og:url" content="{canonical}">
   <meta property="og:locale" content="sr_RS">
-  <meta property="og:image" content="{base}/assets/img/budzet-plus-share.png">
+  <meta property="og:image" content="{base}/assets/img/budzet-plus-share-icon.png">
   <meta property="og:image:type" content="image/png">
-  <meta property="og:image:width" content="3600">
-  <meta property="og:image:height" content="982">
+  <meta property="og:image:width" content="512">
+  <meta property="og:image:height" content="512">
   <meta property="og:image:alt" content="Budžet+ logo">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{esc(title)}">
   <meta name="twitter:description" content="{esc(desc)}">
-  <meta name="twitter:image" content="{base}/assets/img/budzet-plus-share.png">
+  <meta name="twitter:image" content="{base}/assets/img/budzet-plus-share-icon.png">
   <script type="application/ld+json">{json.dumps(schema, ensure_ascii=False, separators=(',', ':'))}</script>
   <link rel="icon" href="../assets/img/budget_plus_logo.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
