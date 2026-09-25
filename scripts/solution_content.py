@@ -1,6 +1,6 @@
 """Concise product benefits and real visuals. Sources: docs/content-review.md."""
 
-DETAILS = {'knjizenje-e-faktura-za-skole': {'how': 'Preuzmite e-fakture iz SEF-a direktno u Budžet+, označite do 30 faktura i izaberite nalog. Jednim klikom pokrenite knjiženje: program preuzima podatke, povezuje ili kreira partnere i automatski knjiži odabrane fakture. Vi pregledate rezultat — ako je knjiženje ispravno, nema dodatnog unosa ni potvrđivanja.',
+DETAILS = {'knjizenje-e-faktura-za-skole': {'how': 'Preuzmite e-fakture iz SEF-a direktno u Budžet+, označite do 30 faktura i izaberite nalog. Jednim klikom pokrenite knjiženje: program preuzima podatke, povezuje ili kreira partnere i automatski knjiži odabrane fakture. Vi pregledate rezultat.',
                                   'workflow_image': {'file': 'uputstvo-e-fakture.png',
                                              'alt': 'Pregled e-faktura sa odabranim nalogom, statusom Nije knjiženo i dugmetom Proknjiži',
                                              'width': 2040,
@@ -21,7 +21,7 @@ DETAILS = {'knjizenje-e-faktura-za-skole': {'how': 'Preuzmite e-fakture iz SEF-a
                                                       'pregled salda avansa na datum naloga.',
                                               'slug': 'spiri-izvodi-skole',
                                               'label': 'Kako se knjiži isplata avansa iz izvoda'}},
- 'spiri-izvodi-skole': {'how': 'Dodajte SPIRI izvod u JSON formatu u izabrani nalog i pokrenite knjiženje. Budžet+ automatski knjiži stavke prema podacima izvoda i pravilima knjiženja, a vi pregledate rezultat. Ako je knjiženje ispravno, nema dodatnog unosa ni potvrđivanja.',
+ 'spiri-izvodi-skole': {'how': 'Dodajte SPIRI izvod u JSON formatu u izabrani nalog i pokrenite knjiženje. Budžet+ automatski knjiži stavke prema podacima izvoda i pravilima knjiženja, a vi pregledate rezultat.',
                         'workflow_image': {'file': 'demo-spiri-izvod.png',
                                            'alt': 'Nalog iz SPIRI izvoda: plaćanje dobavljaču za kancelarijski materijal, zatvaranje obaveze i evidentiranje rashoda',
                                            'width': 4032, 'height': 1296,
@@ -36,7 +36,7 @@ DETAILS = {'knjizenje-e-faktura-za-skole': {'how': 'Preuzmite e-fakture iz SEF-a
                                             'raspodele.',
                                     'slug': 'knjizenje-e-faktura-za-skole',
                                     'label': 'Konačna faktura i zatvaranje avansa'}},
- 'iskra-obracuni-knjizenje': {'how': 'U izabranom nalogu učitajte podržani Excel obračun iz ISKRA sistema i pokrenite knjiženje. Za plate i bolovanja program iz jednog fajla automatski knjiži i stavke obračuna i pripadajuće stavke izvoda. Za ostale podržane obračune knjiži stavke obračuna, a zatvaranje se obavlja knjiženjem izvoda. Vi pregledate rezultat; ispravno knjiženje ne zahteva dodatni unos ni potvrđivanje.',
+ 'iskra-obracuni-knjizenje': {'how': 'U izabranom nalogu učitajte podržani Excel obračun iz ISKRA sistema i pokrenite knjiženje. Za plate i bolovanja program iz jednog fajla automatski knjiži i stavke obračuna i pripadajuće stavke izvoda. Za ostale podržane obračune knjiži stavke obračuna, a zatvaranje se obavlja knjiženjem izvoda. Vi pregledate rezultat.',
                               'video': {'file': 'knjizenje-plate.mp4',
                                         'poster': 'nalog-za-knjizenje.jpg',
                                         'caption': 'Pregled obračuna plate u nalogu. Video prikazuje stariju '
@@ -73,11 +73,11 @@ DETAILS = {'knjizenje-e-faktura-za-skole': {'how': 'Preuzmite e-fakture iz SEF-a
                                         'height': 1033,
                                         'caption': 'Plan i realizacija budžeta u Budžet+ programu. Demonstracioni podaci. Izgled zavisi od verzije.'}, {'file': 'demo-izvrsenje-tabela.png', 'alt': 'Izveštaj izvršenja budžeta sa planom od 6 miliona dinara, realizacijom od 4,2 miliona i procentom izvršenja od 70 odsto', 'width': 1556, 'height': 850, 'caption': 'Primer izveštaja: plan, realizacija i procenat izvršenja po ekonomskoj klasifikaciji. Demonstracioni podaci. Izgled zavisi od verzije.'}]},
  'osnovna-sredstva-skola': {'how': 'Učitajte jednu XML e-fakturu, rasporedite stavke, proverite vrstu '
-                                   'sredstva i unesite stopu amortizacije. Pregledajte pripremljeni nalog i '
-                                   'potvrdite — knjiženje i evidencija osnovnih sredstava čuvaju se '
+                                   'sredstva i unesite stopu amortizacije. Pregledajte pripremljeni nalog. '
+                                   'Knjiženje i evidencija osnovnih sredstava čuvaju se '
                                    'zajedno.',
                             'media': [{'file': 'demo-sredstva-raspored.png', 'alt': 'Raspored stavke Računar za nastavu i izbor vrste sredstva i stope amortizacije', 'width': 1024, 'height': 1820, 'caption': 'Korak 1: raspored stavki e-fakture i provera podataka osnovnog sredstva. Demonstracioni podaci. Izgled zavisi od verzije.', 'compact': True},
-                                       {'file': 'demo-sredstva-nalog.png', 'alt': 'Pregled sredstva vrednog 72.000 dinara i pripremljenih stavki naloga pre potvrde', 'width': 1024, 'height': 1512, 'caption': 'Korak 2: pregled naloga pre zajedničkog čuvanja knjiženja i evidencije osnovnih sredstava. Demonstracioni podaci. Izgled zavisi od verzije.', 'compact': True},
+                                       {'file': 'demo-sredstva-nalog.png', 'alt': 'Pregled sredstva vrednog 72.000 dinara i pripremljenih stavki naloga', 'width': 1024, 'height': 1512, 'caption': 'Korak 2: pregled naloga pre zajedničkog čuvanja knjiženja i evidencije osnovnih sredstava. Demonstracioni podaci. Izgled zavisi od verzije.', 'compact': True},
                                        {'file': 'uputstvo-osnovna-sredstva.png',
                                        'alt': 'Evidencija osnovnih sredstava sa inventarskim brojem, lokacijom, nabavnom i trenutnom vrednošću',
                                        'width': 1728,

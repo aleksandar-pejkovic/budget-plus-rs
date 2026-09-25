@@ -8,10 +8,10 @@ from site_layout import header, footer, INSTALLATION_URL
 ROOT = Path(__file__).resolve().parents[1]
 
 MODULES = [
-    ("knjizenje", "Knjiženje", "<strong>E-fakture:</strong> Do 30 e-faktura proknjižite jednim klikom. Program preuzima podatke, povezuje ili kreira partnere i knjiži odabrane fakture.</p><p><strong>SPIRI izvodi:</strong> Učitajte izvod i pokrenite knjiženje — Budžet+ automatski knjiži njegove stavke, uključujući isplate avansa.</p><p><strong>ISKRA obračuni:</strong> Plate i bolovanja knjiže se kompletno iz jednog fajla — stavke obračuna i pripadajuće stavke izvoda. Ostali obračuni zatvaraju se knjiženjem izvoda.", [
-        ("knjizenje-e-faktura-za-skole", "E-fakture"),
+    ("knjizenje", "Knjiženje", "<strong>SPIRI izvodi:</strong> Učitajte izvod i pokrenite knjiženje — Budžet+ automatski knjiži njegove stavke, uključujući isplate avansa.</p><p><strong>ISKRA obračuni:</strong> Plate i bolovanja knjiže se kompletno iz jednog fajla — stavke obračuna i pripadajuće stavke izvoda. Ostali obračuni zatvaraju se knjiženjem izvoda.</p><p><strong>E-fakture:</strong> Do 30 e-faktura proknjižite jednim klikom. Program preuzima podatke, povezuje ili kreira partnere i knjiži odabrane fakture.", [
         ("spiri-izvodi-skole", "SPIRI izvodi"),
-        ("iskra-obracuni-knjizenje", "ISKRA obračuni")]),
+        ("iskra-obracuni-knjizenje", "ISKRA obračuni"),
+        ("knjizenje-e-faktura-za-skole", "E-fakture")]),
     ("spiri-placanja", "Priprema plaćanja", "Pripremite više SPIRI plaćanja odjednom i sačuvajte šablone redovnih obaveza.", [
         ("spiri-kumulativno-placanje", "Plaćanje više e-faktura"),
         ("rucni-unos-spiri-placanja", "Ručni unos i šabloni")]),
@@ -45,7 +45,7 @@ VIDEOS = [
 FAQ = [
     ("Kako izgleda prezentacija?", "Prolazimo kroz mogućnosti programa i konkretne poslove školskog računovodstva. Prijavite interesovanje, a o terminu naredne prezentacije obavestićemo vas emailom."),
     ("Da li su podaci kod nas?", "Program radi lokalno na vašem računaru. Za povezivanje sa državnim sistemima i preuzimanje podataka iz njih potrebna je internet veza."),
-    ("Da li program zamenjuje proveru računovođe?", "Ne. Računovođa proverava dokument, klasifikaciju i rezultat automatskog knjiženja. Ako je knjiženje ispravno, nema dodatnog unosa ni potvrđivanja."),
+    ("Da li program zamenjuje proveru računovođe?", "Ne. Računovođa proverava dokument, klasifikaciju i rezultat automatskog knjiženja."),
     ("Kako počinje korišćenje?", "Posle prezentacije dogovaramo uvođenje i instalaciju. Ako ste već spremni, termin instalacije možete izabrati preko linka za zakazivanje."),
     ("Kakva podrška je dostupna?", "Podrška obuhvata instalaciju, podešavanje i korišćenje Budžet+ programa. Dostupna je radnim danima od 9 do 15 časova, telefonom, emailom, putem Viber-a ili WhatsApp-a. Rad na daljinu dogovaramo prema potrebi."),
 ]
@@ -70,13 +70,8 @@ def render_body():
     <div class="cta-group"><a class="btn primary" href="#kontakt">Prijavite se za prezentaciju <span aria-hidden="true">↗</span></a><a class="text-link" href="#video"><span aria-hidden="true">▷</span> Pogledajte program</a></div>
     <p class="hero-phone">Radije biste razgovarali? <a href="tel:+381659170989">065 917 0989</a></p>
   </div>
-  <div class="trust-strip"><p>Razvija ga <strong>školski računovođa</strong> u saradnji sa kolegama iz prakse.</p><p>Koristi ga <strong>više od 50 škola.</strong></p><p>Lokalna instalacija. <strong>Podaci ostaju u ustanovi.</strong></p></div>
+  <div class="trust-strip"><p>Razvija ga <strong>školski računovođa</strong> u saradnji sa kolegama iz struke.</p><p>Koristi ga <strong>više od 50 škola.</strong></p><p>Lokalna instalacija. <strong>Podaci ostaju u ustanovi.</strong></p></div>
   <figure class="hero-product"><div class="product-label"><span class="status-dot"></span> Budžet+ <span>Pregled modula</span></div><a class="zoom-image" href="assets/img/demo-kontrolna-tabla.png"><img src="assets/img/demo-kontrolna-tabla.png" alt="Pregled modula u Budžet+ programu: nalozi, e-fakture, izveštaji i evidencije" width="1280" height="617" fetchpriority="high"></a><figcaption><div>Knjiženje. Evidencije. Izveštaji.<small>Demonstracioni podaci. Izgled zavisi od verzije.</small></div><span aria-hidden="true">↗</span></figcaption></figure>
-</div></section>
-
-<section class="section author-section" aria-labelledby="autor-naslov"><div class="container author-grid">
-  <div><p class="eyebrow">Aleksandar Pejković · autor programa</p><h2 id="autor-naslov">Iz svakodnevnog rada u školskom računovodstvu.</h2></div>
-  <div class="author-copy"><p>Ja sam Aleksandar Pejković, računovođa u osnovnoj školi i autor programa Budžet+. Program je nastao iz potreba mog svakodnevnog rada, a razvijam ga u saradnji sa kolegama iz prakse.</p></div>
 </div></section>
 
 <section class="section capabilities-section" id="mogucnosti"><div class="container" id="resenja"><div class="section-heading"><div><p class="eyebrow">Jedan program, povezane evidencije</p><h2>Poslovi koje obavljate u Budžet+ programu</h2></div></div><div class="capabilities">{module_html}</div></div></section>
