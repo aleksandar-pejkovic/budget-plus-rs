@@ -8,7 +8,7 @@ from site_layout import header, footer, INSTALLATION_URL
 ROOT = Path(__file__).resolve().parents[1]
 
 MODULES = [
-    ("knjizenje", "Knjiženje", "E-fakture, SPIRI izvodi i ISKRA obračuni, uključujući knjiženje isplata avansa i zatvaranje avansa konačnom fakturom — uz vašu proveru.", [
+    ("knjizenje", "Knjiženje", "<strong>E-fakture:</strong> Do 30 e-faktura proknjižite jednim klikom. Program preuzima podatke, povezuje ili kreira partnere i knjiži odabrane fakture.</p><p><strong>SPIRI izvodi:</strong> Učitajte izvod i pokrenite knjiženje — Budžet+ automatski knjiži njegove stavke, uključujući isplate avansa.</p><p><strong>ISKRA obračuni:</strong> Plate i bolovanja knjiže se kompletno iz jednog fajla — stavke obračuna i pripadajuće stavke izvoda. Ostali obračuni zatvaraju se knjiženjem izvoda.", [
         ("program-za-racunovodstvo-skola", "Povezane evidencije"),
         ("knjizenje-e-faktura-za-skole", "SEF i masovno knjiženje"),
         ("spiri-izvodi-skole", "SPIRI izvodi"),
@@ -46,7 +46,7 @@ VIDEOS = [
 FAQ = [
     ("Kako izgleda prezentacija?", "Prolazimo kroz mogućnosti programa i konkretne poslove školskog računovodstva. Prijavite interesovanje, a o terminu naredne prezentacije obavestićemo vas emailom."),
     ("Da li su podaci kod nas?", "Program radi lokalno na vašem računaru. Za povezivanje sa državnim sistemima i preuzimanje podataka iz njih potrebna je internet veza."),
-    ("Da li program zamenjuje proveru računovođe?", "Ne. Automatizacija smanjuje prepisivanje podataka, a računovođa proverava dokument, klasifikaciju i rezultat knjiženja."),
+    ("Da li program zamenjuje proveru računovođe?", "Ne. Računovođa proverava dokument, klasifikaciju i rezultat automatskog knjiženja. Ako je knjiženje ispravno, nema dodatnog unosa ni potvrđivanja."),
     ("Kako počinje korišćenje?", "Posle prezentacije dogovaramo uvođenje i instalaciju. Ako ste već spremni, termin instalacije možete izabrati preko linka za zakazivanje."),
     ("Kakva podrška je dostupna?", "Podrška obuhvata instalaciju, podešavanje i korišćenje Budžet+ programa. Dostupna je radnim danima od 9 do 15 časova, telefonom, emailom, putem Viber-a ili WhatsApp-a. Rad na daljinu dogovaramo prema potrebi."),
 ]
@@ -66,7 +66,7 @@ def render_body():
 <section class="hero" id="pocetna"><div class="container hero-grid">
   <div class="hero-copy"><p class="eyebrow"><span class="status-dot"></span> Za računovođe u osnovnim i srednjim školama</p>
     <h1>Budžetsko računovodstvo za škole <span>— od dokumenta do izveštaja.</span></h1>
-    <div class="hero-intro"><p>Budžet+ priprema naloge za knjiženje na osnovu e-faktura, SPIRI izvoda i ISKRA obračuna. Vi proveravate i potvrđujete pripremljene naloge.</p><p>Iz proknjiženih podataka pripremate računovodstvene izveštaje, Obrazac 5 za ISPFI i ORIS izvoz.</p></div>
+    <div class="hero-intro"><p>Budžet+ automatski knjiži podatke iz e-faktura, SPIRI izvoda i ISKRA obračuna. Vi pregledate rezultat — ako je knjiženje ispravno, nema dodatnog unosa ni potvrđivanja.</p><p>Iz proknjiženih podataka pripremate računovodstvene izveštaje, Obrazac 5 za ISPFI i ORIS izvoz.</p></div>
     <p class="hero-benefit">Manje vremena za unos. Više vremena za kontrolu.</p>
     <div class="cta-group"><a class="btn primary" href="#kontakt">Prijavite se za prezentaciju <span aria-hidden="true">↗</span></a><a class="text-link" href="#video"><span aria-hidden="true">▷</span> Pogledajte program</a></div>
     <p class="hero-phone">Radije biste razgovarali? <a href="tel:+381659170989">065 917 0989</a></p>

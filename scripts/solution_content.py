@@ -10,10 +10,7 @@ DETAILS = {'program-za-racunovodstvo-skola': {'how': 'Izaberite dokument i pokre
                                                'width': 4032,
                                                'height': 1116,
                                                'caption': 'Demonstracioni podaci. Izgled zavisi od verzije.'}]},
- 'knjizenje-e-faktura-za-skole': {'how': 'Preuzmite e-fakture iz SEF-a direktno u Budžet+, označite fakture '
-                                         'i izaberite nalog. Program preuzima podatke, povezuje ili kreira '
-                                         'partnera i automatski knjiži odabrane fakture; vi pregledate '
-                                         'rezultat.',
+ 'knjizenje-e-faktura-za-skole': {'how': 'Preuzmite e-fakture iz SEF-a direktno u Budžet+, označite do 30 faktura i izaberite nalog. Jednim klikom pokrenite knjiženje: program preuzima podatke, povezuje ili kreira partnere i automatski knjiži odabrane fakture. Vi pregledate rezultat — ako je knjiženje ispravno, nema dodatnog unosa ni potvrđivanja.',
                                   'workflow_image': {'file': 'uputstvo-e-fakture.png',
                                              'alt': 'Pregled e-faktura sa odabranim nalogom, statusom Nije knjiženo i dugmetom Proknjiži',
                                              'width': 2040,
@@ -34,9 +31,7 @@ DETAILS = {'program-za-racunovodstvo-skola': {'how': 'Izaberite dokument i pokre
                                                       'pregled salda avansa na datum naloga.',
                                               'slug': 'spiri-izvodi-skole',
                                               'label': 'Kako se knjiži isplata avansa iz izvoda'}},
- 'spiri-izvodi-skole': {'how': 'Dodajte SPIRI izvod u JSON formatu u izabrani nalog i pokrenite knjiženje. '
-                               'Budžet+ automatski knjiži stavke prema podacima izvoda i pravilima '
-                               'knjiženja, a vi pregledate rezultat.',
+ 'spiri-izvodi-skole': {'how': 'Dodajte SPIRI izvod u JSON formatu u izabrani nalog i pokrenite knjiženje. Budžet+ automatski knjiži stavke prema podacima izvoda i pravilima knjiženja, a vi pregledate rezultat. Ako je knjiženje ispravno, nema dodatnog unosa ni potvrđivanja.',
                         'workflow_image': {'file': 'demo-spiri-izvod.png',
                                            'alt': 'Nalog iz SPIRI izvoda: plaćanje dobavljaču za kancelarijski materijal, zatvaranje obaveze i evidentiranje rashoda',
                                            'width': 4032, 'height': 1296,
@@ -51,10 +46,7 @@ DETAILS = {'program-za-racunovodstvo-skola': {'how': 'Izaberite dokument i pokre
                                             'raspodele.',
                                     'slug': 'knjizenje-e-faktura-za-skole',
                                     'label': 'Konačna faktura i zatvaranje avansa'}},
- 'iskra-obracuni-knjizenje': {'how': 'U izabranom nalogu učitajte podržani Excel obračun plata ili bolovanja '
-                                     'iz ISKRA sistema i pokrenite knjiženje. Program proverava dokument i '
-                                     'automatski knjiži stavke, bez prepisivanja obračuna; vi pregledate '
-                                     'rezultat.',
+ 'iskra-obracuni-knjizenje': {'how': 'U izabranom nalogu učitajte podržani Excel obračun iz ISKRA sistema i pokrenite knjiženje. Za plate i bolovanja program iz jednog fajla automatski knjiži i stavke obračuna i pripadajuće stavke izvoda. Za ostale podržane obračune knjiži stavke obračuna, a zatvaranje se obavlja knjiženjem izvoda. Vi pregledate rezultat; ispravno knjiženje ne zahteva dodatni unos ni potvrđivanje.',
                               'video': {'file': 'knjizenje-plate.mp4',
                                         'poster': 'nalog-za-knjizenje.jpg',
                                         'caption': 'Pregled obračuna plate u nalogu. Video prikazuje stariju '

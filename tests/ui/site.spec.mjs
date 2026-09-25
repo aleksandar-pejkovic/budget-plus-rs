@@ -14,7 +14,7 @@ test('introduction and contact choices are visible on the first screen', async (
     await page.setViewportSize({ width, height });
     await page.goto('/');
     await page.evaluate(() => document.fonts.ready);
-    await expect(page.locator('.hero-intro')).toContainText('Vi proveravate i potvrđujete');
+    await expect(page.locator('.hero-intro')).toContainText('Vi pregledate rezultat');
     for (const selector of ['.hero h1', '.hero .btn.primary', '.hero .text-link', '.hero-phone a']) {
       const box = await page.locator(selector).boundingBox();
       expect(box.y, `${width}: ${selector} starts on screen`).toBeGreaterThanOrEqual(0);
