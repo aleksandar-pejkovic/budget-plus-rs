@@ -9,8 +9,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 MODULES = [
     ("knjizenje", "Knjiženje", "<strong>E-fakture:</strong> Do 30 e-faktura proknjižite jednim klikom. Program preuzima podatke, povezuje ili kreira partnere i knjiži odabrane fakture.</p><p><strong>SPIRI izvodi:</strong> Učitajte izvod i pokrenite knjiženje — Budžet+ automatski knjiži njegove stavke, uključujući isplate avansa.</p><p><strong>ISKRA obračuni:</strong> Plate i bolovanja knjiže se kompletno iz jednog fajla — stavke obračuna i pripadajuće stavke izvoda. Ostali obračuni zatvaraju se knjiženjem izvoda.", [
-        ("program-za-racunovodstvo-skola", "Povezane evidencije"),
-        ("knjizenje-e-faktura-za-skole", "SEF i masovno knjiženje"),
+        ("knjizenje-e-faktura-za-skole", "E-fakture"),
         ("spiri-izvodi-skole", "SPIRI izvodi"),
         ("iskra-obracuni-knjizenje", "ISKRA obračuni")]),
     ("spiri-placanja", "Priprema plaćanja", "Pripremite više SPIRI plaćanja odjednom i sačuvajte šablone redovnih obaveza.", [

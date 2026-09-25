@@ -2,8 +2,8 @@ import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { readdir } from 'node:fs/promises';
 const folders = await readdir(new URL('../..', import.meta.url), { withFileTypes: true });
-const pages = ['/', ...folders.filter(f => f.isDirectory() && /^(iskra-|izvrsenje-|knjizenje-|obrazac-|oris-|osnovna-|program-|rucni-|spiri-|uplate-|zatvaranje-)/.test(f.name)).map(f => `/${f.name}/`)];
-if (pages.length !== 13) throw new Error(`Expected 13 public pages, found ${pages.length}`);
+const pages = ['/', ...folders.filter(f => f.isDirectory() && /^(iskra-|izvrsenje-|knjizenje-|obrazac-|oris-|osnovna-|rucni-|spiri-|uplate-|zatvaranje-)/.test(f.name)).map(f => `/${f.name}/`)];
+if (pages.length !== 12) throw new Error(`Expected 12 public pages, found ${pages.length}`);
 
 test.beforeEach(async ({ page }) => {
   await page.route(/google-analytics|googletagmanager|challenges.cloudflare.com/, route => route.abort());
@@ -101,4 +101,14 @@ test('local preview validates without contacting production or Turnstile', async
   await expect(form.locator('.form-feedback')).toContainText('Podaci su ispravni.');
   await expect(page.locator('#contact-email')).toHaveValue('demo@example.com');
   expect(requests).toEqual([]);
+});
+
+test('removed overview is absent from pages, links and sitemap', async ({ page }) => {
+  expect(folders.some(f => f.name === 'program-za-racunovodstvo-skola')).toBe(false);
+  expect((await page.request.get('/program-za-racunovodstvo-skola/')).status()).toBe(404);
+  for (const path of pages) {
+    await page.goto(path);
+    await expect(page.locator('a[href*="program-za-racunovodstvo-skola"]')).toHaveCount(0);
+  }
+  expect(await (await page.request.get('/sitemap.xml')).text()).not.toContain('program-za-racunovodstvo-skola');
 });

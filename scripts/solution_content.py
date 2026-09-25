@@ -1,16 +1,6 @@
 """Concise product benefits and real visuals. Sources: docs/content-review.md."""
 
-DETAILS = {'program-za-racunovodstvo-skola': {'how': 'Izaberite dokument i pokrenite knjiženje — program preuzima '
-                                           'podatke i priprema stavke u nalogu. Jednom evidentirane podatke '
-                                           'koristite kroz glavnu knjigu, kartice, preglede i izveštaje, bez '
-                                           'ponovnog prepisivanja.',
-                                    'media': [{'file': 'demo-nalog.png',
-                                               'alt': 'Nalog prijema neplaćene fakture: 131211 duguje i '
-                                                      '252111 potražuje po 12.000 dinara, saldo nula',
-                                               'width': 4032,
-                                               'height': 1116,
-                                               'caption': 'Demonstracioni podaci. Izgled zavisi od verzije.'}]},
- 'knjizenje-e-faktura-za-skole': {'how': 'Preuzmite e-fakture iz SEF-a direktno u Budžet+, označite do 30 faktura i izaberite nalog. Jednim klikom pokrenite knjiženje: program preuzima podatke, povezuje ili kreira partnere i automatski knjiži odabrane fakture. Vi pregledate rezultat — ako je knjiženje ispravno, nema dodatnog unosa ni potvrđivanja.',
+DETAILS = {'knjizenje-e-faktura-za-skole': {'how': 'Preuzmite e-fakture iz SEF-a direktno u Budžet+, označite do 30 faktura i izaberite nalog. Jednim klikom pokrenite knjiženje: program preuzima podatke, povezuje ili kreira partnere i automatski knjiži odabrane fakture. Vi pregledate rezultat — ako je knjiženje ispravno, nema dodatnog unosa ni potvrđivanja.',
                                   'workflow_image': {'file': 'uputstvo-e-fakture.png',
                                              'alt': 'Pregled e-faktura sa odabranim nalogom, statusom Nije knjiženo i dugmetom Proknjiži',
                                              'width': 2040,
