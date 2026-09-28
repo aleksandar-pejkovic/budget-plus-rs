@@ -8,7 +8,7 @@ from site_layout import header, footer, INSTALLATION_URL
 ROOT = Path(__file__).resolve().parents[1]
 
 MODULES = [
-    ("knjizenje", "Knjiženje", "<strong>SPIRI izvodi:</strong> Učitajte izvod i pokrenite knjiženje — Budžet+ automatski knjiži njegove stavke, uključujući isplate avansa.</p><p><strong>ISKRA obračuni:</strong> Plate i bolovanja knjiže se kompletno iz jednog fajla — stavke obračuna i pripadajuće stavke izvoda. Ostali obračuni zatvaraju se knjiženjem izvoda.</p><p><strong>E-fakture:</strong> Do 30 e-faktura proknjižite jednim klikom. Program preuzima podatke, povezuje ili kreira partnere i knjiži odabrane fakture.", [
+    ("knjizenje", "Automatsko knjiženje", "<strong>SPIRI izvodi:</strong> Učitajte izvod i pokrenite knjiženje — Budžet+ automatski knjiži njegove stavke, uključujući isplate avansa.</p><p><strong>ISKRA obračuni:</strong> Plate i bolovanja knjiže se kompletno iz jednog fajla — stavke obračuna i pripadajuće stavke izvoda. Ostali obračuni zatvaraju se knjiženjem izvoda.</p><p><strong>E-fakture:</strong> Do 30 e-faktura proknjižite jednim klikom. Program preuzima podatke, povezuje ili kreira partnere i knjiži odabrane fakture.", [
         ("spiri-izvodi-skole", "SPIRI izvodi"),
         ("iskra-obracuni-knjizenje", "ISKRA obračuni"),
         ("knjizenje-e-faktura-za-skole", "E-fakture")]),
@@ -64,9 +64,9 @@ def render_body():
 <main id="main-content">
 <section class="hero" id="pocetna"><div class="container hero-grid">
   <div class="hero-copy"><p class="eyebrow"><span class="status-dot"></span> Za računovođe u osnovnim i srednjim školama</p>
-    <h1>Budžetsko računovodstvo za škole <span>— od dokumenta do izveštaja.</span></h1>
-    <div class="hero-intro"><p>Budžet+ automatski knjiži podatke iz e-faktura, SPIRI izvoda i ISKRA obračuna. Vi pregledate rezultat.</p><p>Iz proknjiženih podataka pripremate računovodstvene izveštaje, Obrazac 5 za ISPFI i ORIS izvoz.</p></div>
+    <h1>Automatsko knjiženje.</h1>
     <p class="hero-benefit">Manje ručnog unosa. Više vremena za kontrolu.</p>
+    <div class="hero-intro"><p>Budžet+ automatski knjiži e-fakture, SPIRI izvode i ISKRA obračune. Vi proveravate dokumente i rezultat knjiženja.</p></div>
     <div class="cta-group"><a class="btn primary" href="#kontakt">Prijavite se za prezentaciju <span aria-hidden="true">↗</span></a><a class="text-link" href="#video"><span aria-hidden="true">▷</span> Pogledajte program</a></div>
     <p class="hero-phone">Radije biste razgovarali? <a href="tel:+381659170989">065 917 0989</a></p>
   </div>
@@ -82,7 +82,7 @@ def render_body():
 
 <section class="section faq-section" id="faq"><div class="container faq-grid"><div><p class="eyebrow">Pre nego što se upoznamo</p><h2>Odgovori na česta pitanja.</h2><p>Za sve ostalo, tu smo.</p><a class="text-link js-question" href="#kontakt">Postavite pitanje <span aria-hidden="true">↗</span></a></div><div class="faq-list">{faq}</div></div></section>
 
-<section class="section contact-section" id="kontakt"><div class="container contact-grid"><div class="contact-copy"><p class="eyebrow">Sledeći korak</p><h2>Pogledajte kako bi izgledao vaš rad uz Budžet+.</h2><p>Prijavite se za narednu prezentaciju. O terminu ćemo vas obavestiti emailom.</p><div class="contact-direct"><p>Više vam odgovara razgovor?</p><a class="contact-phone" href="tel:+381659170989">065 917 0989 <span aria-hidden="true">↗</span></a><a href="mailto:aleksandar.pejkovic@budzetplus.rs">aleksandar.pejkovic@budzetplus.rs</a><div class="contact-channels"><a href="viber://chat?number=381659170989">Viber</a><a href="https://wa.me/381659170989" target="_blank" rel="noopener">WhatsApp ↗</a></div><small>Radnim danima 9–15h</small></div></div>
+<section class="section contact-section" id="kontakt"><div class="container contact-grid"><div class="contact-copy"><p class="eyebrow">Sledeći korak</p><h2>Pogledajte automatsko knjiženje u radu.</h2><p>Prijavite se za narednu prezentaciju. O terminu ćemo vas obavestiti emailom.</p><div class="contact-direct"><p>Više vam odgovara razgovor?</p><a class="contact-phone" href="tel:+381659170989">065 917 0989 <span aria-hidden="true">↗</span></a><a href="mailto:aleksandar.pejkovic@budzetplus.rs">aleksandar.pejkovic@budzetplus.rs</a><div class="contact-channels"><a href="viber://chat?number=381659170989">Viber</a><a href="https://wa.me/381659170989" target="_blank" rel="noopener">WhatsApp ↗</a></div><small>Radnim danima 9–15h</small></div></div>
 <form id="contact-form" class="contact-form" novalidate><div class="form-heading"><p class="eyebrow">Upoznajmo se</p><h3 id="form-title">Prijava za prezentaciju</h3><p id="form-description">Unesite podatke škole i email na koji možemo da vam se javimo.</p><button class="form-mode-switch text-link" type="button">Želim da postavim pitanje</button></div><div class="form-fields">
 <label for="contact-name">Ime i prezime<input id="contact-name" name="name" autocomplete="name" required maxlength="100" aria-describedby="error-name"><small class="field-error" id="error-name"></small></label>
 <label for="contact-org">Naziv škole<input id="contact-org" name="org" autocomplete="organization" required maxlength="200" aria-describedby="error-org"><small class="field-error" id="error-org"></small></label>

@@ -14,8 +14,8 @@ test('introduction and contact choices are visible on the first screen', async (
     await page.setViewportSize({ width, height });
     await page.goto('/');
     await page.evaluate(() => document.fonts.ready);
-    await expect(page.locator('.hero-intro')).toContainText('Vi pregledate rezultat');
-    for (const selector of ['.hero h1', '.hero .btn.primary', '.hero .text-link', '.hero-phone a']) {
+    await expect(page.locator('.hero-intro')).toContainText('Vi proveravate dokumente i rezultat knjiženja');
+    for (const selector of ['.hero h1', '.hero-benefit', '.hero .btn.primary', '.hero .text-link', '.hero-phone a']) {
       const box = await page.locator(selector).boundingBox();
       expect(box.y, `${width}: ${selector} starts on screen`).toBeGreaterThanOrEqual(0);
       expect(box.y + box.height, `${width}: ${selector} fits on screen`).toBeLessThanOrEqual(height);
