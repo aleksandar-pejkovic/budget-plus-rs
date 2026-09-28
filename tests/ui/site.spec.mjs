@@ -24,6 +24,22 @@ test('introduction and contact choices are visible on the first screen', async (
   }
 });
 
+test('mobile presentation link shows the first field before alternative contacts', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  for (const [width, height] of [[360, 800], [390, 844]]) {
+    await page.setViewportSize({ width, height });
+    await page.goto('/');
+    await page.evaluate(() => document.fonts.ready);
+    await page.locator('.hero .btn.primary').click();
+    await expect(page).toHaveURL(/#kontakt$/);
+    await expect(page.locator('#contact-name')).toBeInViewport({ ratio: 1 });
+    const form = await page.locator('#contact-form').boundingBox();
+    const contacts = await page.locator('.contact-direct').boundingBox();
+    expect(contacts.y).toBeGreaterThanOrEqual(form.y + form.height);
+    await page.screenshot({ path: `.cache/screens/contact-mobile-${width}.png` });
+  }
+});
+
 for (const width of [360, 390, 768, 1024, 1440]) {
   test(`all pages fit at ${width}px`, async ({ page }) => {
     await page.setViewportSize({ width, height: 960 });
