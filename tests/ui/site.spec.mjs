@@ -14,7 +14,7 @@ test('introduction and contact choices are visible on the first screen', async (
     await page.setViewportSize({ width, height });
     await page.goto('/');
     await page.evaluate(() => document.fonts.ready);
-    await expect(page.locator('.hero-intro')).toContainText('Vi proveravate dokumente i rezultat knjiženja');
+    await expect(page.locator('.hero-intro')).toContainText('više vremena za proveru');
     for (const selector of ['.hero h1', '.hero-benefit', '.hero .btn.primary', '.hero .text-link', '.hero-phone a']) {
       const box = await page.locator(selector).boundingBox();
       expect(box.y, `${width}: ${selector} starts on screen`).toBeGreaterThanOrEqual(0);
@@ -30,7 +30,7 @@ test('mobile presentation link shows the first field before alternative contacts
     await page.setViewportSize({ width, height });
     await page.goto('/');
     await page.evaluate(() => document.fonts.ready);
-    await page.locator('.hero .btn.primary').click();
+    await page.locator('.hero .text-link').click();
     await expect(page).toHaveURL(/#kontakt$/);
     await expect(page.locator('#contact-name')).toBeInViewport({ ratio: 1 });
     const form = await page.locator('#contact-form').boundingBox();
@@ -64,6 +64,7 @@ test('mobile menu, image dialog and solution links work with keyboard', async ({
   const menu = page.getByRole('button', { name: 'Meni' });
   await menu.click(); await expect(menu).toHaveAttribute('aria-expanded', 'true');
   await page.keyboard.press('Escape'); await expect(menu).toBeFocused(); await expect(menu).toHaveAttribute('aria-expanded', 'false');
+  await page.locator('.journal-example summary').click();
   await page.locator('.zoom-image').click(); await expect(page.locator('dialog')).toBeVisible();
   await page.keyboard.press('Escape'); await expect(page.locator('dialog')).not.toBeVisible(); await expect(page.locator('.zoom-image')).toBeFocused();
   await page.goto('/spiri-izvodi-skole/');
@@ -127,4 +128,19 @@ test('removed overview is absent from pages, links and sitemap', async ({ page }
     await expect(page.locator('a[href*="program-za-racunovodstvo-skola"]')).toHaveCount(0);
   }
   expect(await (await page.request.get('/sitemap.xml')).text()).not.toContain('program-za-racunovodstvo-skola');
+});
+
+ test('new SPIRI explanation and three workflow links preserve navigation', async ({ page }) => {
+  await page.goto('/');
+  await expect(page.locator('.product-map')).toContainText('Ilustracija toka rada');
+  await expect(page.locator('.product-map')).toContainText('ISKRA');
+  await page.locator('.hero .btn.primary').click();
+  await expect(page).toHaveURL(/#video$/);
+  await expect(page.locator('.demo-caption')).toContainText('starije verzije');
+  await page.goBack();
+  for (const slug of ['spiri-izvodi-skole', 'spiri-kumulativno-placanje', 'uplate-ucenika']) {
+    await page.locator(`.everyday-grid a[href="${slug}/"]`).click();
+    await expect(page).toHaveURL(new RegExp(slug + '/$'));
+    await page.goBack();
+  }
 });

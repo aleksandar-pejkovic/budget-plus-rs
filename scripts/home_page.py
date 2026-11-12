@@ -8,11 +8,11 @@ from site_layout import header, footer, INSTALLATION_URL
 ROOT = Path(__file__).resolve().parents[1]
 
 MODULES = [
-    ("knjizenje", "Automatsko knjiženje", "<strong>SPIRI izvodi:</strong> Učitajte izvod i pokrenite knjiženje — Budžet+ automatski knjiži njegove stavke, uključujući isplate avansa.</p><p><strong>ISKRA obračuni:</strong> Plate i bolovanja knjiže se kompletno iz jednog fajla — stavke obračuna i pripadajuće stavke izvoda. Ostali obračuni zatvaraju se knjiženjem izvoda.</p><p><strong>E-fakture:</strong> Do 30 e-faktura proknjižite jednim klikom. Program preuzima podatke, povezuje ili kreira partnere i knjiži odabrane fakture.", [
+    ("knjizenje", "Automatsko knjiženje", "<strong>SPIRI izvodi:</strong> Knjižite SPIRI izvode direktno iz programa, bez ručnog preuzimanja i učitavanja fajlova. Vi proveravate rezultat.</p><p><strong>ISKRA obračuni:</strong> Plate i bolovanja knjiže se kompletno iz jednog fajla — stavke obračuna i pripadajuće stavke izvoda. Ostali obračuni zatvaraju se knjiženjem izvoda.</p><p><strong>E-fakture:</strong> Do 30 e-faktura proknjižite jednim klikom. Program preuzima podatke, povezuje ili kreira partnere i knjiži odabrane fakture.", [
         ("spiri-izvodi-skole", "SPIRI izvodi"),
         ("iskra-obracuni-knjizenje", "ISKRA obračuni"),
         ("knjizenje-e-faktura-za-skole", "E-fakture")]),
-    ("spiri-placanja", "Priprema plaćanja", "Pripremite više SPIRI plaćanja odjednom i sačuvajte šablone redovnih obaveza.", [
+    ("spiri-placanja", "Priprema plaćanja", "Od izabranih e-faktura pripremite fajl za kumulativno plaćanje u SPIRI-ju. Sačuvajte šablone redovnih obaveza.", [
         ("spiri-kumulativno-placanje", "Plaćanje više e-faktura"),
         ("rucni-unos-spiri-placanja", "Ručni unos i šabloni")]),
     ("budzet", "Planiranje i izvršenje budžeta", "Učitajte finansijski plan iz IFISUP-a i pratite izvršenje i odstupanja.", [
@@ -22,7 +22,7 @@ MODULES = [
         ("oris-izvoz-za-skole", "ORIS izvoz")]),
     ("sredstva", "Osnovna sredstva", "Iz e-fakture pripremite povezano knjiženje i evidenciju osnovnih sredstava. Obračunajte amortizaciju i pripremite popis.", [
         ("osnovna-sredstva-skola", "Evidencija, amortizacija i popis")]),
-    ("ucenici", "Uplate učenika", "Pratite zaduženja i uplate po učeniku, odeljenju i aktivnosti.", [
+    ("ucenici", "Uplate učenika", "Preuzmite uplate iz izvoda, proverite predloženu raspodelu i potvrdite. Pratite zaduženja i uplate po učeniku, odeljenju i aktivnosti.", [
         ("uplate-ucenika", "Zaduženja i uplate")]),
     ("godina", "Zatvaranje poslovne godine", "Pripremite završne naloge i prenesite salda u novu poslovnu godinu.", [
         ("zatvaranje-poslovne-godine", "Zatvaranje i prenos salda")]),
@@ -52,11 +52,11 @@ FAQ = [
 
 
 def render_body():
-    videos = "".join(f'<button type="button" class="video-choice" data-video="assets/media/{slug}.mp4" data-poster="assets/img/{poster}" data-title="{label}"><span class="play-small" aria-hidden="true">▷</span>{label}<span aria-hidden="true">↗</span></button>' for slug, label, poster in VIDEOS)
+    videos = "".join(f'<button type="button" class="video-choice" data-video="assets/media/{slug}.mp4" data-poster="assets/img/{poster}" data-title="{label}"><span class="play-small" aria-hidden="true">▷</span>{label}<span aria-hidden="true">→</span></button>' for slug, label, poster in VIDEOS)
     faq = "".join(f'<details class="faq-item"><summary>{q}<span aria-hidden="true">+</span></summary><p>{a}</p></details>' for q, a in FAQ)
     module_html = "".join(
         f'<article class="capability" id="{anchor}"><div class="capability-copy"><h3>{title}</h3><p>{description}</p></div><div class="capability-links">'
-        + "".join(f'<a href="{slug}/">{label} <span aria-hidden="true">↗</span></a>' for slug, label in links)
+        + "".join(f'<a href="{slug}/">{label} <span aria-hidden="true">→</span></a>' for slug, label in links)
         + '</div></article>' for anchor, title, description, links in MODULES
     )
     return f'''<body>
@@ -64,35 +64,45 @@ def render_body():
 <main id="main-content">
 <section class="hero" id="pocetna"><div class="container hero-grid">
   <div class="hero-copy"><p class="eyebrow"><span class="status-dot"></span> Za računovođe u osnovnim i srednjim školama</p>
-    <h1>Automatsko knjiženje.</h1>
-    <p class="hero-benefit">Manje ručnog unosa. Više vremena za kontrolu.</p>
-    <div class="hero-intro"><p>Budžet+ automatski knjiži e-fakture, SPIRI izvode i ISKRA obračune. Vi proveravate dokumente i rezultat knjiženja.</p></div>
-    <div class="cta-group"><a class="btn primary" href="#kontakt">Prijavite se za prezentaciju <span aria-hidden="true">↗</span></a><a class="text-link" href="#video"><span aria-hidden="true">▷</span> Pogledajte program</a></div>
-    <p class="hero-phone">Radije biste razgovarali? <a href="tel:+381659170989">065 917 0989</a></p>
+    <h1>Automatsko knjiženje<br><span>za škole.</span></h1>
+    <p class="hero-benefit">SPIRI izvodi, e-fakture i ISKRA obračuni.</p>
+    <div class="hero-intro"><p>Manje prepisivanja, više vremena za proveru. Budžet+ priprema knjiženje, uz kontrole, izveštaje, avanse i osnovna sredstva iz e-fakture.</p></div>
+    <div class="cta-group"><a class="btn primary" href="#video">Pogledajte program u radu <span aria-hidden="true">→</span></a><a class="text-link" href="#kontakt">Dogovorite prezentaciju</a></div>
+    <p class="hero-phone">Razgovarajte sa autorom: <a href="tel:+381659170989">065 917 0989</a></p>
   </div>
   <div class="trust-strip"><p>Razvija ga <strong>školski računovođa</strong> u saradnji sa kolegama iz struke.</p><p>Koristi ga <strong>više od 50 škola.</strong></p><p>Lokalna instalacija. <strong>Podaci ostaju u ustanovi.</strong></p></div>
-  <figure class="hero-product hero-booking">
-    <div class="product-label"><span class="status-dot"></span> Budžet+ <span>Primer iz programa</span></div>
-    <ol class="booking-flow" aria-label="Od SPIRI izvoda do provere naloga">
-      <li><span class="booking-step" aria-hidden="true">1</span><strong>SPIRI izvod</strong></li>
-      <li><span class="booking-step" aria-hidden="true">2</span><strong>Automatski nalog</strong></li>
-      <li><span class="booking-step" aria-hidden="true">3</span><strong>Vaša provera</strong></li>
-    </ol>
-    <a class="zoom-image booking-preview" href="assets/img/demo-spiri-izvod.png" aria-label="Uvećajte ceo nalog iz SPIRI izvoda">
-      <span class="booking-crop"><img src="assets/img/demo-spiri-izvod.png" alt="Nalog iz SPIRI izvoda sa knjiženjem plaćanja dobavljaču za kancelarijski materijal" width="4032" height="1296" fetchpriority="high"></span>
-      <span class="booking-zoom">Uvećajte ceo nalog <span aria-hidden="true">↗</span></span>
-    </a>
-    <figcaption><div>Budžet+ popuni stavke. Vi proveravate knjiženje.<small>Demonstracioni podaci. Izgled zavisi od verzije.</small></div></figcaption>
+  <figure class="hero-product product-map">
+    <div class="map-heading"><span class="eyebrow">Manje ponovnog unosa</span><span class="map-badge">Za školsko računovodstvo</span></div>
+    <div class="map-sources" aria-label="Dokumenti za knjiženje">
+      <div class="source-tile source-spiri"><span class="source-icon" aria-hidden="true">↔</span><strong>SPIRI izvodi</strong><small>Direktno iz programa</small></div>
+      <div class="source-tile source-sef"><span class="source-icon" aria-hidden="true">≡</span><strong>E-fakture</strong><small>Podaci iz SEF-a</small></div>
+      <div class="source-tile source-iskra"><span class="source-icon" aria-hidden="true">▤</span><strong>ISKRA</strong><small>Učitavanje preuzetog fajla</small></div>
+    </div>
+    <div class="map-connector" aria-hidden="true"><span></span><span></span><span></span></div>
+    <div class="map-engine"><img src="assets/img/budzet-plus-icon-50.png" width="44" height="44" alt=""><div><strong>Budžet+</strong><span>Automatsko knjiženje</span></div><span class="engine-arrow" aria-hidden="true">↓</span></div>
+    <div class="map-result"><div class="result-check" aria-hidden="true">≡</div><div><strong>Nalog spreman za proveru</strong><p>Vi kontrolišete dokumente i rezultat.</p></div></div>
+    <div class="map-evidence"><a href="spiri-izvodi-skole/#postupak">Stvarni primer naloga <span aria-hidden="true">→</span></a><a href="#video">Video-prikazi programa <span aria-hidden="true">→</span></a></div>
+    <figcaption>Ilustracija toka rada, ne ekran programa.</figcaption>
   </figure>
+</div></section>
+
+<section class="section everyday-section" id="svakodnevni-poslovi"><div class="container">
+  <div class="section-heading"><div><p class="eyebrow">Manje ponovnog unosa</p><h2>Izvodi, plaćanja i uplate učenika.</h2></div><p>Tri konkretna posla. Podaci se koriste tamo gde su već uneti, a vi proveravate rezultat.</p></div>
+  <div class="everyday-grid">
+    <article><span class="section-number">01 / KNJIŽENJE</span><h3>SPIRI izvodi bez ručnog preuzimanja</h3><p>Izaberite izvod direktno u programu i pokrenite knjiženje u novi ili postojeći nalog.</p><a class="text-link" href="spiri-izvodi-skole/">Pogledajte postupak →</a></article>
+    <article><span class="section-number">02 / PLAĆANJA</span><h3>Više e-faktura, jedan fajl za SPIRI</h3><p>Od izabranih e-faktura pripremite fajl za kumulativno plaćanje. Proverite ga i učitajte u SPIRI, gde se plaćanje završava.</p><a class="text-link" href="spiri-kumulativno-placanje/">Kako se priprema fajl →</a></article>
+    <article><span class="section-number">03 / UČENICI</span><h3>Uplate iz izvoda u evidenciju učenika</h3><p>Proverite predloženu raspodelu uplata i potvrdite. Zaduženja i uplate pregledajte po učeniku, odeljenju i aktivnosti.</p><a class="text-link" href="uplate-ucenika/">Pogledajte evidenciju →</a></article>
+  </div>
+  <details class="journal-example"><summary>Pogledajte primer naloga iz SPIRI izvoda</summary><figure><a class="zoom-image" href="assets/img/demo-spiri-izvod.png"><img src="assets/img/demo-spiri-izvod.png" alt="Primer naloga sa knjiženjem SPIRI izvoda, prikazan u celini" width="4032" height="1296" loading="lazy"></a><figcaption>Stvarni prikaz iz programa sa demonstracionim podacima. Kliknite za uvećanje. Izgled zavisi od verzije.</figcaption></figure></details>
 </div></section>
 
 <section class="section capabilities-section" id="mogucnosti"><div class="container" id="resenja"><div class="section-heading"><div><p class="eyebrow">Računovodstvo škole na jednom mestu</p><h2>Poslovi koje obavljate u Budžet+ programu</h2></div></div><div class="capabilities">{module_html}</div></div></section>
 
-<section class="section demo-section" id="video"><div class="container"><div class="section-heading"><div><p class="eyebrow">Pogledajte pre nego što odlučite</p><h2>Program u svakodnevnom radu.</h2></div><p>Stvarni prikazi programa, od unosa dokumenta do pregleda rezultata.</p></div><div class="demo-layout"><div class="demo-player"><div class="video-frame"><video id="demo-video" controls playsinline preload="none" poster="assets/img/kon-tabla.png" aria-label="Prezentacija programa Budžet+"><source src="assets/media/budget-plus-prezentacija.mp4" type="video/mp4"><a href="assets/media/budget-plus-prezentacija.mp4">Preuzmite prezentaciju</a></video></div><div class="demo-caption"><h3 id="demo-title">Upoznajte Budžet+</h3><p>Video-prikazi su iz starije verzije programa. Aktuelni izgled pojedinih ekrana može se razlikovati.</p></div></div><div class="video-library" aria-label="Izbor video-prikaza"><button class="video-choice is-active" type="button" aria-pressed="true" data-video="assets/media/budget-plus-prezentacija.mp4" data-poster="assets/img/kon-tabla.png" data-title="Upoznajte Budžet+"><span class="play-small" aria-hidden="true">▷</span> Pregled programa <span aria-hidden="true">↗</span></button>{videos}</div></div><noscript><p>Kratke prikaze možete pogledati tokom prezentacije. Glavni video je dostupan iznad.</p></noscript></div></section>
+<section class="section demo-section" id="video"><div class="container"><div class="section-heading"><div><p class="eyebrow">Pogledajte pre nego što odlučite</p><h2>Program u svakodnevnom radu.</h2></div><p>Stvarni prikazi iz ranije verzije programa. Ne prikazuju novu stranicu SPIRI izvodi; aktuelne mogućnosti predstavljamo na prezentaciji.</p></div><div class="demo-layout"><div class="demo-player"><div class="video-frame"><video id="demo-video" controls playsinline preload="none" poster="assets/img/kon-tabla.png" aria-label="Prezentacija programa Budžet+"><source src="assets/media/budget-plus-prezentacija.mp4" type="video/mp4"><a href="assets/media/budget-plus-prezentacija.mp4">Preuzmite prezentaciju</a></video></div><div class="demo-caption"><h3 id="demo-title">Upoznajte Budžet+</h3><p>Video-prikazi su iz starije verzije programa. Aktuelni izgled pojedinih ekrana može se razlikovati.</p></div></div><div class="video-library" aria-label="Izbor video-prikaza"><button class="video-choice is-active" type="button" aria-pressed="true" data-video="assets/media/budget-plus-prezentacija.mp4" data-poster="assets/img/kon-tabla.png" data-title="Upoznajte Budžet+"><span class="play-small" aria-hidden="true">▷</span> Pregled programa <span aria-hidden="true">→</span></button>{videos}</div></div><noscript><p>Kratke prikaze možete pogledati tokom prezentacije. Glavni video je dostupan iznad.</p></noscript></div></section>
 
-<section class="section" id="podrska"><div class="container"><div class="section-heading"><div><p class="eyebrow">Od prvog razgovora do svakodnevnog rada</p><h2>Uvođenje i pomoć u korišćenju programa.</h2></div><p>Dogovaramo instalaciju, pripremu za početak rada i prolazimo kroz korišćenje Budžet+ programa.</p></div><div class="onboarding-grid"><article><span class="step-number">01</span><h3>Upoznajte program</h3><p>Prijavite se za prezentaciju i pogledajte mogućnosti koje su važne vašoj školi.</p></article><article><span class="step-number">02</span><h3>Dogovorite uvođenje</h3><p>Prolazimo kroz instalaciju i pripremu za početak rada.</p><div class="installation-scheduling"><span id="installation-scheduling-target"></span><a class="text-link" id="installation-calendar-link" href="{INSTALLATION_URL}" target="_blank" rel="noopener">Otvorite kalendar za instalaciju ↗</a></div></article><article><span class="step-number">03</span><h3>Podrška za rad u programu</h3><p>Za pitanja o korišćenju Budžet+ programa podrška je dostupna radnim danima od 9 do 15 časova.</p><a class="text-link" href="tel:+381659170989">065 917 0989</a></article></div></div></section>
+<section class="section" id="podrska"><div class="container"><div class="section-heading"><div><p class="eyebrow">Od prvog razgovora do svakodnevnog rada</p><h2>Uvođenje i pomoć u korišćenju programa.</h2></div><p>Dogovaramo instalaciju, pripremu za početak rada i prolazimo kroz korišćenje Budžet+ programa.</p></div><div class="onboarding-grid"><article><span class="step-number">01</span><h3>Upoznajte program</h3><p>Prijavite se za prezentaciju i pogledajte mogućnosti koje su važne vašoj školi.</p></article><article><span class="step-number">02</span><h3>Dogovorite uvođenje</h3><p>Prolazimo kroz instalaciju i pripremu za početak rada.</p><div class="installation-scheduling"><span id="installation-scheduling-target"></span><a class="text-link" id="installation-calendar-link" href="{INSTALLATION_URL}" target="_blank" rel="noopener">Otvorite kalendar za instalaciju →</a></div></article><article><span class="step-number">03</span><h3>Podrška za rad u programu</h3><p>Za pitanja o korišćenju Budžet+ programa podrška je dostupna radnim danima od 9 do 15 časova.</p><a class="text-link" href="tel:+381659170989">065 917 0989</a></article></div></div></section>
 
-<section class="section faq-section" id="faq"><div class="container faq-grid"><div><p class="eyebrow">Pre nego što se upoznamo</p><h2>Odgovori na česta pitanja.</h2><p>Za sve ostalo, tu smo.</p><a class="text-link js-question" href="#kontakt">Postavite pitanje <span aria-hidden="true">↗</span></a></div><div class="faq-list">{faq}</div></div></section>
+<section class="section faq-section" id="faq"><div class="container faq-grid"><div><p class="eyebrow">Pre nego što se upoznamo</p><h2>Odgovori na česta pitanja.</h2><p>Za sve ostalo, tu smo.</p><a class="text-link js-question" href="#kontakt">Postavite pitanje <span aria-hidden="true">→</span></a></div><div class="faq-list">{faq}</div></div></section>
 
 <section class="section contact-section" id="kontakt"><div class="container contact-grid"><div class="contact-copy"><p class="eyebrow">Sledeći korak</p><h2>Pogledajte automatsko knjiženje u radu.</h2><p>Prijavite se za narednu prezentaciju. O terminu ćemo vas obavestiti emailom.</p></div>
 <form id="contact-form" class="contact-form" novalidate><div class="form-heading"><p class="eyebrow">Upoznajmo se</p><h3 id="form-title">Prijava za prezentaciju</h3><p id="form-description">Unesite podatke škole i email na koji možemo da vam se javimo.</p><button class="form-mode-switch text-link" type="button">Želim da postavim pitanje</button></div><div class="form-fields">
@@ -102,8 +112,8 @@ def render_body():
 <label for="contact-email">Email za odgovor<input id="contact-email" name="email" type="email" autocomplete="email" required maxlength="254" aria-describedby="error-email"><small class="field-error" id="error-email"></small></label>
 <label for="contact-phone">Telefon <span class="optional">(opciono)</span><input id="contact-phone" name="phone" type="tel" autocomplete="tel" maxlength="40" aria-describedby="error-phone"><small class="field-error" id="error-phone"></small></label>
 <label class="full-width" for="contact-message"><span id="message-label">Napomena <span class="optional">(opciono)</span></span><textarea id="contact-message" name="message" rows="3" maxlength="2000" aria-describedby="error-message"></textarea><small class="field-error" id="error-message"></small></label></div>
-<div id="turnstile-container" role="group" aria-label="Provera protiv neželjenih prijava"></div><p class="form-privacy">Podatke koristimo za odgovor na vaš upit i dogovor o prezentaciji. <a href="#privatnost">Kako obrađujemo podatke</a></p><button class="btn primary full" type="submit">Prijavite se za prezentaciju <span aria-hidden="true">↗</span></button><p class="form-feedback" role="status" aria-live="polite" tabindex="-1"></p><p class="form-fallback">Možete nam i <a href="mailto:aleksandar.pejkovic@budzetplus.rs">poslati email</a>.</p><noscript><p>Za slanje forme uključite JavaScript ili nam pišite direktno emailom.</p></noscript></form>
-<div class="contact-direct"><p>Više vam odgovara razgovor?</p><a class="contact-phone" href="tel:+381659170989">065 917 0989 <span aria-hidden="true">↗</span></a><a href="mailto:aleksandar.pejkovic@budzetplus.rs">aleksandar.pejkovic@budzetplus.rs</a><div class="contact-channels"><a href="viber://chat?number=381659170989">Viber</a><a href="https://wa.me/381659170989" target="_blank" rel="noopener">WhatsApp ↗</a></div><small>Radnim danima 9–15h</small></div>
+<div id="turnstile-container" role="group" aria-label="Provera protiv neželjenih prijava"></div><p class="form-privacy">Podatke koristimo za odgovor na vaš upit i dogovor o prezentaciji. <a href="#privatnost">Kako obrađujemo podatke</a></p><button class="btn primary full" type="submit">Prijavite se za prezentaciju <span aria-hidden="true">→</span></button><p class="form-feedback" role="status" aria-live="polite" tabindex="-1"></p><p class="form-fallback">Možete nam i <a href="mailto:aleksandar.pejkovic@budzetplus.rs">poslati email</a>.</p><noscript><p>Za slanje forme uključite JavaScript ili nam pišite direktno emailom.</p></noscript></form>
+<div class="contact-direct"><p>Više vam odgovara razgovor?</p><a class="contact-phone" href="tel:+381659170989">065 917 0989 <span aria-hidden="true">→</span></a><a href="mailto:aleksandar.pejkovic@budzetplus.rs">aleksandar.pejkovic@budzetplus.rs</a><div class="contact-channels"><a href="viber://chat?number=381659170989">Viber</a><a href="https://wa.me/381659170989" target="_blank" rel="noopener">WhatsApp →</a></div><small>Radnim danima 9–15h</small></div>
 </div></section>
 <section class="privacy-section" id="privatnost"><div class="container"><details><summary>Privatnost i obrada podataka</summary><div><p>Alpeon Softver koristi podatke koje unesete da odgovori na upit i dogovori prezentaciju. Slanjem forme ne prijavljujete se na marketinšku listu.</p><p>Prijava se obrađuje preko Cloudflare servisa i prosleđuje na naš poslovni email. Ne formiramo posebnu bazu prijava na sajtu. Cloudflare Turnstile služi za zaštitu forme od neželjenih zahteva.</p><p>Za pitanja o vašim podacima i zahtev za brisanje prepiske pišite na <a href="mailto:aleksandar.pejkovic@budzetplus.rs">aleksandar.pejkovic@budzetplus.rs</a>. Sajt koristi Google Analytics za statistiku poseta; sadržaj forme ne šaljemo u analitiku.</p></div></details></div></section>
 </main>{footer()}

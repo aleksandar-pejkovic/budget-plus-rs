@@ -21,7 +21,7 @@ DETAILS = {'knjizenje-e-faktura-za-skole': {'how': 'Preuzmite e-fakture iz SEF-a
                                                       'pregled salda avansa na datum naloga.',
                                               'slug': 'spiri-izvodi-skole',
                                               'label': 'Kako se knjiži isplata avansa iz izvoda'}},
- 'spiri-izvodi-skole': {'how': 'Dodajte SPIRI izvod u JSON formatu u izabrani nalog i pokrenite knjiženje. Budžet+ automatski knjiži stavke prema podacima izvoda i pravilima knjiženja, a vi pregledate rezultat.',
+ 'spiri-izvodi-skole': {'how': 'Na stranici SPIRI izvodi prijavite se svojim SPIRI nalogom, uz uspostavljenu VPN vezu. Izaberite period i izvod, pa pokrenite knjiženje u novi ili postojeći nalog. Nije potrebno ručno preuzimanje i učitavanje fajla. Vi pregledate rezultat knjiženja. Dostupno je i učitavanje izvoda iz JSON fajla.',
                         'workflow_image': {'file': 'demo-spiri-izvod.png',
                                            'alt': 'Nalog iz SPIRI izvoda: plaćanje dobavljaču za kancelarijski materijal, zatvaranje obaveze i evidentiranje rashoda',
                                            'width': 4032, 'height': 1296,
@@ -83,9 +83,7 @@ DETAILS = {'knjizenje-e-faktura-za-skole': {'how': 'Preuzmite e-fakture iz SEF-a
                                        'width': 1728,
                                        'height': 618,
                                        'caption': 'Pregled evidencije osnovnih sredstava. Demonstracioni podaci. Izgled zavisi od verzije.'}]},
- 'uplate-ucenika': {'how': 'Povežite učenike sa aktivnošću i zaduženjima, pa učitajte uplate iz popunjenog '
-                           'Excel šablona. Program daje pregled zaduženja, uplata i preostalog iznosa po '
-                           'učeniku, odeljenju ili aktivnosti.'},
+ 'uplate-ucenika': {'how': 'Povežite učenike sa aktivnošću i zaduženjima. Uplate preuzmite iz SPIRI izvoda, proverite predloženu raspodelu i potvrdite evidentiranje. Dostupno je i učitavanje uplata iz popunjenog Excel šablona. Program daje pregled zaduženja, uplata i preostalog iznosa po učeniku, odeljenju ili aktivnosti.'},
  'zatvaranje-poslovne-godine': {'how': 'Pokrenite obračun amortizacije, zatvaranje rashoda i prihoda i '
                                        'prenos salda u narednu godinu. Program priprema završne naloge i '
                                        'prenos, a vi pregledate rezultat, status naloga i početna stanja.',
