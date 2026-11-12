@@ -8,11 +8,11 @@ from site_layout import header, footer, INSTALLATION_URL
 ROOT = Path(__file__).resolve().parents[1]
 
 MODULES = [
-    ("knjizenje", "Automatsko knjiženje", "<strong>SPIRI izvodi:</strong> Učitajte izvod i pokrenite knjiženje — Budžet+ automatski knjiži njegove stavke, uključujući isplate avansa.</p><p><strong>ISKRA obračuni:</strong> Plate i bolovanja knjiže se kompletno iz jednog fajla — stavke obračuna i pripadajuće stavke izvoda. Ostali obračuni zatvaraju se knjiženjem izvoda.</p><p><strong>E-fakture:</strong> Do 30 e-faktura proknjižite jednim klikom. Program preuzima podatke, povezuje ili kreira partnere i knjiži odabrane fakture.", [
+    ("knjizenje", "Automatsko knjiženje", "<strong>SPIRI izvodi:</strong> Knjižite SPIRI izvode direktno iz programa, bez ručnog preuzimanja i učitavanja fajlova. Vi proveravate rezultat.</p><p><strong>ISKRA obračuni:</strong> Plate i bolovanja knjiže se kompletno iz jednog fajla — stavke obračuna i pripadajuće stavke izvoda. Ostali obračuni zatvaraju se knjiženjem izvoda.</p><p><strong>E-fakture:</strong> Do 30 e-faktura proknjižite jednim klikom. Program preuzima podatke, povezuje ili kreira partnere i knjiži odabrane fakture.", [
         ("spiri-izvodi-skole", "SPIRI izvodi"),
         ("iskra-obracuni-knjizenje", "ISKRA obračuni"),
         ("knjizenje-e-faktura-za-skole", "E-fakture")]),
-    ("spiri-placanja", "Priprema plaćanja", "Pripremite više SPIRI plaćanja odjednom i sačuvajte šablone redovnih obaveza.", [
+    ("spiri-placanja", "Priprema plaćanja", "Od izabranih e-faktura pripremite fajl za kumulativno plaćanje u SPIRI-ju. Sačuvajte šablone redovnih obaveza.", [
         ("spiri-kumulativno-placanje", "Plaćanje više e-faktura"),
         ("rucni-unos-spiri-placanja", "Ručni unos i šabloni")]),
     ("budzet", "Planiranje i izvršenje budžeta", "Učitajte finansijski plan iz IFISUP-a i pratite izvršenje i odstupanja.", [
@@ -22,7 +22,7 @@ MODULES = [
         ("oris-izvoz-za-skole", "ORIS izvoz")]),
     ("sredstva", "Osnovna sredstva", "Iz e-fakture pripremite povezano knjiženje i evidenciju osnovnih sredstava. Obračunajte amortizaciju i pripremite popis.", [
         ("osnovna-sredstva-skola", "Evidencija, amortizacija i popis")]),
-    ("ucenici", "Uplate učenika", "Pratite zaduženja i uplate po učeniku, odeljenju i aktivnosti.", [
+    ("ucenici", "Uplate učenika", "Preuzmite uplate iz izvoda, proverite predloženu raspodelu i potvrdite. Pratite zaduženja i uplate po učeniku, odeljenju i aktivnosti.", [
         ("uplate-ucenika", "Zaduženja i uplate")]),
     ("godina", "Zatvaranje poslovne godine", "Pripremite završne naloge i prenesite salda u novu poslovnu godinu.", [
         ("zatvaranje-poslovne-godine", "Zatvaranje i prenos salda")]),
@@ -64,26 +64,32 @@ def render_body():
 <main id="main-content">
 <section class="hero" id="pocetna"><div class="container hero-grid">
   <div class="hero-copy"><p class="eyebrow"><span class="status-dot"></span> Za računovođe u osnovnim i srednjim školama</p>
-    <h1>Automatsko knjiženje.</h1>
-    <p class="hero-benefit">Manje ručnog unosa. Više vremena za kontrolu.</p>
-    <div class="hero-intro"><p>Budžet+ automatski knjiži e-fakture, SPIRI izvode i ISKRA obračune. Vi proveravate dokumente i rezultat knjiženja.</p></div>
-    <div class="cta-group"><a class="btn primary" href="#kontakt">Prijavite se za prezentaciju <span aria-hidden="true">↗</span></a><a class="text-link" href="#video"><span aria-hidden="true">▷</span> Pogledajte program</a></div>
-    <p class="hero-phone">Radije biste razgovarali? <a href="tel:+381659170989">065 917 0989</a></p>
+    <h1>Knjiženje SPIRI izvoda.<br><span>Direktno iz programa.</span></h1>
+    <p class="hero-benefit">Bez ručnog preuzimanja i učitavanja fajlova.</p>
+    <div class="hero-intro"><p>Izaberite izvod, pokrenite knjiženje i proverite nalog. Budžet+ priprema stavke, a vi kontrolišete rezultat.</p></div>
+    <div class="cta-group"><a class="btn primary" href="spiri-izvodi-skole/">Kako radi knjiženje izvoda <span aria-hidden="true">↗</span></a><a class="text-link" href="#kontakt">Dogovorite prezentaciju</a></div>
+    <p class="hero-phone">Razgovarajte sa autorom: <a href="tel:+381659170989">065 917 0989</a></p>
   </div>
   <div class="trust-strip"><p>Razvija ga <strong>školski računovođa</strong> u saradnji sa kolegama iz struke.</p><p>Koristi ga <strong>više od 50 škola.</strong></p><p>Lokalna instalacija. <strong>Podaci ostaju u ustanovi.</strong></p></div>
-  <figure class="hero-product hero-booking">
-    <div class="product-label"><span class="status-dot"></span> Budžet+ <span>Primer iz programa</span></div>
-    <ol class="booking-flow" aria-label="Od SPIRI izvoda do provere naloga">
-      <li><span class="booking-step" aria-hidden="true">1</span><strong>SPIRI izvod</strong></li>
-      <li><span class="booking-step" aria-hidden="true">2</span><strong>Automatski nalog</strong></li>
-      <li><span class="booking-step" aria-hidden="true">3</span><strong>Vaša provera</strong></li>
+  <figure class="hero-product spiri-workflow">
+    <div class="workflow-heading"><span>SPIRI → Budžet+</span><small>Tok rada</small></div>
+    <ol class="spiri-steps">
+      <li><span class="step-index">01</span><div><strong>Izaberite izvod</strong><p>Prijavite se na SPIRI iz programa i izaberite period i izvod.</p></div></li>
+      <li><span class="step-index">02</span><div><strong>Pokrenite knjiženje</strong><p>U novi ili postojeći nalog, bez ručnog učitavanja fajla.</p></div></li>
+      <li><span class="step-index">03</span><div><strong>Proverite nalog</strong><p>Program priprema knjiženje. Kontrola ostaje na vama.</p></div></li>
     </ol>
-    <a class="zoom-image booking-preview" href="assets/img/demo-spiri-izvod.png" aria-label="Uvećajte ceo nalog iz SPIRI izvoda">
-      <span class="booking-crop"><img src="assets/img/demo-spiri-izvod.png" alt="Nalog iz SPIRI izvoda sa knjiženjem plaćanja dobavljaču za kancelarijski materijal" width="4032" height="1296" fetchpriority="high"></span>
-      <span class="booking-zoom">Uvećajte ceo nalog <span aria-hidden="true">↗</span></span>
-    </a>
-    <figcaption><div>Budžet+ popuni stavke. Vi proveravate knjiženje.<small>Demonstracioni podaci. Izgled zavisi od verzije.</small></div></figcaption>
+    <figcaption>Šematski prikaz postupka, ne ekran programa.<br>Za pristup su potrebni SPIRI nalog i VPN veza.</figcaption>
   </figure>
+</div></section>
+
+<section class="section everyday-section" id="svakodnevni-poslovi"><div class="container">
+  <div class="section-heading"><div><p class="eyebrow">Manje ponovnog unosa</p><h2>Izvodi, plaćanja i uplate učenika.</h2></div><p>Tri konkretna posla. Podaci se koriste tamo gde su već uneti, a vi proveravate rezultat.</p></div>
+  <div class="everyday-grid">
+    <article><span class="section-number">01 / KNJIŽENJE</span><h3>SPIRI izvodi bez ručnog preuzimanja</h3><p>Izaberite izvod direktno u programu i pokrenite knjiženje u novi ili postojeći nalog.</p><a class="text-link" href="spiri-izvodi-skole/">Pogledajte postupak ↗</a></article>
+    <article><span class="section-number">02 / PLAĆANJA</span><h3>Više e-faktura, jedan fajl za SPIRI</h3><p>Od izabranih e-faktura pripremite fajl za kumulativno plaćanje. Proverite ga i učitajte u SPIRI, gde se plaćanje završava.</p><a class="text-link" href="spiri-kumulativno-placanje/">Kako se priprema fajl ↗</a></article>
+    <article><span class="section-number">03 / UČENICI</span><h3>Uplate iz izvoda u evidenciju učenika</h3><p>Proverite predloženu raspodelu uplata i potvrdite. Zaduženja i uplate pregledajte po učeniku, odeljenju i aktivnosti.</p><a class="text-link" href="uplate-ucenika/">Pogledajte evidenciju ↗</a></article>
+  </div>
+  <details class="journal-example"><summary>Pogledajte primer naloga iz SPIRI izvoda</summary><figure><a class="zoom-image" href="assets/img/demo-spiri-izvod.png"><img src="assets/img/demo-spiri-izvod.png" alt="Primer naloga sa knjiženjem SPIRI izvoda, prikazan u celini" width="4032" height="1296" loading="lazy"></a><figcaption>Stvarni prikaz iz programa sa demonstracionim podacima. Kliknite za uvećanje. Izgled zavisi od verzije.</figcaption></figure></details>
 </div></section>
 
 <section class="section capabilities-section" id="mogucnosti"><div class="container" id="resenja"><div class="section-heading"><div><p class="eyebrow">Računovodstvo škole na jednom mestu</p><h2>Poslovi koje obavljate u Budžet+ programu</h2></div></div><div class="capabilities">{module_html}</div></div></section>
