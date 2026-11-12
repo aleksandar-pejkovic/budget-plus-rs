@@ -64,21 +64,22 @@ def render_body():
 <main id="main-content">
 <section class="hero" id="pocetna"><div class="container hero-grid">
   <div class="hero-copy"><p class="eyebrow"><span class="status-dot"></span> Za računovođe u osnovnim i srednjim školama</p>
-    <h1>Knjiženje SPIRI izvoda.<br><span>Direktno iz programa.</span></h1>
-    <p class="hero-benefit">Bez ručnog preuzimanja i učitavanja fajlova.</p>
-    <div class="hero-intro"><p>Izaberite izvod, pokrenite knjiženje i proverite nalog. Budžet+ priprema stavke, a vi kontrolišete rezultat.</p></div>
-    <div class="cta-group"><a class="btn primary" href="spiri-izvodi-skole/">Kako radi knjiženje izvoda <span aria-hidden="true">↗</span></a><a class="text-link" href="#kontakt">Dogovorite prezentaciju</a></div>
+    <h1>Automatsko knjiženje<br><span>za škole.</span></h1>
+    <p class="hero-benefit">SPIRI izvodi, e-fakture i ISKRA obračuni.</p>
+    <div class="hero-intro"><p>Budžet+ priprema knjiženje, a vi proveravate rezultat. Tu su i kontrole, izveštaji, avansi i osnovna sredstva iz e-fakture.</p></div>
+    <div class="cta-group"><a class="btn primary" href="#mogucnosti">Pogledajte mogućnosti <span aria-hidden="true">↗</span></a><a class="text-link" href="#kontakt">Dogovorite prezentaciju</a></div>
     <p class="hero-phone">Razgovarajte sa autorom: <a href="tel:+381659170989">065 917 0989</a></p>
   </div>
   <div class="trust-strip"><p>Razvija ga <strong>školski računovođa</strong> u saradnji sa kolegama iz struke.</p><p>Koristi ga <strong>više od 50 škola.</strong></p><p>Lokalna instalacija. <strong>Podaci ostaju u ustanovi.</strong></p></div>
   <figure class="hero-product spiri-workflow">
-    <div class="workflow-heading"><span>SPIRI → Budžet+</span><small>Tok rada</small></div>
-    <ol class="spiri-steps">
-      <li><span class="step-index">01</span><div><strong>Izaberite izvod</strong><p>Prijavite se na SPIRI iz programa i izaberite period i izvod.</p></div></li>
-      <li><span class="step-index">02</span><div><strong>Pokrenite knjiženje</strong><p>U novi ili postojeći nalog, bez ručnog učitavanja fajla.</p></div></li>
-      <li><span class="step-index">03</span><div><strong>Proverite nalog</strong><p>Program priprema knjiženje. Kontrola ostaje na vama.</p></div></li>
-    </ol>
-    <figcaption>Šematski prikaz postupka, ne ekran programa.<br>Za pristup su potrebni SPIRI nalog i VPN veza.</figcaption>
+    <div class="workflow-heading"><span>Od dokumenta do naloga</span><small>Budžet+</small></div>
+    <ul class="document-sources">
+      <li><span class="document-symbol" aria-hidden="true">↔</span><div><strong>SPIRI izvodi</strong><p>Knjiženje direktno iz programa</p></div></li>
+      <li><span class="document-symbol" aria-hidden="true">≡</span><div><strong>E-fakture</strong><p>Podaci iz SEF-a, bez prepisivanja</p></div></li>
+      <li><span class="document-symbol" aria-hidden="true">▤</span><div><strong>ISKRA obračuni</strong><p>Učitajte fajl preuzet iz ISKRA sistema</p></div></li>
+    </ul>
+    <div class="booking-result"><span aria-hidden="true">↓</span><strong>Automatsko knjiženje</strong><p>Vaša provera naloga</p></div>
+    <figcaption>Šematski prikaz mogućnosti, ne ekran programa.</figcaption>
   </figure>
 </div></section>
 
