@@ -74,7 +74,7 @@ def render_body():
   <figure class="hero-product product-map">
     <div class="map-heading"><span class="eyebrow">Manje ponovnog unosa</span><span class="map-badge">Za školsko računovodstvo</span></div>
     <div class="map-sources" aria-label="Dokumenti za knjiženje">
-      <div class="source-tile source-spiri"><span class="source-icon" aria-hidden="true">↔</span><strong>SPIRI izvodi</strong><small>Direktno iz programa</small></div>
+      <div class="source-tile source-spiri"><span class="source-icon" aria-hidden="true">↔</span><strong>SPIRI izvodi</strong><small>Knjiženje direktno iz programa</small></div>
       <div class="source-tile source-sef"><span class="source-icon" aria-hidden="true">≡</span><strong>E-fakture</strong><small>Knjiženje direktno iz programa</small></div>
       <div class="source-tile source-iskra"><span class="source-icon" aria-hidden="true">▤</span><strong>ISKRA</strong><small>Učitavanje preuzetog fajla</small></div>
     </div>

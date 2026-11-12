@@ -135,6 +135,7 @@ test('removed overview is absent from pages, links and sitemap', async ({ page }
   await expect(page.locator('.product-map')).toContainText('Ilustracija toka rada');
   await expect(page.locator('.product-map')).toContainText('ISKRA');
   await expect(page.locator('.source-sef')).toContainText('Knjiženje direktno iz programa');
+  await expect(page.locator('.source-spiri')).toContainText('Knjiženje direktno iz programa');
   await page.locator('.hero .btn.primary').click();
   await expect(page).toHaveURL(/#video$/);
   await expect(page.locator('.demo-caption')).toContainText('starije verzije');
