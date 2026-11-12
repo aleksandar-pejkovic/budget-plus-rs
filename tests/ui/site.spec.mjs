@@ -14,7 +14,7 @@ test('introduction and contact choices are visible on the first screen', async (
     await page.setViewportSize({ width, height });
     await page.goto('/');
     await page.evaluate(() => document.fonts.ready);
-    await expect(page.locator('.hero-intro')).toContainText('proveravate rezultat');
+    await expect(page.locator('.hero-intro')).toContainText('više vremena za proveru');
     for (const selector of ['.hero h1', '.hero-benefit', '.hero .btn.primary', '.hero .text-link', '.hero-phone a']) {
       const box = await page.locator(selector).boundingBox();
       expect(box.y, `${width}: ${selector} starts on screen`).toBeGreaterThanOrEqual(0);
@@ -132,11 +132,11 @@ test('removed overview is absent from pages, links and sitemap', async ({ page }
 
  test('new SPIRI explanation and three workflow links preserve navigation', async ({ page }) => {
   await page.goto('/');
-  await expect(page.locator('.spiri-workflow')).toContainText('Šematski prikaz');
-  await expect(page.locator('.spiri-workflow')).toContainText('ISKRA obračuni');
+  await expect(page.locator('.product-map')).toContainText('Ilustracija toka rada');
+  await expect(page.locator('.product-map')).toContainText('ISKRA');
   await page.locator('.hero .btn.primary').click();
-  await expect(page).toHaveURL(/#mogucnosti$/);
-  await expect(page.locator('#knjizenje')).toContainText('ISKRA');
+  await expect(page).toHaveURL(/#video$/);
+  await expect(page.locator('.demo-caption')).toContainText('starije verzije');
   await page.goBack();
   for (const slug of ['spiri-izvodi-skole', 'spiri-kumulativno-placanje', 'uplate-ucenika']) {
     await page.locator(`.everyday-grid a[href="${slug}/"]`).click();

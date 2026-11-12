@@ -15,3 +15,7 @@ U podržanom cloud browser-u vizuelno pregledani desktop i mobilni prikaz (390 p
 Za prvu verziju PR-a GitHub CI Site checks prošao je uspešno (run 43292545944). Posle proširenja hero sadržaja ponovljene su lokalne SEO/TypeScript/unit i vizuelne desktop/mobilne provere. Lokalna Playwright/WCAG automatizovana UI provera NIJE izvršena: browser ne može da pokrene socket u okruženju. Pre merge treba izvršiti CI test:ui (testovi su ažurirani za novi sadržaj i novu navigaciju). Dodatni PLAYWRIGHT_CHROMIUM_EXECUTABLE opcioni parametar omogućava upotrebu postojećeg browser-a, bez promene CI podrazumevanja.
 
 Bez spajanja na main, bez objave i bez slanja kampanje. Čeka se odobrenje vlasnika.
+
+Glavni CTA otvara postojeće stvarne video-prikaze programa (sa postojećom napomenom da su iz starije verzije), umesto ponavljanja liste mogućnosti. Simbol strelice u deljenoj navigaciji i početnoj zamenjen je čitljivim →. CI za f8591b9 uspešan (run 43294206848); ova mala naknadna izmena ima zaseban CI.
+
+Završna vizuelna dorada: svetla originalna ilustracija sa tri različito obojena dokumenta, spojnicama ka logotipu Budžet+ i nalogom spremnim za proveru. Direktni linkovi na stvarni primer naloga i postojeće video-prikaze. Izričita napomena IZNAD plejera da snimci ne prikazuju novu stranicu SPIRI izvodi. Bez obećanja savršenog knjiženja ili prolaska kontrole/inspekcije. Poruka prilagođena iskusnom računovođi: manje prepisivanja, više vremena za proveru.
